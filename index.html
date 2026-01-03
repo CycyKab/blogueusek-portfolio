@@ -532,10 +532,20 @@ nav a.active {
     }
 
     @keyframes bookingMarquee {
-        from { transform: translateX(0); }
-        to { transform: translateX(-50%); }
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
     }
+.booking-marquee {
+    animation: bookingMarquee 40s linear infinite !important; /* 40s au lieu de 25s */
+    animation-play-state: running !important;
+}
 
+/* Sur mobile, encore plus lent */
+@media (max-width: 768px) {
+    .booking-marquee {
+        animation: bookingMarquee 60s linear infinite !important; /* 60s sur mobile */
+    }
+}
     .booking-marquee span {
         font-size: 20px; /* Très petit */
         letter-spacing: 3px;
@@ -7372,10 +7382,63 @@ body.dark-theme .intro-text-container p {
     }
     
     /* Optimiser les transitions */
-    * {
-        animation-duration: 0.3s !important;
+    /* ===== CORRECTIF VITESSES ANIMATIONS ===== */
+
+/* Vitesses normales pour toutes les animations */
+.booking-marquee {
+    animation-duration: 40s !important;
+}
+
+.testimonials-carousel {
+    animation-duration: 60s !important;
+}
+
+.portfolio-hero-title-wrapper {
+    animation-duration: 80s !important;
+}
+
+/* Animations d'entrée */
+.service-card,
+.mission-card,
+.tool-category,
+.stat-item,
+.form-group,
+.location-card,
+.info-item,
+.pricing-card,
+.faq-item {
+    animation-duration: 0.8s !important;
+    transition-duration: 0.4s !important;
+}
+
+/* Hover effects */
+.service-card:hover,
+.portfolio-project:hover,
+.mission-card:hover,
+.location-card:hover {
+    transition-duration: 0.5s !important;
+}
+
+/* Mobile optimisations - SEULEMENT sur mobile */
+@media (max-width: 768px) {
+    /* Réduire légèrement sur mobile pour performance */
+    .service-card,
+    .mission-card,
+    .tool-category,
+    .stat-item {
+        animation-duration: 0.6s !important;
         transition-duration: 0.3s !important;
     }
+    
+    /* Mais garder les marquees lentes */
+    .booking-marquee {
+        animation-duration: 60s !important;
+    }
+    
+    .testimonials-carousel {
+        animation-duration: 80s !important;
+    }
+}
 }
 
 /* Responsive */
@@ -7533,7 +7596,147 @@ body:not(.dark-theme):not(.beige-mode) .tool-item {
 .delay-2 { animation-delay: 0.2s; }
 .delay-3 { animation-delay: 0.3s; }
 .delay-4 { animation-delay: 0.4s; }
+/* ===== CORRECTIF ESPACEMENT SECTIONS ===== */
 
+/* Espacement NORMAL entre sections */
+.page section {
+    padding-top: clamp(100px, 10vw, 160px) !important;
+    padding-bottom: clamp(100px, 10vw, 160px) !important;
+}
+
+/* Réduire l'espace APRÈS intro-sticky */
+.intro-sticky + .luxury-services-section {
+    padding-top: clamp(60px, 6vw, 100px) !important;
+    margin-top: -40px !important;
+}
+
+/* Espacement spécifique pour la home page */
+#home .intro-sticky {
+    margin-bottom: -40px !important;
+}
+
+#home .luxury-services-section {
+    padding-top: 80px !important;
+    padding-bottom: 140px !important;
+}
+
+/* Sur mobile */
+@media (max-width: 768px) {
+    .page section {
+        padding-top: 80px !important;
+        padding-bottom: 80px !important;
+    }
+    
+    .intro-sticky + .luxury-services-section {
+        padding-top: 60px !important;
+        margin-top: -30px !important;
+    }
+    
+    #home .intro-sticky {
+        margin-bottom: -30px !important;
+    }
+    
+    #home .luxury-services-section {
+        padding-top: 60px !important;
+        padding-bottom: 100px !important;
+    }
+}
+
+/* ===== CORRECTIFS URGENTS - À AJOUTER À LA FIN ===== */
+
+/* 1. RALENTIR TOUTES LES ANIMATIONS */
+* {
+    animation-duration: inherit !important;
+    transition-duration: inherit !important;
+}
+
+/* 2. VITESSES SPÉCIFIQUES */
+.booking-marquee {
+    animation: bookingMarquee 40s linear infinite !important;
+    animation-play-state: running !important;
+}
+
+.testimonials-carousel {
+    animation: carousel 60s linear infinite !important;
+}
+
+.portfolio-hero-title-wrapper {
+    animation: scrollTitle 80s linear infinite !important;
+}
+
+/* 3. ESPACEMENT SECTIONS */
+#home .intro-sticky {
+    min-height: 150vh !important;
+    margin-bottom: 0 !important;
+}
+
+#home .luxury-services-section {
+    padding-top: 60px !important;
+    margin-top: -80px !important;
+    position: relative;
+    z-index: 2;
+}
+
+/* 4. ANIMATIONS CARDS */
+.service-card,
+.mission-card,
+.tool-category,
+.stat-item {
+    animation: fadeInUp 0.8s ease forwards !important;
+    transition: all 0.4s ease !important;
+}
+
+.service-card:hover,
+.mission-card:hover {
+    transition: all 0.5s ease !important;
+}
+
+/* 5. MOBILE CORRECTIONS */
+@media (max-width: 768px) {
+    .booking-marquee {
+        animation: bookingMarquee 60s linear infinite !important;
+    }
+    
+    .testimonials-carousel {
+        animation: carousel 80s linear infinite !important;
+    }
+    
+    #home .intro-sticky {
+        min-height: 120vh !important;
+    }
+    
+    #home .luxury-services-section {
+        padding-top: 40px !important;
+        margin-top: -60px !important;
+    }
+}
+
+/* 6. DÉFINIR LES ANIMATIONS */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes bookingMarquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+@keyframes carousel {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+@keyframes scrollTitle {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
     </style>
 </head>
 
@@ -10251,6 +10454,7 @@ document.addEventListener('DOMContentLoaded', function() {
     <script src="js/portfolio-data.js"></script>
     <script src="js/portfolio-loader.js"></script>
     <script src="js/services-updater.js"></script>
+    <script src="js/fix-speed-space.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
      <!-- ADD THIS SCRIPT TO CONNECT EVERYTHING -->
 <script>
