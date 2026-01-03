@@ -433,7 +433,7 @@ nav a.active {
         }
 
         .hero-image:nth-child(1) {
-            background-image: url("./images/photo5.jpg");
+            background-image: url("/images/photo5.jpg");
             background-position: center 01%;
             transform: scale(1.05);
         }
@@ -443,7 +443,7 @@ nav a.active {
         }
 
         .hero-image:nth-child(2) {
-            background-image: url("./images/photo2.jpg");
+            background-image: url("/images/photo2.jpg");
             background-position: center 10%;
             transform: scale(1.1);
             transition: opacity 2s ease, transform 2s ease, border-radius 1.5s ease 0.5s;
@@ -649,70 +649,7 @@ nav a.active {
             width: 15px;
         }
     }
-        /* STICKY INTRO */
-        .intro-sticky {
-            min-height: 200vh;
-            position: relative;
-        }
-
-        .intro-content {
-            position: sticky;
-            top: 0;
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 0 80px;
-            transition: all 0.5s ease;
-        }
-
-        .intro-content.scrolled {
-            background: rgba(250, 248, 245, 0.95);
-            border-radius: 40px;
-            backdrop-filter: blur(20px);
-        }
-
-        body.dark-theme .intro-content.scrolled {
-            background: rgba(26, 22, 20, 0.95);
-        }
-
-        body.beige-mode .intro-content.scrolled {
-            background: rgba(245, 239, 230, 0.95);
-        }
-
-        .intro-text-container {
-            max-width: 1000px;
-            text-align: center;
-        }
-
-        .intro-text-container h2 {
-            font-size: clamp(48px, 8vw, 90px);
-            font-weight: 300;
-            letter-spacing: 8px;
-            margin-bottom: 40px;
-            color: #c4a484;
-        }
-
-        .intro-text-container p {
-            font-size: clamp(20px, 3vw, 32px);
-            line-height: 1.8;
-            color: #4a3f35;
-            font-weight: 300;
-            margin-bottom: 30px;
-        }
-
-        body.dark-theme .intro-text-container p {
-            color: #c4b5a0;
-        }
-
-        body.beige-mode .intro-text-container p {
-            color: #3a2f25;
-        }
-
-        .intro-keyword {
-            color: #c4a484;
-            font-weight: 400;
-        }
+        
 
         /* SERVICES SECTION */
         .services-scroll {
@@ -1470,7 +1407,7 @@ body.dark-theme .about-tag span {
     position: absolute;
     width: 260px;
     height: 360px;
-    background-image: url("./images/photo2.jpg");
+    background-image: url("/images/photo2.jpg");
     background-size: cover;
     background-position: center;
     border: 10px solid #ffffff;
@@ -1661,7 +1598,7 @@ body.dark-theme .about-hero:hover .photo-2 {
 
 /* Image */
 .contactHeroImage {
-  background: url("./images/photo2.jpg") center / cover no-repeat;
+  background: url("/images/photo2.jpg") center / cover no-repeat;
 }
 
 /* Content */
@@ -2396,7 +2333,7 @@ body.beige-mode .tool-item {
         .portfolio-hero-bg {
             position: absolute;
             inset: 0;
-            background-image: url("./images/photo2.jpg");
+            background-image: url("/images/photo2.jpg");
             background-size: cover;
             background-position: center;
             animation: breathe 10s ease-in-out infinite;
@@ -4210,7 +4147,7 @@ body.beige-mode .service-detail ul {
   border-radius: 60px;
   margin: 0 80px 100px;
   min-height: 80vh;
-  background: url("./images/photo2.jpg") center / cover no-repeat;
+  background: url("/images/photo2.jpg") center / cover no-repeat;
   background-attachment: fixed;
 }
 
@@ -6341,7 +6278,505 @@ body.beige-mode .luxury-brands-section {
         padding: 0 15px;
     }
 }
+ /* Add to existing CSS */
+.notification-enter {
+    animation: slideInRight 0.5s ease;
+}
 
+.notification-exit {
+    animation: slideOutRight 0.5s ease;
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOutRight {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+}
+/* ===== FIX LIGHT THEME COLORS ===== */
+body:not(.dark-theme):not(.beige-mode) {
+    background: #f8f5f2; /* Softer off-white */
+    color: #3a332e; /* Darker text for better contrast */
+}
+
+/* Fix text contrast in light mode */
+body:not(.dark-theme):not(.beige-mode) .intro-text-container p,
+body:not(.dark-theme):not(.beige-mode) .service-card p,
+body:not(.dark-theme):not(.beige-mode) .mission-card p,
+body:not(.dark-theme):not(.beige-mode) .about-paragraph,
+body:not(.dark-theme):not(.beige-mode) .portfolio-cta-content p,
+body:not(.dark-theme):not(.beige-mode) .form-header p {
+    color: #4a423c; /* Darker gray for readability */
+}
+
+/* Fix header colors in light mode */
+body:not(.dark-theme):not(.beige-mode) nav a {
+    color: #7a6a5a; /* Warmer dark beige */
+}
+
+body:not(.dark-theme):not(.beige-mode) nav a:hover,
+body:not(.dark-theme):not(.beige-mode) nav a.active {
+    color: #c4a484;
+}
+
+/* Fix section backgrounds */
+body:not(.dark-theme):not(.beige-mode) .services-scroll,
+body:not(.dark-theme):not(.beige-mode) .mission-vision-section,
+body:not(.dark-theme):not(.beige-mode) .tools-section,
+body:not(.dark-theme):not(.beige-mode) .about-stats-section {
+    background: #fefcf9; /* Warmer white */
+}
+
+/* Fix cards in light mode */
+body:not(.dark-theme):not(.beige-mode) .service-card,
+body:not(.dark-theme):not(.beige-mode) .mission-card {
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(196, 164, 132, 0.25);
+}
+
+/* Better contrast for headings */
+body:not(.dark-theme):not(.beige-mode) .section-header h2,
+body:not(.dark-theme):not(.beige-mode) .portfolio-hero-content h1,
+body:not(.dark-theme):not(.beige-mode) .services-hero-content h1,
+body:not(.dark-theme):not(.beige-mode) .contact-hero-content h1 {
+    color: #2c2420; /* Dark brown */
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Fix footer in light mode */
+body:not(.dark-theme):not(.beige-mode) .footer {
+    background: #2a2623; /* Keep dark footer for contrast */
+}
+
+body:not(.dark-theme):not(.beige-mode) .footer p,
+body:not(.dark-theme):not(.beige-mode) .footer-links a {
+    color: #d4c9bc; /* Lighter text on dark footer */
+}
+
+/* Fix tool items */
+body:not(.dark-theme):not(.beige-mode) .tool-item {
+    background: white;
+    border: 1px solid rgba(196, 164, 132, 0.3);
+    color: #5a4f45;
+}
+
+/* Fix contact form */
+body:not(.dark-theme):not(.beige-mode) .contact-form-container {
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(196, 164, 132, 0.3);
+}
+
+body:not(.dark-theme):not(.beige-mode) .form-control {
+    background: rgba(250, 248, 245, 0.8);
+    border: 1px solid rgba(196, 164, 132, 0.3);
+    color: #3a332e;
+}
+
+/* Fix testimonial cards */
+body:not(.dark-theme):not(.beige-mode) .testimonial-card {
+    background: white;
+    border: 1px solid rgba(196, 164, 132, 0.25);
+}
+
+body:not(.dark-theme):not(.beige-mode) .testimonial-quote {
+    color: #5a4f45;
+}
+
+/* Fix FAQ */
+body:not(.dark-theme):not(.beige-mode) .faq-question {
+    color: #8b7355;
+}
+
+body:not(.dark-theme):not(.beige-mode) .faq-answer {
+    color: #6a5d4c;
+}
+
+/* ===== FIX MOBILE MENU CSS ===== */
+@media (max-width: 768px) {
+    .mobile-menu {
+        right: -100%;
+        width: 85%;
+        max-width: 320px;
+        background: rgba(250, 248, 245, 0.98);
+        backdrop-filter: blur(30px);
+        -webkit-backdrop-filter: blur(30px);
+        border-left: 1px solid rgba(196, 164, 132, 0.2);
+        box-shadow: -10px 0 40px rgba(0, 0, 0, 0.15);
+    }
+    
+    body.dark-theme .mobile-menu {
+        background: rgba(26, 22, 20, 0.98);
+        border-left-color: rgba(196, 164, 132, 0.3);
+    }
+    
+    body.beige-mode .mobile-menu {
+        background: rgba(245, 239, 230, 0.98);
+        border-left-color: rgba(196, 164, 132, 0.25);
+    }
+    
+    .mobile-menu nav {
+        padding-top: 40px;
+    }
+    
+    .mobile-menu nav a {
+        font-size: 18px;
+        letter-spacing: 3px;
+        padding: 18px 0;
+        margin: 0 30px;
+        border-bottom: 1px solid rgba(196, 164, 132, 0.15);
+        transition: all 0.3s ease;
+    }
+    
+    .mobile-menu nav a:hover {
+        color: #c4a484;
+        transform: translateX(10px);
+    }
+    
+    .mobile-menu nav a:last-child {
+        border-bottom: none;
+    }
+    
+    .mobile-menu-overlay {
+        background: rgba(0, 0, 0, 0.7);
+        backdrop-filter: blur(5px);
+    }
+    
+    .burger-menu {
+        display: flex;
+        z-index: 1002;
+    }
+    
+    .burger-line {
+        background: #c4a484;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .burger-menu.active .burger-line {
+        background: #c4a484;
+    }
+    
+    /* Ensure desktop nav is hidden on mobile */
+    header nav {
+        display: none !important;
+    }
+}
+
+/* ===== BEAUTIFUL INTRO SECTION REDESIGN ===== */
+.intro-sticky {
+    min-height: 180vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.intro-content {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 80px;
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    background: transparent;
+}
+
+.intro-content.scrolled {
+    background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.95) 0%,
+        rgba(250, 248, 245, 0.98) 100%
+    );
+    backdrop-filter: blur(40px);
+    -webkit-backdrop-filter: blur(40px);
+    border-radius: 40px;
+    margin: 40px;
+    box-shadow: 
+        0 40px 80px rgba(0, 0, 0, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(196, 164, 132, 0.2);
+    animation: introFloat 6s ease-in-out infinite alternate;
+}
+
+@keyframes introFloat {
+    0% {
+        transform: translateY(0px);
+        box-shadow: 
+            0 40px 80px rgba(0, 0, 0, 0.08),
+            inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    }
+    100% {
+        transform: translateY(-20px);
+        box-shadow: 
+            0 60px 120px rgba(0, 0, 0, 0.12),
+            inset 0 1px 0 rgba(255, 255, 255, 0.9);
+    }
+}
+
+body.dark-theme .intro-content.scrolled {
+    background: linear-gradient(
+        135deg,
+        rgba(26, 22, 20, 0.95) 0%,
+        rgba(20, 17, 15, 0.98) 100%
+    );
+    border-color: rgba(196, 164, 132, 0.25);
+    box-shadow: 
+        0 40px 80px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+body.beige-mode .intro-content.scrolled {
+    background: linear-gradient(
+        135deg,
+        rgba(245, 239, 230, 0.95) 0%,
+        rgba(240, 235, 225, 0.98) 100%
+    );
+    border-color: rgba(196, 164, 132, 0.2);
+}
+
+.intro-text-container {
+    max-width: 1000px;
+    text-align: center;
+    padding: 60px;
+    position: relative;
+}
+
+/* Decorative elements */
+.intro-text-container::before,
+.intro-text-container::after {
+    content: '';
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    opacity: 0.1;
+}
+
+.intro-text-container::before {
+    top: 0;
+    left: 0;
+    border-top: 2px solid #c4a484;
+    border-left: 2px solid #c4a484;
+    border-radius: 20px 0 0 0;
+}
+
+.intro-text-container::after {
+    bottom: 0;
+    right: 0;
+    border-bottom: 2px solid #c4a484;
+    border-right: 2px solid #c4a484;
+    border-radius: 0 0 20px 0;
+}
+
+.intro-text-container h2 {
+    font-size: clamp(48px, 8vw, 84px);
+    font-weight: 300;
+    letter-spacing: 6px;
+    margin-bottom: 60px;
+    color: #c4a484;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 30px;
+}
+
+.intro-text-container h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 2px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        #c4a484,
+        transparent
+    );
+}
+
+.intro-text-container p {
+    font-size: clamp(20px, 3vw, 28px);
+    line-height: 1.8;
+    font-weight: 300;
+    margin-bottom: 40px;
+    color: #4a3f35;
+    position: relative;
+    padding: 0 20px;
+}
+
+.intro-text-container p::before {
+    content: "❝";
+    position: absolute;
+    left: -10px;
+    top: -15px;
+    font-size: 40px;
+    color: #c4a484;
+    opacity: 0.3;
+}
+
+.intro-text-container p::after {
+    content: "❞";
+    position: absolute;
+    right: -10px;
+    bottom: -25px;
+    font-size: 40px;
+    color: #c4a484;
+    opacity: 0.3;
+}
+
+body.dark-theme .intro-text-container p {
+    color: #e8dcc7;
+}
+
+.intro-keyword {
+    color: #c4a484;
+    font-weight: 400;
+    position: relative;
+    display: inline-block;
+}
+
+.intro-keyword::after {
+    content: '';
+    position: absolute;
+    bottom: 2px;
+    left: 0;
+    width: 100%;
+    height: 8px;
+    background: rgba(196, 164, 132, 0.15);
+    z-index: -1;
+    transition: height 0.3s ease;
+}
+
+.intro-keyword:hover::after {
+    height: 12px;
+}
+
+/* Floating particles background */
+.intro-particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.particle-circle {
+    position: absolute;
+    border-radius: 50%;
+    background: radial-gradient(circle, 
+        rgba(196, 164, 132, 0.1) 0%, 
+        transparent 70%);
+    animation: floatParticle 20s infinite linear;
+}
+
+.particle-circle:nth-child(1) {
+    width: 120px;
+    height: 120px;
+    top: 10%;
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.particle-circle:nth-child(2) {
+    width: 80px;
+    height: 80px;
+    top: 60%;
+    left: 80%;
+    animation-delay: 4s;
+}
+
+.particle-circle:nth-child(3) {
+    width: 150px;
+    height: 150px;
+    top: 80%;
+    left: 20%;
+    animation-delay: 8s;
+}
+
+@keyframes floatParticle {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.3;
+    }
+    90% {
+        opacity: 0.3;
+    }
+    100% {
+        transform: translateY(-100vh) rotate(180deg);
+        opacity: 0;
+    }
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .intro-content {
+        padding: 0 40px;
+    }
+    
+    .intro-content.scrolled {
+        margin: 30px;
+    }
+    
+    .intro-text-container {
+        padding: 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .intro-sticky {
+        min-height: 140vh;
+    }
+    
+    .intro-content {
+        padding: 0 20px;
+    }
+    
+    .intro-content.scrolled {
+        margin: 20px;
+        border-radius: 30px;
+        backdrop-filter: blur(20px);
+    }
+    
+    .intro-text-container {
+        padding: 30px 20px;
+    }
+    
+    .intro-text-container h2 {
+        font-size: clamp(36px, 7vw, 60px);
+        letter-spacing: 4px;
+        margin-bottom: 40px;
+    }
+    
+    .intro-text-container p {
+        font-size: clamp(18px, 4vw, 24px);
+        margin-bottom: 30px;
+    }
+    
+    .intro-text-container p::before,
+    .intro-text-container p::after {
+        font-size: 30px;
+    }
+}
 
 
     </style>
@@ -6424,16 +6859,23 @@ body.beige-mode .luxury-brands-section {
             </div>
         </div>
 
-        <!-- STICKY INTRODUCTION -->
-        <section class="intro-sticky">
-            <div class="intro-content" id="intro-content">
-                <div class="intro-text-container">
-                    <h2>L'Art Rencontre la Vision</h2>
-                    <p>Je crée des <span class="intro-keyword">univers visuels</span> où l'<span class="intro-keyword">élégance</span> se mêle à l'<span class="intro-keyword">audace</span>.</p>
-                    <p>Chaque collaboration est une <span class="intro-keyword">histoire</span>, chaque image une <span class="intro-keyword">émotion</span> capturée.</p>
-                </div>
-            </div>
-        </section>
+        <!-- STICKY INTRODUCTION - NEW DESIGN -->
+<section class="intro-sticky">
+    <!-- Floating particles -->
+    <div class="intro-particles">
+        <div class="particle-circle"></div>
+        <div class="particle-circle"></div>
+        <div class="particle-circle"></div>
+    </div>
+    
+    <div class="intro-content" id="intro-content">
+        <div class="intro-text-container">
+            <h2>L'Art Rencontre la Vision</h2>
+            <p>Je crée des <span class="intro-keyword">univers visuels</span> où l'<span class="intro-keyword">élégance</span> se mêle à l'<span class="intro-keyword">audace</span>.</p>
+            <p>Chaque collaboration est une <span class="intro-keyword">histoire</span>, chaque image une <span class="intro-keyword">émotion</span> capturée.</p>
+        </div>
+    </div>
+</section>
 
         <!-- ===== SERVICES PREVIEW - VERSION LUXE 2026 ===== -->
 <section class="luxury-services-section">
@@ -7661,36 +8103,65 @@ body.beige-mode .luxury-brands-section {
 }
 
     // ===== MOBILE MENU =====
-    function toggleMobileMenu() {
+    // ===== FIXED MOBILE MENU =====
+function toggleMobileMenu() {
     const mobileMenu = document.getElementById('mobile-menu');
     const burger = document.querySelector('.burger-menu');
     const overlay = document.querySelector('.mobile-menu-overlay');
     const body = document.body;
     
-    isMobileMenuOpen = !isMobileMenuOpen;
+    const isOpening = !mobileMenu.classList.contains('active');
     
     burger.classList.toggle('active');
     mobileMenu.classList.toggle('active');
     overlay.classList.toggle('active');
     
-    // Bloquer le scroll du body quand le menu est ouvert
-    if (isMobileMenuOpen) {
+    // Block body scroll when menu is open
+    if (isOpening) {
         body.style.overflow = 'hidden';
+        body.style.height = '100vh';
+        
+        // Animate menu items
+        if (typeof gsap !== 'undefined') {
+            const menuItems = mobileMenu.querySelectorAll('nav a');
+            gsap.fromTo(menuItems,
+                {
+                    opacity: 0,
+                    x: 30
+                },
+                {
+                    opacity: 1,
+                    x: 0,
+                    duration: 0.4,
+                    stagger: 0.1,
+                    ease: "power2.out",
+                    delay: 0.2
+                }
+            );
+        }
     } else {
         body.style.overflow = '';
+        body.style.height = '';
     }
     
-    // Animation GSAP des items du menu
-    if (typeof gsap !== 'undefined' && isMobileMenuOpen) {
-        gsap.from('.mobile-menu nav a', {
-            opacity: 0,
-            x: 50,
-            duration: 0.5,
-            stagger: 0.1,
-            ease: "power3.out"
-        });
-    }
+    // Close menu when clicking overlay
+    overlay.onclick = toggleMobileMenu;
+    
+    // Close menu when clicking menu links
+    mobileMenu.querySelectorAll('nav a').forEach(link => {
+        link.addEventListener('click', toggleMobileMenu);
+    });
 }
+
+// Close menu with escape key
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (mobileMenu.classList.contains('active')) {
+            toggleMobileMenu();
+        }
+    }
+});
 
 
     // ===== PORTFOLIO FILTERS =====
@@ -9027,6 +9498,558 @@ document.addEventListener('DOMContentLoaded', function() {
     <script src="js/portfolio-loader.js"></script>
     <script src="js/services-updater.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-     
+     <!-- ADD THIS SCRIPT TO CONNECT EVERYTHING -->
+<script>
+// ===== COMPLETE CMS INTEGRATION SCRIPT =====
+
+// Wait for all scripts to load
+window.addEventListener('load', function() {
+    console.log('🚀 Portfolio System Initializing...');
+    
+    // Initialize CMS data system
+    if (typeof window.portfolioData === 'undefined') {
+        console.error('❌ portfolio-data.js not loaded!');
+        return;
+    }
+    
+    // Initialize loader system
+    if (typeof window.portfolioLoader === 'undefined') {
+        console.error('❌ portfolio-loader.js not loaded!');
+        return;
+    }
+    
+    // Check if we have CMS data
+    const stats = window.portfolioData.getStats();
+    console.log('📊 CMS Data Stats:', stats);
+    
+    // ===== ENHANCED PAGE LOADING =====
+    function enhancePageLoading(pageId) {
+        switch(pageId) {
+            case 'portfolio':
+                enhancePortfolioPage();
+                break;
+            case 'services':
+                enhanceServicesPage();
+                break;
+            case 'about':
+                enhanceAboutPage();
+                break;
+            case 'home':
+                enhanceHomePage();
+                break;
+        }
+    }
+    
+    // ===== ENHANCE PORTFOLIO PAGE =====
+    function enhancePortfolioPage() {
+        console.log('🎨 Enhancing Portfolio Page...');
+        
+        // Wait for portfolio grid to exist
+        const checkGrid = setInterval(() => {
+            const portfolioGrid = document.getElementById('portfolio-grid');
+            if (portfolioGrid) {
+                clearInterval(checkGrid);
+                
+                // Load projects from CMS
+                window.portfolioLoader.loadProjects('portfolio-grid');
+                
+                // Setup filters with CMS data
+                setupPortfolioFilters();
+            }
+        }, 100);
+    }
+    
+    // ===== ENHANCE SERVICES PAGE =====
+    function enhanceServicesPage() {
+        console.log('💼 Enhancing Services Page...');
+        
+        // Update services text from CMS
+        if (typeof window.updateServicesText !== 'undefined') {
+            window.updateServicesText();
+        } else {
+            console.warn('⚠️ services-updater.js not loaded');
+        }
+        
+        // Load testimonials from CMS if section exists
+        const testimonialsSection = document.querySelector('.testimonials-carousel');
+        if (testimonialsSection) {
+            window.portfolioLoader.loadTestimonials('testimonials-carousel');
+        }
+    }
+    
+    // ===== ENHANCE ABOUT PAGE =====
+    function enhanceAboutPage() {
+        console.log('👤 Enhancing About Page...');
+        
+        // Load about content from CMS
+        window.portfolioLoader.loadAbout();
+        
+        // Load testimonials
+        const testimonialsSection = document.querySelector('.testimonials-carousel');
+        if (testimonialsSection) {
+            window.portfolioLoader.loadTestimonials('testimonials-carousel');
+        }
+        
+        // Load brands
+        const brandsSection = document.querySelector('.brands-carousel-track');
+        if (brandsSection) {
+            window.portfolioLoader.loadBrands('brands-carousel-track');
+        }
+    }
+    
+    // ===== ENHANCE HOME PAGE =====
+    function enhanceHomePage() {
+        console.log('🏠 Enhancing Home Page...');
+        
+        // Load testimonials
+        const testimonialsSection = document.querySelector('.testimonials-carousel');
+        if (testimonialsSection) {
+            window.portfolioLoader.loadTestimonials('testimonials-carousel');
+        }
+        
+        // Load brands in luxury brands section
+        const brandsSection = document.querySelector('.brands-wall');
+        if (brandsSection) {
+            window.portfolioLoader.loadBrands('brands-carousel-track');
+        }
+        
+        // Load projects preview if section exists
+        const projectsSection = document.querySelector('.portfolio-grid');
+        if (projectsSection) {
+            window.portfolioLoader.loadProjects('portfolio-grid', 'all');
+        }
+    }
+    
+    // ===== ENHANCED PORTFOLIO FILTERS =====
+    function setupPortfolioFilters() {
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const portfolioGrid = document.getElementById('portfolio-grid');
+        
+        if (!filterButtons.length || !portfolioGrid) return;
+        
+        filterButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                // Remove active class from all buttons
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                
+                // Add active class to clicked button
+                this.classList.add('active');
+                
+                // Get filter category
+                const category = this.dataset.filter;
+                
+                // Load projects for this category from CMS
+                window.portfolioLoader.loadProjects('portfolio-grid', category);
+                
+                // Smooth scroll to top of grid
+                portfolioGrid.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            });
+        });
+    }
+    
+    // ===== ENHANCED CONTACT FORM =====
+    function enhanceContactForm() {
+        const contactForm = document.getElementById('contact-form');
+        if (!contactForm) return;
+        
+        // Initialize EmailJS
+        (function() {
+            emailjs.init({
+                publicKey: "TJCVYjC8QirI4SgV7",
+                blockHeadless: true,
+                blockList: {
+                    list: [],
+                    watchVariable: ''
+                },
+                limitRate: {
+                    id: 'portfolio',
+                    throttle: 10000 // 10 seconds
+                }
+            });
+        })();
+        
+        contactForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const submitBtn = this.querySelector('.submit-btn');
+            const originalText = submitBtn.textContent;
+            
+            // Show loading state
+            submitBtn.textContent = 'ENVOI EN COURS...';
+            submitBtn.disabled = true;
+            
+            try {
+                // Get form data
+                const formData = {
+                    from_name: document.getElementById('name').value,
+                    reply_to: document.getElementById('email').value,
+                    subject: document.getElementById('subject').value,
+                    message: document.getElementById('message').value,
+                    page: currentPage,
+                    timestamp: new Date().toLocaleString('fr-FR')
+                };
+                
+                // Validate
+                if (!formData.from_name || !formData.reply_to || !formData.message) {
+                    throw new Error('Veuillez remplir tous les champs obligatoires.');
+                }
+                
+                // Send email via EmailJS
+                const response = await emailjs.send(
+                    'service_kzdvnmj',
+                    'template_ndpq9ms',
+                    formData
+                );
+                
+                // Success!
+                showNotification('success', '🎉 Message envoyé avec succès ! Je vous répondrai dans les 24h.');
+                
+                // Reset form
+                contactForm.reset();
+                
+                // Track in localStorage (optional)
+                const submissions = JSON.parse(localStorage.getItem('contact_submissions') || '[]');
+                submissions.push({
+                    ...formData,
+                    id: Date.now(),
+                    status: 'sent'
+                });
+                localStorage.setItem('contact_submissions', JSON.stringify(submissions));
+                
+            } catch (error) {
+                console.error('Contact form error:', error);
+                showNotification('error', error.text || '❌ Erreur lors de l\'envoi. Veuillez réessayer.');
+                
+                // Fallback: Save to localStorage
+                try {
+                    const pending = JSON.parse(localStorage.getItem('contact_pending') || '[]');
+                    pending.push({
+                        from_name: document.getElementById('name').value,
+                        reply_to: document.getElementById('email').value,
+                        subject: document.getElementById('subject').value,
+                        message: document.getElementById('message').value,
+                        timestamp: new Date().toISOString()
+                    });
+                    localStorage.setItem('contact_pending', JSON.stringify(pending));
+                    
+                    showNotification('info', '📝 Message sauvegardé localement. Il sera envoyé dès reconnexion.');
+                } catch (saveError) {
+                    console.error('Failed to save locally:', saveError);
+                }
+                
+            } finally {
+                // Reset button
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            }
+        });
+    }
+    
+    // ===== ENHANCED NOTIFICATION SYSTEM =====
+    function showNotification(type, message) {
+        // Remove existing notifications
+        document.querySelectorAll('.notification').forEach(n => n.remove());
+        
+        // Create notification
+        const notification = document.createElement('div');
+        notification.className = `notification ${type}`;
+        notification.innerHTML = `
+            <div class="notification-content">
+                ${message}
+            </div>
+        `;
+        
+        // Add to page
+        document.body.appendChild(notification);
+        
+        // Auto remove after 5 seconds
+        setTimeout(() => {
+            notification.style.animation = 'slideOutRight 0.5s ease forwards';
+            setTimeout(() => notification.remove(), 500);
+        }, 5000);
+    }
+    
+    // ===== CMS ADMIN LINK (Hidden) =====
+    function addCMSAdminLink() {
+        // Add a subtle admin link in the footer
+        const footer = document.querySelector('.footer');
+        if (!footer) return;
+        
+        const adminLink = document.createElement('a');
+        adminLink.href = 'admin-secret-blogueusek.html';
+        adminLink.target = '_blank';
+        adminLink.style.cssText = `
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: rgba(196, 164, 132, 0.1);
+            color: #c4a484;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 11px;
+            text-decoration: none;
+            letter-spacing: 1px;
+            opacity: 0.3;
+            transition: opacity 0.3s;
+            z-index: 10000;
+        `;
+        adminLink.textContent = 'CMS';
+        adminLink.title = 'Gérer le contenu du site';
+        
+        adminLink.addEventListener('mouseenter', () => {
+            adminLink.style.opacity = '1';
+        });
+        
+        adminLink.addEventListener('mouseleave', () => {
+            adminLink.style.opacity = '0.3';
+        });
+        
+        document.body.appendChild(adminLink);
+    }
+    
+    // ===== DATA SYNC CHECK =====
+    function checkDataSync() {
+        // Check if CMS data exists
+        const hasData = window.portfolioData.hasData();
+        
+        if (!hasData) {
+            console.warn('⚠️ No CMS data found! Opening CMS for first-time setup...');
+            
+            // Show welcome message
+            setTimeout(() => {
+                if (confirm('👋 Bienvenue sur votre portfolio !\n\nVoulez-vous ouvrir le CMS pour ajouter vos premiers projets, services et informations ?')) {
+                    window.open('admin-secret-blogueusek.html', '_blank');
+                }
+            }, 2000);
+        } else {
+            console.log('✅ CMS data synchronized successfully');
+            
+            // Show data summary
+            const stats = window.portfolioData.getStats();
+            const summary = `
+📊 Contenu chargé :
+• ${stats.projects} projets
+• ${stats.services} services
+• ${stats.testimonials} témoignages
+• ${stats.brands} marques
+            `;
+            console.log(summary);
+        }
+    }
+    
+    // ===== INITIALIZE EVERYTHING =====
+    function initializeCMSIntegration() {
+        console.log('🔧 Initializing CMS Integration...');
+        
+        // 1. Check data sync
+        checkDataSync();
+        
+        // 2. Enhance current page
+        enhancePageLoading(currentPage);
+        
+        // 3. Enhance contact form
+        enhanceContactForm();
+        
+        // 4. Add admin link (optional)
+        addCMSAdminLink();
+        
+        // 5. Listen for page changes
+        document.addEventListener('pageChanged', function(e) {
+            if (e.detail && e.detail.page) {
+                enhancePageLoading(e.detail.page);
+            }
+        });
+        
+        console.log('✅ CMS Integration Complete!');
+    }
+    
+    // ===== MODIFY EXISTING showPage FUNCTION =====
+    const originalShowPage = window.showPage;
+    
+    if (typeof originalShowPage === 'function') {
+        window.showPage = function(pageId) {
+            // Call original function
+            originalShowPage(pageId);
+            
+            // Update current page
+            currentPage = pageId;
+            
+            // Trigger CMS enhancement
+            setTimeout(() => {
+                enhancePageLoading(pageId);
+            }, 300);
+            
+            // Dispatch event for other scripts
+            document.dispatchEvent(new CustomEvent('pageChanged', {
+                detail: { page: pageId }
+            }));
+        };
+    }
+    
+    // ===== START INTEGRATION =====
+    setTimeout(() => {
+        initializeCMSIntegration();
+    }, 1000);
+    
+    // ===== AUTO-RETRY FAILED REQUESTS =====
+    setInterval(() => {
+        // Check for pending contact form submissions
+        const pending = JSON.parse(localStorage.getItem('contact_pending') || '[]');
+        if (pending.length > 0 && navigator.onLine) {
+            console.log(`📨 ${pending.length} pending messages to send...`);
+            
+            // Try to send each pending message
+            pending.forEach(async (message, index) => {
+                try {
+                    await emailjs.send(
+                        'service_kzdvnmj',
+                        'template_ndpq9ms',
+                        message
+                    );
+                    
+                    // Remove from pending
+                    pending.splice(index, 1);
+                    localStorage.setItem('contact_pending', JSON.stringify(pending));
+                    
+                    console.log('✅ Pending message sent successfully');
+                } catch (error) {
+                    console.warn('❌ Failed to send pending message:', error);
+                }
+            });
+        }
+    }, 30000); // Check every 30 seconds
+});
+
+// ===== FALLBACK STYLES FOR NOTIFICATIONS =====
+const notificationStyles = document.createElement('style');
+notificationStyles.textContent = `
+    .notification {
+        position: fixed;
+        top: 100px;
+        right: 20px;
+        padding: 20px 25px;
+        border-radius: 15px;
+        color: white;
+        font-size: 15px;
+        font-weight: 300;
+        letter-spacing: 0.5px;
+        z-index: 10000;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        backdrop-filter: blur(20px);
+        animation: slideInRight 0.5s ease forwards;
+        max-width: 350px;
+        line-height: 1.5;
+    }
+    
+    .notification.success {
+        background: linear-gradient(135deg, rgba(76, 175, 80, 0.95), rgba(56, 142, 60, 0.95));
+        border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    .notification.error {
+        background: linear-gradient(135deg, rgba(244, 67, 54, 0.95), rgba(211, 47, 47, 0.95));
+        border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    .notification.info {
+        background: linear-gradient(135deg, rgba(33, 150, 243, 0.95), rgba(30, 136, 229, 0.95));
+        border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    @keyframes slideInRight {
+        from {
+            transform: translateX(400px);
+            opacity: 0;
+        }
+        to {
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
+    
+    @keyframes slideOutRight {
+        from {
+            transform: translateX(0);
+            opacity: 1;
+        }
+        to {
+            transform: translateX(400px);
+            opacity: 0;
+        }
+    }
+    
+    .notification-content {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+    
+    /* Dark theme adjustments */
+    body.dark-theme .notification {
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    body.beige-mode .notification {
+        border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+`;
+document.head.appendChild(notificationStyles);
+
+// ===== DATA BACKUP UTILITY =====
+function backupPortfolioData() {
+    try {
+        const data = {
+            projects: localStorage.getItem('kathy_portfolio_projects'),
+            services: localStorage.getItem('kathy_portfolio_services'),
+            about: localStorage.getItem('kathy_portfolio_about'),
+            brands: localStorage.getItem('kathy_portfolio_brands'),
+            testimonials: localStorage.getItem('kathy_portfolio_testimonials'),
+            services_text: localStorage.getItem('kathy_portfolio_services_text'),
+            timestamp: new Date().toISOString(),
+            version: '1.0'
+        };
+        
+        // Save backup to localStorage
+        localStorage.setItem('portfolio_backup_' + Date.now(), JSON.stringify(data));
+        
+        // Keep only last 5 backups
+        const backupKeys = Object.keys(localStorage).filter(key => key.startsWith('portfolio_backup_'));
+        if (backupKeys.length > 5) {
+            backupKeys.sort().slice(0, -5).forEach(key => {
+                localStorage.removeItem(key);
+            });
+        }
+        
+        console.log('💾 Data backup created');
+    } catch (error) {
+        console.error('Backup failed:', error);
+    }
+}
+
+// Auto-backup every 6 hours
+setInterval(backupPortfolioData, 6 * 60 * 60 * 1000);
+
+// Initial backup
+setTimeout(backupPortfolioData, 5000);
+
+// ===== OFFLINE SUPPORT =====
+window.addEventListener('online', function() {
+    console.log('🌐 Online - Syncing data...');
+    showNotification('info', '📡 Connecté - Synchronisation en cours...');
+});
+
+window.addEventListener('offline', function() {
+    console.log('📴 Offline - Working with local data');
+    showNotification('info', '📴 Hors ligne - Mode local activé');
+});
+
+// Check initial connection
+if (!navigator.onLine) {
+    console.log('📴 Starting in offline mode');
+}
+</script>
 </body>
 </html>
