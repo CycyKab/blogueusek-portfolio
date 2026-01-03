@@ -433,7 +433,7 @@ nav a.active {
         }
 
         .hero-image:nth-child(1) {
-            background-image: url("/images/photo5.jpg");
+            background-image: url("images/Photo5.JPG");
             background-position: center 01%;
             transform: scale(1.05);
         }
@@ -443,7 +443,7 @@ nav a.active {
         }
 
         .hero-image:nth-child(2) {
-            background-image: url("/images/photo2.jpg");
+            background-image: url("images/Photo2.JPG");
 
             background-position: center 10%;
             transform: scale(1.1);
@@ -1408,7 +1408,7 @@ body.dark-theme .about-tag span {
     position: absolute;
     width: 260px;
     height: 360px;
-    background-image: url("/images/photo2.jpg");
+    background-image: url("images/Photo2.JPG");
     background-size: cover;
     background-position: center;
     border: 10px solid #ffffff;
@@ -1599,7 +1599,7 @@ body.dark-theme .about-hero:hover .photo-2 {
 
 /* Image */
 .contactHeroImage {
-  background: url("/images/photo2.jpg") center / cover no-repeat;
+  background: url("images/Photo2.JPG") center / cover no-repeat;
 }
 
 /* Content */
@@ -2334,7 +2334,7 @@ body.beige-mode .tool-item {
         .portfolio-hero-bg {
             position: absolute;
             inset: 0;
-            background-image: url("/images/photo2.jpg");
+            background-image: url("images/Photo2.JPG");
             background-size: cover;
             background-position: center;
             animation: breathe 10s ease-in-out infinite;
@@ -4148,7 +4148,7 @@ body.beige-mode .service-detail ul {
   border-radius: 60px;
   margin: 0 80px 100px;
   min-height: 80vh;
-  background: url("/images/photo2.jpg") center / cover no-repeat;
+  background: url("images/Photo2.JPG") center / cover no-repeat;
   background-attachment: fixed;
 }
 
@@ -6778,7 +6778,73 @@ body.dark-theme .intro-text-container p {
         font-size: 30px;
     }
 }
+/* ===== FIX COMPLET LIGHT THEME ===== */
+/* Ajoutez ceci à la fin de votre fichier CSS */
 
+body:not(.dark-theme):not(.beige-mode) {
+    background: #f9f7f4 !important;
+    color: #3a332e !important;
+}
+
+/* Force les couleurs sur tous les éléments */
+body:not(.dark-theme):not(.beige-mode) * {
+    color: inherit !important;
+}
+
+/* Fix spécifique pour les textes */
+body:not(.dark-theme):not(.beige-mode) p,
+body:not(.dark-theme):not(.beige-mode) .service-card p,
+body:not(.dark-theme):not(.beige-mode) .mission-card p,
+body:not(.dark-theme):not(.beige-mode) .about-paragraph,
+body:not(.dark-theme):not(.beige-mode) .intro-text-container p {
+    color: #4a423c !important;
+}
+
+/* Fix navigation */
+body:not(.dark-theme):not(.beige-mode) nav a {
+    color: #7a6a5a !important;
+}
+
+body:not(.dark-theme):not(.beige-mode) nav a:hover,
+body:not(.dark-theme):not(.beige-mode) nav a.active {
+    color: #c4a484 !important;
+}
+
+/* Fix sections */
+body:not(.dark-theme):not(.beige-mode) .services-scroll,
+body:not(.dark-theme):not(.beige-mode) .mission-vision-section,
+body:not(.dark-theme):not(.beige-mode) .tools-section,
+body:not(.dark-theme):not(.beige-mode) .about-stats-section {
+    background: #fefcf9 !important;
+}
+
+/* Fix cards */
+body:not(.dark-theme):not(.beige-mode) .service-card,
+body:not(.dark-theme):not(.beige-mode) .mission-card {
+    background: #ffffff !important;
+    border-color: rgba(196, 164, 132, 0.3) !important;
+}
+
+/* Fix headings */
+body:not(.dark-theme):not(.beige-mode) .section-header h2 {
+    color: #2c2420 !important;
+}
+
+/* Fix contact form */
+body:not(.dark-theme):not(.beige-mode) .contact-form-container {
+    background: #ffffff !important;
+}
+
+body:not(.dark-theme):not(.beige-mode) .form-control {
+    background: #faf8f5 !important;
+    color: #3a332e !important;
+}
+
+/* Tool items */
+body:not(.dark-theme):not(.beige-mode) .tool-item {
+    background: #ffffff !important;
+    color: #5a4f45 !important;
+}
 
     </style>
 </head>
