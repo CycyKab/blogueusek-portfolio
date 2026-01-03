@@ -7737,6 +7737,404 @@ body:not(.dark-theme):not(.beige-mode) .tool-item {
     0% { transform: translateX(0); }
     100% { transform: translateX(-50%); }
 }
+/* ===== PORTFOLIO MOBILE - CATÉGORIES HORIZONTALES ===== */
+@media (max-width: 768px) {
+    .portfolio-filters {
+        display: flex !important;
+        flex-wrap: nowrap !important;
+        overflow-x: auto !important;
+        overflow-y: hidden !important;
+        padding: 20px 15px !important;
+        gap: 15px !important;
+        -webkit-overflow-scrolling: touch !important;
+        scrollbar-width: none !important;
+        white-space: nowrap !important;
+        justify-content: flex-start !important;
+    }
+    
+    .portfolio-filters::-webkit-scrollbar {
+        display: none !important;
+    }
+    
+    .filter-btn {
+        flex: 0 0 auto !important;
+        padding: 12px 25px !important;
+        font-size: 12px !important;
+        letter-spacing: 2px !important;
+        margin: 0 !important;
+    }
+    
+    /* Indicateur de scroll */
+    .portfolio-filters::after {
+        content: '';
+        position: absolute;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        width: 30px;
+        background: linear-gradient(to right, transparent, var(--bg-color, #faf8f5));
+        pointer-events: none;
+    }
+    
+    body.dark-theme .portfolio-filters::after {
+        --bg-color: #1a1614;
+    }
+    
+    body.beige-mode .portfolio-filters::after {
+        --bg-color: #f5efe6;
+    }
+}
+
+/* ===== CONTACT PAGE MOBILE FIXES ===== */
+@media (max-width: 768px) {
+    .contactHero {
+        min-height: 70vh !important;
+        padding-top: 80px !important;
+        display: flex !important;
+        flex-direction: column !important;
+    }
+    
+    .contactHeroMarquee {
+        top: 100px !important;
+    }
+    
+    .contactHeroMarqueeTrack {
+        font-size: clamp(50px, 12vw, 80px) !important;
+        letter-spacing: 8px !important;
+        animation: contactMarqueeScroll 25s linear infinite !important;
+    }
+    
+    .contactHeroGrid {
+        grid-template-columns: 1fr !important;
+        min-height: auto !important;
+        flex: 1 !important;
+    }
+    
+    .contactHeroImage {
+        height: 300px !important;
+        min-height: 300px !important;
+        border-radius: 20px !important;
+        margin: 20px !important;
+        order: 2 !important;
+        background-position: center 30% !important;
+    }
+    
+    .contactHeroContent {
+        padding: 40px 20px !important;
+        order: 1 !important;
+        text-align: center !important;
+    }
+    
+    .contactHeroContent h1 {
+        font-size: 42px !important;
+        margin-top: 20px !important;
+        margin-bottom: 20px !important;
+        color: #c4a484 !important;
+    }
+    
+    .contactHeroContent p {
+        font-size: 16px !important;
+        line-height: 1.6 !important;
+        color: #4a3f35 !important;
+        padding: 0 10px !important;
+    }
+    
+    body.dark-theme .contactHeroContent p {
+        color: #e8dcc7 !important;
+    }
+    
+    .contactDivider {
+        height: 80px !important;
+    }
+    
+    .contactDivider span {
+        width: 80px !important;
+    }
+}
+
+/* ===== APPUI COMPLET MOBILE - BEAUTÉ ET FONCTIONNALITÉ ===== */
+@media (max-width: 768px) {
+    /* ===== GÉNÉRAL ===== */
+    body {
+        font-size: 16px !important;
+        line-height: 1.5 !important;
+    }
+    
+    /* ===== HEADER ===== */
+    header {
+        height: 70px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+    }
+    
+    .burger-menu {
+        width: 30px !important;
+        height: 24px !important;
+        position: relative !important;
+    }
+    
+    .burger-line {
+        position: absolute !important;
+        width: 100% !important;
+        height: 2px !important;
+        background: #c4a484 !important;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    }
+    
+    .burger-line:nth-child(1) {
+        top: 0 !important;
+        transform-origin: left center !important;
+    }
+    
+    .burger-line:nth-child(2) {
+        top: 50% !important;
+        transform: translateY(-50%) !important;
+    }
+    
+    .burger-line:nth-child(3) {
+        bottom: 0 !important;
+        transform-origin: left center !important;
+    }
+    
+    .burger-menu.active .burger-line:nth-child(1) {
+        transform: rotate(45deg) translate(1px, -1px) !important;
+        width: 100% !important;
+    }
+    
+    .burger-menu.active .burger-line:nth-child(2) {
+        opacity: 0 !important;
+        transform: translateX(-10px) !important;
+    }
+    
+    .burger-menu.active .burger-line:nth-child(3) {
+        transform: rotate(-45deg) translate(1px, 1px) !important;
+        width: 100% !important;
+    }
+    
+    /* ===== MOBILE MENU ===== */
+    .mobile-menu {
+        right: -100% !important;
+        width: 85% !important;
+        max-width: 300px !important;
+        padding: 100px 25px 40px !important;
+        background: rgba(250, 248, 245, 0.98) !important;
+        backdrop-filter: blur(20px) !important;
+        -webkit-backdrop-filter: blur(20px) !important;
+        border-left: 1px solid rgba(196, 164, 132, 0.2) !important;
+        box-shadow: -10px 0 30px rgba(0, 0, 0, 0.15) !important;
+        transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    }
+    
+    body.dark-theme .mobile-menu {
+        background: rgba(26, 22, 20, 0.98) !important;
+        border-left-color: rgba(196, 164, 132, 0.3) !important;
+    }
+    
+    .mobile-menu.active {
+        right: 0 !important;
+    }
+    
+    .mobile-menu nav {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 0 !important;
+    }
+    
+    .mobile-menu nav a {
+        font-size: 18px !important;
+        letter-spacing: 3px !important;
+        padding: 18px 0 !important;
+        margin: 0 !important;
+        border-bottom: 1px solid rgba(196, 164, 132, 0.15) !important;
+        color: #4a3f35 !important;
+        text-decoration: none !important;
+        transition: all 0.3s ease !important;
+        display: block !important;
+    }
+    
+    body.dark-theme .mobile-menu nav a {
+        color: #e8dcc7 !important;
+        border-bottom-color: rgba(196, 164, 132, 0.25) !important;
+    }
+    
+    .mobile-menu nav a:last-child {
+        border-bottom: none !important;
+    }
+    
+    .mobile-menu nav a:hover {
+        color: #c4a484 !important;
+        transform: translateX(10px) !important;
+    }
+    
+    .mobile-menu-overlay {
+        opacity: 0 !important;
+        pointer-events: none !important;
+        background: rgba(0, 0, 0, 0.5) !important;
+        backdrop-filter: blur(5px) !important;
+        transition: opacity 0.4s ease !important;
+    }
+    
+    .mobile-menu-overlay.active {
+        opacity: 1 !important;
+        pointer-events: all !important;
+    }
+    
+    /* ===== HERO SECTIONS ===== */
+    .hero-double {
+        height: 90vh !important;
+    }
+    
+    .hero-text {
+        padding: 0 20px !important;
+    }
+    
+    .hero-text h1 {
+        font-size: 48px !important;
+        letter-spacing: 8px !important;
+        line-height: 1.1 !important;
+        margin-bottom: 20px !important;
+    }
+    
+    .hero-text p {
+        font-size: 16px !important;
+        letter-spacing: 4px !important;
+    }
+    
+    /* ===== ABOUT PAGE - PHOTOS ===== */
+    .about-images {
+        height: 350px !important;
+        margin-bottom: 40px !important;
+    }
+    
+    .about-photo {
+        width: 180px !important;
+        height: 250px !important;
+        border-width: 8px !important;
+    }
+    
+    .photo-2 {
+        top: 40px !important;
+        left: 10px !important;
+    }
+    
+    .photo-1 {
+        top: 150px !important;
+        left: 80px !important;
+    }
+    
+    .about-bubble {
+        top: -15px !important;
+        right: -15px !important;
+        padding: 12px 20px !important;
+        font-size: 13px !important;
+    }
+    
+    .about-text {
+        text-align: center !important;
+        padding: 0 15px !important;
+    }
+    
+    /* ===== SERVICES PAGE - CARTES STACK ===== */
+    .services-details-container {
+        gap: 15px !important;
+    }
+    
+    .service-detail {
+        min-height: 400px !important;
+        margin-bottom: 20px !important;
+    }
+    
+    .service-detail h2 {
+        font-size: 24px !important;
+        padding: 20px 25px !important;
+    }
+    
+    .service-detail-content {
+        padding: 30px 20px !important;
+    }
+    
+    /* ===== TESTIMONIALS ===== */
+    .testimonials-carousel {
+        padding-left: 20px !important;
+        animation: carousel 80s linear infinite !important;
+    }
+    
+    .testimonial-card {
+        width: 280px !important;
+        padding: 30px 25px !important;
+    }
+    
+    /* ===== FORMULAIRES ===== */
+    .form-control {
+        font-size: 16px !important; /* Empêche le zoom iOS */
+        padding: 18px 20px !important;
+    }
+    
+    /* ===== FOOTER ===== */
+    .footer-grid > div {
+        margin-bottom: 30px !important;
+    }
+    
+    .footer-social {
+        gap: 20px !important;
+        margin-top: 20px !important;
+    }
+    
+    .footer-social a {
+        font-size: 12px !important;
+    }
+    
+    /* ===== THÈME TOGGLE ===== */
+    .theme-toggle {
+        width: 45px !important;
+        height: 45px !important;
+        bottom: 70px !important; /* Au-dessus du safe area */
+        right: 20px !important;
+        box-shadow: 0 4px 15px rgba(196, 164, 132, 0.3) !important;
+    }
+    
+    .theme-toggle:hover {
+        transform: scale(1.05) !important;
+    }
+    
+    /* ===== SAFE AREA iOS ===== */
+    @supports (padding: max(0px)) {
+        .mobile-menu {
+            padding-bottom: max(40px, env(safe-area-inset-bottom)) !important;
+        }
+        
+        .theme-toggle {
+            bottom: max(70px, env(safe-area-inset-bottom) + 20px) !important;
+        }
+    }
+}
+
+/* ===== TRÈS PETITS ÉCRANS (< 400px) ===== */
+@media (max-width: 400px) {
+    .hero-text h1 {
+        font-size: 36px !important;
+        letter-spacing: 6px !important;
+    }
+    
+    .section-header h2 {
+        font-size: 28px !important;
+    }
+    
+    .service-card h3,
+    .mission-card h3 {
+        font-size: 20px !important;
+    }
+    
+    .cta-title {
+        font-size: 32px !important;
+    }
+    
+    .mobile-menu {
+        width: 90% !important;
+        padding: 90px 20px 40px !important;
+    }
+}
     </style>
 </head>
 
@@ -8100,10 +8498,10 @@ body:not(.dark-theme):not(.beige-mode) .tool-item {
                 <div>
                     <h4>Suivez-Moi</h4>
                     <div class="footer-social">
-                        <a href="https://instagram.com" target="_blank">Instagram</a>
-                        <a href="https://tiktok.com" target="_blank">TikTok</a>
-                        <a href="https://pinterest.com" target="_blank">Pinterest</a>
-                        <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+                        <a href="https://www.instagram.com/blogueuse_k?igsh=ZG53NGV3eWN6amNo" target="_blank">Instagram</a>
+                        <a href="https://www.tiktok.com/@blogueuse_k?_r=1&_t=ZM-92lcG3wfVN6" target="_blank">TikTok</a>
+                        <a href="https://youtube.com/@blogueuse_k-5?si=_Zrx-ViQjBbhaLVc" target="_blank">YouTube</a>
+                        <a href="https://snapchat.com/t/hbQ0Woi8" target="_blank">SnapChat</a>
                     </div>
                 </div>
             </div>
@@ -8266,11 +8664,10 @@ body:not(.dark-theme):not(.beige-mode) .tool-item {
                 <h3>Plateformes</h3>
             </div>
             <div class="tool-items">
-                <span class="tool-item">Instagram</span>
-                <span class="tool-item">TikTok</span>
-                <span class="tool-item">YouTube</span>
-                <span class="tool-item">Pinterest</span>
-                <span class="tool-item">LinkedIn</span>
+                <a href="https://www.instagram.com/blogueuse_k?igsh=ZG53NGV3eWN6amNo" target="_blank">Instagram</a>
+                <a href="https://www.tiktok.com/@blogueuse_k?_r=1&_t=ZM-92lcG3wfVN6" target="_blank">TikTok</a>
+                <a href="https://youtube.com/@blogueuse_k-5?si=_Zrx-ViQjBbhaLVc" target="_blank">YouTube</a>
+                <a href="https://snapchat.com/t/hbQ0Woi8" target="_blank">SnapChat</a>
             </div>
         </div>
         
@@ -8428,10 +8825,10 @@ body:not(.dark-theme):not(.beige-mode) .tool-item {
                 <div>
                     <h4>Suivez-Moi</h4>
                     <div class="footer-social">
-                        <a href="https://instagram.com" target="_blank">Instagram</a>
-                        <a href="https://tiktok.com" target="_blank">TikTok</a>
-                        <a href="https://pinterest.com" target="_blank">Pinterest</a>
-                        <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+                        <a href="https://www.instagram.com/blogueuse_k?igsh=ZG53NGV3eWN6amNo" target="_blank">Instagram</a>
+                        <a href="https://www.tiktok.com/@blogueuse_k?_r=1&_t=ZM-92lcG3wfVN6" target="_blank">TikTok</a>
+                        <a href="https://youtube.com/@blogueuse_k-5?si=_Zrx-ViQjBbhaLVc" target="_blank">YouTube</a>
+                        <a href="https://snapchat.com/t/hbQ0Woi8" target="_blank">SnapChat</a>
                     </div>
                 </div>
             </div>
@@ -8501,10 +8898,10 @@ body:not(.dark-theme):not(.beige-mode) .tool-item {
                 <div>
                     <h4>Suivez-Moi</h4>
                     <div class="footer-social">
-                        <a href="https://instagram.com" target="_blank">Instagram</a>
-                        <a href="https://tiktok.com" target="_blank">TikTok</a>
-                        <a href="https://pinterest.com" target="_blank">Pinterest</a>
-                        <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+                        <a href="https://www.instagram.com/blogueuse_k?igsh=ZG53NGV3eWN6amNo" target="_blank">Instagram</a>
+                        <a href="https://www.tiktok.com/@blogueuse_k?_r=1&_t=ZM-92lcG3wfVN6" target="_blank">TikTok</a>
+                        <a href="https://youtube.com/@blogueuse_k-5?si=_Zrx-ViQjBbhaLVc" target="_blank">YouTube</a>
+                        <a href="https://snapchat.com/t/hbQ0Woi8" target="_blank">SnapChat</a>
                     </div>
                 </div>
             </div>
@@ -8735,10 +9132,10 @@ body:not(.dark-theme):not(.beige-mode) .tool-item {
                 <div>
                     <h4>Suivez-Moi</h4>
                     <div class="footer-social">
-                        <a href="https://instagram.com" target="_blank">Instagram</a>
-                        <a href="https://tiktok.com" target="_blank">TikTok</a>
-                        <a href="https://pinterest.com" target="_blank">Pinterest</a>
-                        <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+                        <a href="https://www.instagram.com/blogueuse_k?igsh=ZG53NGV3eWN6amNo" target="_blank">Instagram</a>
+                        <a href="https://www.tiktok.com/@blogueuse_k?_r=1&_t=ZM-92lcG3wfVN6" target="_blank">TikTok</a>
+                        <a href="https://youtube.com/@blogueuse_k-5?si=_Zrx-ViQjBbhaLVc" target="_blank">YouTube</a>
+                        <a href="https://snapchat.com/t/hbQ0Woi8" target="_blank">SnapChat</a>
                     </div>
                 </div>
             </div>
@@ -8936,24 +9333,34 @@ body:not(.dark-theme):not(.beige-mode) .tool-item {
             <h3>Réseaux Sociaux</h3>
             <p>Suivez mon travail au quotidien</p>
             <div class="social-links">
-                <a href="https://instagram.com" target="_blank">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                    </svg>
-                </a>
-                <a href="https://tiktok.com" target="_blank">
-                    <svg viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
-                    </svg>
-                </a>
-                <a href="https://pinterest.com" target="_blank">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="12" cy="12" r="10"></circle>
-                        <path d="M8.05 20.1s.6-4.8 1.45-7.2c0 0-.35-1.4.35-2.45.7-1.05 2.1-.7 2.45.35.35 1.05-.7 3.15-1.05 4.2-.35 1.05.35 2.1 1.4 2.1s2.45-1.05 2.8-2.8c.35-1.75.35-4.55-1.05-5.95-1.4-1.4-4.55-1.05-5.6.7-1.05 1.75-.7 4.2-.35 5.25"/>
-                    </svg>
-                </a>
+                <!-- TikTok -->
+<a href="https://www.tiktok.com/@blogueuse_k?_r=1&_t=ZM-92lcG3wfVN6" target="_blank">
+    <svg viewBox="0 0 24 24" fill="currentColor">
+        <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
+    </svg>
+</a>
+
+<!-- Instagram -->
+<a href="https://www.instagram.com/blogueuse_k?igsh=ZG53NGV3eWN6amNo" target="_blank">
+    <svg viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 2.2c3.2 0 3.584.012 4.85.07 1.17.055 1.8.24 2.22.4a4.49 4.49 0 0 1 1.61 1.05 4.49 4.49 0 0 1 1.05 1.61c.16.42.345 1.05.4 2.22.058 1.266.07 1.65.07 4.85s-.012 3.584-.07 4.85c-.055 1.17-.24 1.8-.4 2.22a4.49 4.49 0 0 1-1.05 1.61 4.49 4.49 0 0 1-1.61 1.05c-.42.16-1.05.345-2.22.4-1.266.058-1.65.07-4.85.07s-3.584-.012-4.85-.07c-1.17-.055-1.8-.24-2.22-.4a4.49 4.49 0 0 1-1.61-1.05 4.49 4.49 0 0 1-1.05-1.61c-.16-.42-.345-1.05-.4-2.22C2.212 15.584 2.2 15.2 2.2 12s.012-3.584.07-4.85c.055-1.17.24-1.8.4-2.22a4.49 4.49 0 0 1 1.05-1.61 4.49 4.49 0 0 1 1.61-1.05c.42-.16 1.05-.345 2.22-.4C8.416 2.212 8.8 2.2 12 2.2zm0 1.8c-3.144 0-3.51.012-4.74.068-1.025.047-1.58.216-1.948.36a2.68 2.68 0 0 0-1.04.68 2.68 2.68 0 0 0-.68 1.04c-.144.368-.313.923-.36 1.948-.056 1.23-.068 1.596-.068 4.74s.012 3.51.068 4.74c.047 1.025.216 1.58.36 1.948.152.376.36.7.68 1.04.34.32.664.528 1.04.68.368.144.923.313 1.948.36 1.23.056 1.596.068 4.74.068s3.51-.012 4.74-.068c1.025-.047 1.58-.216 1.948-.36a2.68 2.68 0 0 0 1.04-.68 2.68 2.68 0 0 0 .68-1.04c.144-.368.313-.923.36-1.948.056-1.23.068-1.596.068-4.74s-.012-3.51-.068-4.74c-.047-1.025-.216-1.58-.36-1.948a2.68 2.68 0 0 0-.68-1.04 2.68 2.68 0 0 0-1.04-.68c-.368-.144-.923-.313-1.948-.36-1.23-.056-1.596-.068-4.74-.068zm0 3.6a5.2 5.2 0 1 1 0 10.4 5.2 5.2 0 0 1 0-10.4zm0 1.8a3.4 3.4 0 1 0 0 6.8 3.4 3.4 0 0 0 0-6.8zm5.4-2.28a1.2 1.2 0 1 1-2.4 0 1.2 1.2 0 0 1 2.4 0z"/>
+    </svg>
+</a>
+
+<!-- YouTube -->
+<a href="https://youtube.com/@blogueuse_k-5?si=_Zrx-ViQjBbhaLVc" target="_blank">
+    <svg viewBox="0 0 24 24" fill="currentColor">
+        <path d="M19.615 3.184c-1.945-.4-9.615-.4-9.615-.4s-7.67 0-9.615.4c-1.9.39-3.385 2.047-3.385 3.973v9.686c0 1.926 1.485 3.583 3.385 3.973 1.945.4 9.615.4 9.615.4s7.67 0 9.615-.4c1.9-.39 3.385-2.047 3.385-3.973V7.157c0-1.926-1.485-3.583-3.385-3.973zm-11.615 12.816V7l6 4.5-6 4.5z"/>
+    </svg>
+</a>
+
+<!-- Snapchat -->
+<a href="https://snapchat.com/t/hbQ0Woi8" target="_blank">
+    <svg viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 2.4c-5.33 0-7.88 4.09-7.88 7.88 0 3.62 2.35 6.17 5.56 6.97v.82c0 1.33 1.08 2.41 2.41 2.41s2.41-1.08 2.41-2.41v-.82c3.21-.8 5.56-3.35 5.56-6.97 0-3.79-2.55-7.88-7.88-7.88zm1.7 11.44c-.36.36-.92.36-1.28 0l-1.42-1.42-1.42 1.42c-.36.36-.92.36-1.28 0-.36-.36-.36-.92 0-1.28l1.42-1.42-1.42-1.42c-.36-.36-.36-.92 0-1.28.36-.36.92-.36 1.28 0l1.42 1.42 1.42-1.42c.36-.36.92-.36 1.28 0 .36.36.36.92 0 1.28l-1.42 1.42 1.42 1.42c.36.36.36.92 0 1.28z"/>
+    </svg>
+</a>
+
             </div>
         </div>
         
@@ -8998,10 +9405,10 @@ body:not(.dark-theme):not(.beige-mode) .tool-item {
                 <div>
                     <h4>Suivez-Moi</h4>
                     <div class="footer-social">
-                        <a href="https://instagram.com" target="_blank">Instagram</a>
-                        <a href="https://tiktok.com" target="_blank">TikTok</a>
-                        <a href="https://pinterest.com" target="_blank">Pinterest</a>
-                        <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+                        <a href="https://www.instagram.com/blogueuse_k?igsh=ZG53NGV3eWN6amNo" target="_blank">Instagram</a>
+                        <a href="https://www.tiktok.com/@blogueuse_k?_r=1&_t=ZM-92lcG3wfVN6" target="_blank">TikTok</a>
+                        <a href="https://youtube.com/@blogueuse_k-5?si=_Zrx-ViQjBbhaLVc" target="_blank">YouTube</a>
+                        <a href="https://snapchat.com/t/hbQ0Woi8" target="_blank">SnapChat</a>
                     </div>
                 </div>
             </div>
@@ -9015,111 +9422,154 @@ body:not(.dark-theme):not(.beige-mode) .tool-item {
     let isMobileMenuOpen = false;
 
     // ===== THEME MANAGEMENT =====
-    function toggleTheme() {
+    // ===== THÈME SIMPLIFIÉ (seulement clair/sombre) =====
+function toggleTheme() {
     const body = document.body;
-    const themeToggle = document.querySelector('.theme-toggle');
+    const themeToggle = document.querySelector('.theme-toggle-icon');
     
-    // Cycle through themes: light -> dark -> beige -> light
+    // Alterner seulement entre light et dark
     if (body.classList.contains('dark-theme')) {
+        // Dark → Light
         body.classList.remove('dark-theme');
-        body.classList.add('beige-mode');
-        // Icône Leaf pour beige
+        currentTheme = 'light';
+        
+        // Icône soleil → lune
         themeToggle.innerHTML = `
-            <svg class="theme-toggle-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path>
-                <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path>
-            </svg>
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
         `;
-        localStorage.setItem('theme', 'beige');
-    } else if (body.classList.contains('beige-mode')) {
-        body.classList.remove('beige-mode');
-        // Icône Moon pour light
-        themeToggle.innerHTML = `
-            <svg class="theme-toggle-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-            </svg>
-        `;
-        localStorage.setItem('theme', 'light');
     } else {
+        // Light → Dark
         body.classList.add('dark-theme');
-        // Icône Sun pour dark
+        currentTheme = 'dark';
+        
+        // Icône lune → soleil
         themeToggle.innerHTML = `
-            <svg class="theme-toggle-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <circle cx="12" cy="12" r="5"></circle>
-                <line x1="12" y1="1" x2="12" y2="3"></line>
-                <line x1="12" y1="21" x2="12" y2="23"></line>
-                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                <line x1="1" y1="12" x2="3" y2="12"></line>
-                <line x1="21" y1="12" x2="23" y2="12"></line>
-                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-            </svg>
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
         `;
-        localStorage.setItem('theme', 'dark');
+    }
+    
+    // Sauvegarder
+    localStorage.setItem('portfolio_theme', currentTheme);
+}
+
+// Charger le thème sauvegardé (sans beige)
+function loadSavedTheme() {
+    const savedTheme = localStorage.getItem('portfolio_theme');
+    const themeToggle = document.querySelector('.theme-toggle-icon');
+    
+    // Supprimer beige-mode s'il existe
+    document.body.classList.remove('beige-mode');
+    
+    if (savedTheme === 'dark') {
+        document.body.classList.add('dark-theme');
+        currentTheme = 'dark';
+        themeToggle.innerHTML = `
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        `;
+    } else {
+        // Default light
+        document.body.classList.remove('dark-theme');
+        currentTheme = 'light';
+        themeToggle.innerHTML = `
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        `;
+        localStorage.setItem('portfolio_theme', 'light');
     }
 }
 
     // ===== MOBILE MENU =====
+// ===== MENU MOBILE CORRIGÉ =====
+let mobileMenuOpen = false;
+
 function toggleMobileMenu() {
-        const mobileMenu = document.getElementById('mobile-menu');
-        const overlay = document.querySelector('.mobile-menu-overlay');
-        const burger = document.querySelector('.burger-menu');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const overlay = document.querySelector('.mobile-menu-overlay');
+    const burger = document.querySelector('.burger-menu');
+    const body = document.body;
+    
+    mobileMenuOpen = !mobileMenuOpen;
+    
+    if (mobileMenuOpen) {
+        // OUVRIR
+        burger.classList.add('active');
+        mobileMenu.classList.add('active');
+        overlay.classList.add('active');
+        body.style.overflow = 'hidden';
         
-        isMobileMenuOpen = !isMobileMenuOpen;
-        mobileMenu.classList.toggle('active');
-        overlay.classList.toggle('active');
-        burger.classList.toggle('active');
-        
-        // Toggle body scroll
-        document.body.style.overflow = isMobileMenuOpen ? 'hidden' : '';
-    }
-
-    // ===== PAGE NAVIGATION =====
-    function showPage(pageId) {
-        // Update current page
-        currentPage = pageId;
-        
-        // Hide all pages
-        document.querySelectorAll('.page').forEach(page => {
-            page.classList.remove('active');
-            page.style.opacity = '0';
-        });
-        
-        // Show selected page
-        const targetPage = document.getElementById(pageId);
-        if (targetPage) {
-            targetPage.classList.add('active');
+        // Animation des liens
+        const menuItems = mobileMenu.querySelectorAll('nav a');
+        menuItems.forEach((item, index) => {
+            item.style.opacity = '0';
+            item.style.transform = 'translateX(30px)';
+            
             setTimeout(() => {
-                targetPage.style.opacity = '1';
-            }, 50);
-        }
-        
-        // Update active navigation links
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.classList.remove('active');
+                item.style.transition = 'all 0.3s ease';
+                item.style.opacity = '1';
+                item.style.transform = 'translateX(0)';
+            }, 100 + (index * 100));
         });
         
-        // Activate corresponding links in both desktop and mobile menus
-        const selector = `[onclick*="showPage('${pageId}')"]`;
-        document.querySelectorAll(selector).forEach(link => {
-            link.classList.add('active');
-        });
+        // Empêcher le scroll
+        document.addEventListener('touchmove', preventScroll, { passive: false });
         
-        // Close mobile menu if open
-        if (isMobileMenuOpen) {
-            toggleMobileMenu();
-        }
+    } else {
+        // FERMER
+        burger.classList.remove('active');
+        mobileMenu.classList.remove('active');
+        overlay.classList.remove('active');
+        body.style.overflow = '';
         
-        // Scroll to top
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-        
-        // Reinitialize animations and observers
-        setTimeout(() => {
-            initializePage();
-        }, 300);
+        document.removeEventListener('touchmove', preventScroll);
     }
+    
+    // Fermer en cliquant sur overlay
+    overlay.onclick = toggleMobileMenu;
+    
+    // Fermer en cliquant sur les liens
+    mobileMenu.querySelectorAll('nav a').forEach(link => {
+        link.onclick = toggleMobileMenu;
+    });
+}
 
+function preventScroll(e) {
+    e.preventDefault();
+    return false;
+}
+
+// Fermer avec la touche Escape
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && mobileMenuOpen) {
+        toggleMobileMenu();
+    }
+});
+
+// Fermer si on clique en dehors
+document.addEventListener('click', (e) => {
+    const mobileMenu = document.getElementById('mobile-menu');
+    const burger = document.querySelector('.burger-menu');
+    
+    if (mobileMenuOpen && 
+        !mobileMenu.contains(e.target) && 
+        !burger.contains(e.target)) {
+        toggleMobileMenu();
+    }
+});
 
     // ===== PORTFOLIO FILTERS =====
     function setupPortfolioFilters() {
@@ -10455,6 +10905,7 @@ document.addEventListener('DOMContentLoaded', function() {
     <script src="js/portfolio-loader.js"></script>
     <script src="js/services-updater.js"></script>
     <script src="js/fix-speed-space.js"></script>
+    <script src="js/mobile-fixes-final.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
      <!-- ADD THIS SCRIPT TO CONNECT EVERYTHING -->
 <script>
