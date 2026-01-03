@@ -1,78 +1,10 @@
-// mobile-fixes-final.js
+// mobile-fixes-final.js - VERSION CORRIGÉE (sans gestion de menu)
 console.log('📱 Application des correctifs mobiles...');
 
 document.addEventListener('DOMContentLoaded', function() {
     
-    // 1. FIX MENU BURGER
-    function fixBurgerMenu() {
-        const burger = document.querySelector('.burger-menu');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const overlay = document.querySelector('.mobile-menu-overlay');
-        
-        if (!burger || !mobileMenu) return;
-        
-        let isOpen = false;
-        
-        function toggleMenu() {
-            isOpen = !isOpen;
-            
-            burger.classList.toggle('active');
-            mobileMenu.classList.toggle('active');
-            overlay.classList.toggle('active');
-            
-            document.body.style.overflow = isOpen ? 'hidden' : '';
-            
-            // Empêcher le scroll quand menu ouvert
-            if (isOpen) {
-                document.addEventListener('touchmove', preventScroll, { passive: false });
-            } else {
-                document.removeEventListener('touchmove', preventScroll);
-            }
-        }
-        
-        function preventScroll(e) {
-            e.preventDefault();
-            return false;
-        }
-        
-        // Événements
-        burger.addEventListener('click', function(e) {
-            e.stopPropagation();
-            toggleMenu();
-        });
-        
-        overlay.addEventListener('click', toggleMenu);
-        
-        // Fermer en cliquant sur les liens
-        mobileMenu.querySelectorAll('nav a').forEach(link => {
-            link.addEventListener('click', toggleMenu);
-        });
-        
-        // Fermer avec Escape
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape' && isOpen) {
-                toggleMenu();
-            }
-        });
-        
-        // Fermer en cliquant en dehors
-        document.addEventListener('click', function(e) {
-            if (isOpen && 
-                !mobileMenu.contains(e.target) && 
-                !burger.contains(e.target)) {
-                toggleMenu();
-            }
-        });
-        
-        // Fermer si on change de page
-        mobileMenu.querySelectorAll('nav a').forEach(link => {
-            link.addEventListener('click', function() {
-                setTimeout(() => {
-                    if (isOpen) toggleMenu();
-                }, 300);
-            });
-        });
-    }
+    // NE PAS gérer le menu burger ici - laisser le script principal le faire
+    // function fixBurgerMenu() { ... } // SUPPRIMEZ CETTE FONCTION
     
     // 2. FIX PORTFOLIO FILTERS SCROLL
     function fixPortfolioFilters() {
@@ -170,7 +102,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // 5. APPLIQUER TOUS LES FIXES
     function applyAllFixes() {
-        fixBurgerMenu();
+        // NE PAS appeler fixBurgerMenu()
         fixPortfolioFilters();
         fixContactHero();
         removeBeigeMode();
@@ -190,9 +122,7 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }
         
-        console.log('✅ Correctifs mobiles appliqués');
-        console.log('📱 Device:', isIOS ? 'iOS' : 'Android/Desktop');
-        console.log('🎨 Thème:', document.body.classList.contains('dark-theme') ? 'Dark' : 'Light');
+        console.log('✅ Correctifs mobiles appliqués (sans gestion de menu)');
     }
     
     // Exécuter au chargement
@@ -207,7 +137,4 @@ document.addEventListener('DOMContentLoaded', function() {
             fixContactHero();
         }, 250);
     });
-    
-    // Ré-appliquer après changement de page
-    document.addEventListener('pageChanged', applyAllFixes);
 });
