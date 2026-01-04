@@ -9371,25 +9371,341 @@ body:not(.dark-theme) {
     opacity: 0.8 !important;
 }
 
+/* about-paragraph-styles.css */
+/* ========== STYLES ÉLÉGANTS POUR LES PARAGRAPHES ========== */
+
+/* Conteneur principal */
+.about-presentation-simple {
+    padding: 100px 20px;
+    background: linear-gradient(135deg, #fef9f3 0%, #fff9f0 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.dark-theme .about-presentation-simple {
+    background: linear-gradient(135deg, #0a0807 0%, #1a1614 100%);
+}
+
+/* Titre principal */
 .about-main-title {
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 60px;
     padding: 0 20px;
+    position: relative;
 }
 
 .about-main-title h2 {
     font-size: 48px;
-    color: #c4a484;
-    letter-spacing: 4px;
     font-weight: 300;
+    letter-spacing: 4px;
+    color: #c4a484;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    position: relative;
+    display: inline-block;
 }
 
-@media (max-width: 768px) {
-    .about-main-title h2 {
-        font-size: 36px;
-        letter-spacing: 3px;
+.about-main-title h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #c4a484, transparent);
+}
+
+/* Conteneur du contenu */
+.about-presentation-content {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+}
+
+/* Conteneur du texte */
+.about-presentation-text {
+    position: relative;
+    z-index: 2;
+}
+
+/* Styles des paragraphes */
+.about-paragraph {
+    font-size: 18px;
+    line-height: 1.8;
+    color: #2c2420;
+    margin-bottom: 40px;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border: 1px solid rgba(196, 164, 132, 0.2);
+    box-shadow: 
+        0 5px 20px rgba(0, 0, 0, 0.05),
+        inset 0 1px 0 rgba(255, 255, 255, 0.5);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dark-theme .about-paragraph {
+    color: #e8dcc7;
+    background: rgba(26, 22, 20, 0.9);
+    border-color: rgba(196, 164, 132, 0.3);
+    box-shadow: 
+        0 5px 20px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+/* Effet hover */
+.about-paragraph:hover {
+    transform: translateY(-5px);
+    box-shadow: 
+        0 15px 40px rgba(196, 164, 132, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.5);
+    border-color: rgba(196, 164, 132, 0.4);
+}
+
+.dark-theme .about-paragraph:hover {
+    box-shadow: 
+        0 15px 40px rgba(0, 0, 0, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+/* Bordure décorative en haut */
+.about-paragraph::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, 
+        transparent, 
+        rgba(196, 164, 132, 0.3), 
+        rgba(196, 164, 132, 0.6), 
+        rgba(196, 164, 132, 0.3), 
+        transparent
+    );
+    border-radius: 20px 20px 0 0;
+}
+
+/* Indicateur de paragraphe */
+.about-paragraph::after {
+    content: '❝';
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 24px;
+    color: rgba(196, 164, 132, 0.3);
+    font-family: serif;
+    opacity: 0.5;
+}
+
+/* Mots-clés stylisés */
+.about-keyword {
+    color: #c4a484;
+    font-weight: 500;
+    position: relative;
+    padding: 0 4px;
+    background: linear-gradient(120deg, 
+        rgba(196, 164, 132, 0.1), 
+        rgba(196, 164, 132, 0.05)
+    );
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.about-keyword:hover {
+    background: linear-gradient(120deg, 
+        rgba(196, 164, 132, 0.2), 
+        rgba(196, 164, 132, 0.1)
+    );
+    transform: translateY(-1px);
+}
+
+/* Animation d'apparition des paragraphes */
+@keyframes paragraphAppear {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
+
+.about-paragraph {
+    animation: paragraphAppear 0.6s ease forwards;
+    animation-delay: calc(var(--paragraph-index, 0) * 0.2s);
+    opacity: 0;
+}
+
+/* Ornement décoratif */
+.about-presentation-text::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    left: -50px;
+    right: -50px;
+    bottom: -50px;
+    background: 
+        radial-gradient(circle at 20% 80%, rgba(196, 164, 132, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(139, 115, 85, 0.05) 0%, transparent 50%);
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* ===== RESPONSIVE ===== */
+
+/* TABLETTE */
+@media (max-width: 1024px) {
+    .about-presentation-simple {
+        padding: 80px 20px;
+    }
+    
+    .about-main-title h2 {
+        font-size: 42px;
+        letter-spacing: 3px;
+    }
+    
+    .about-paragraph {
+        font-size: 17px;
+        line-height: 1.7;
+        padding: 25px;
+        margin-bottom: 30px;
+    }
+    
+    .about-keyword {
+        font-size: 17px;
+    }
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+    .about-presentation-simple {
+        padding: 60px 15px;
+    }
+    
+    .about-main-title {
+        margin-bottom: 40px;
+    }
+    
+    .about-main-title h2 {
+        font-size: 36px;
+        letter-spacing: 2px;
+    }
+    
+    .about-main-title h2::after {
+        width: 60px;
+        bottom: -8px;
+    }
+    
+    .about-paragraph {
+        font-size: 16px;
+        line-height: 1.6;
+        padding: 20px;
+        margin-bottom: 25px;
+        backdrop-filter: blur(15px); /* Plus de flou sur mobile */
+    }
+    
+    .about-paragraph::after {
+        top: 15px;
+        left: 15px;
+        font-size: 20px;
+    }
+    
+    .about-keyword {
+        font-size: 16px;
+        padding: 0 3px;
+    }
+    
+    /* Réduire l'effet hover sur mobile */
+    .about-paragraph:hover {
+        transform: translateY(-3px);
+    }
+}
+
+/* TRÈS PETIT MOBILE */
+@media (max-width: 480px) {
+    .about-main-title h2 {
+        font-size: 32px;
+        letter-spacing: 1.5px;
+    }
+    
+    .about-paragraph {
+        font-size: 15px;
+        padding: 18px;
+        margin-bottom: 20px;
+        line-height: 1.5;
+    }
+    
+    .about-keyword {
+        font-size: 15px;
+    }
+}
+
+/* ORIENTATION PAYSAGE */
+@media (max-width: 768px) and (orientation: landscape) {
+    .about-paragraph {
+        padding: 15px;
+        font-size: 15px;
+        line-height: 1.5;
+    }
+    
+    .about-presentation-simple {
+        padding: 40px 15px;
+    }
+}
+
+/* ANIMATION DE SOULIGNEMENT POUR LES MOTS-CLÉS */
+@keyframes underlinePulse {
+    0%, 100% { 
+        background-position: 0% 50%; 
+        opacity: 0.3;
+    }
+    50% { 
+        background-position: 100% 50%; 
+        opacity: 0.6;
+    }
+}
+
+.about-keyword::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, 
+        transparent, 
+        rgba(196, 164, 132, 0.5), 
+        transparent
+    );
+    background-size: 200% 100%;
+    animation: underlinePulse 3s ease-in-out infinite;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.about-keyword:hover::after {
+    opacity: 1;
+}
+
+/* EFFET DE PROFONDEUR */
+.about-paragraph {
+    perspective: 1000px;
+}
+
+.about-paragraph:hover {
+    transform: 
+        translateY(-5px) 
+        rotateX(1deg) 
+        rotateY(1deg);
+}
+
     </style>
 </head>
 
@@ -9820,18 +10136,27 @@ body:not(.dark-theme) {
 
         <!-- STICKY PRESENTATION -->
 <section class="about-presentation-simple">
-        <div class="about-main-title">
-            <h2>Mon Histoire</h2>
-            <div class="about-presentation-content">
-                <div class="about-presentation-text">
+    <!-- Titre -->
+    <div class="about-main-title">
+        <h2>Mon Histoire</h2>
+    </div>
+    
+    <!-- Contenu -->
+    <div class="about-presentation-content">
+        <div class="about-presentation-text">
+            <!-- Paragraphe 1 -->
             <p class="about-paragraph">
                 Je suis <span class="about-keyword">Kathy Mangolia Diomi</span>, créatrice de contenu, modèle et entrepreneure basée à Kinshasa. Mon univers est un mélange de <span class="about-keyword">raffinement</span>, d'<span class="about-keyword">audace</span> et de <span class="about-keyword">vérité</span>, où chaque projet devient une signature unique.
             </p>
+            
+            <!-- Paragraphe 2 -->
             <p class="about-paragraph">
-                Depuis plus de 5 ans, j’ai eu le privilège de collaborer avec des marques et des talents visionnaires pour créer des visuels qui captivent et inspirent. Chaque contenu que je produis est pensé pour transformer une simple idée en une <span class="about-keyword">expérience immersive</span>.
+                Depuis plus de 5 ans, j'ai eu le privilège de collaborer avec des marques et des talents visionnaires pour créer des visuels qui captivent et inspirent. Chaque contenu que je produis est pensé pour transformer une simple idée en une <span class="about-keyword">expérience immersive</span>.
             </p>
+            
+            <!-- Paragraphe 3 -->
             <p class="about-paragraph">
-                Ma démarche repose sur une <span class="about-keyword">vision artistique</span> audacieuse, un <span class="about-keyword">professionnalisme rigoureux</span> et une <span class="about-keyword">innovation constante</span>. Je ne me contente pas de créer du contenu : je tisse des <span class="about-keyword">histoires authentiques</span> qui résonnent avec ceux qui les découvrent.
+                Ma démarche repose sur une <span class="about-keyword">vision artistique</span>, un <span class="about-keyword">professionnalisme rigoureux</span> et une <span class="about-keyword">innovation constante</span>. Je ne me contente pas de créer du contenu : je tisse des <span class="about-keyword">histoires authentiques</span> qui résonnent avec ceux qui les découvrent.
             </p>
         </div>
     </div>
@@ -14092,6 +14417,63 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     observer.observe(document.body, { childList: true, subtree: true });
+});
+
+// about-paragraph-animations.js
+document.addEventListener('DOMContentLoaded', function() {
+    
+    // Ajouter les indices pour l'animation en cascade
+    const paragraphs = document.querySelectorAll('.about-paragraph');
+    paragraphs.forEach((paragraph, index) => {
+        paragraph.style.setProperty('--paragraph-index', index);
+        
+        // Ajouter un délai aléatoire pour l'animation hover
+        paragraph.style.setProperty('--hover-delay', `${index * 0.1}s`);
+    });
+    
+    // Animation au scroll
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('in-view');
+                
+                // Animation des mots-clés
+                const keywords = entry.target.querySelectorAll('.about-keyword');
+                keywords.forEach((keyword, index) => {
+                    setTimeout(() => {
+                        keyword.classList.add('animated');
+                    }, index * 100);
+                });
+            }
+        });
+    }, { threshold: 0.2 });
+    
+    paragraphs.forEach(p => observer.observe(p));
+    
+    // Effet de lumière sur les mots-clés au hover
+    document.querySelectorAll('.about-keyword').forEach(keyword => {
+        keyword.addEventListener('mouseenter', function() {
+            this.style.filter = 'brightness(1.2) drop-shadow(0 2px 4px rgba(196, 164, 132, 0.3))';
+        });
+        
+        keyword.addEventListener('mouseleave', function() {
+            this.style.filter = '';
+        });
+    });
+    
+    // Effet parallaxe léger au scroll
+    window.addEventListener('scroll', function() {
+        const scrollY = window.scrollY;
+        const aboutSection = document.querySelector('.about-presentation-simple');
+        
+        if (aboutSection) {
+            const rect = aboutSection.getBoundingClientRect();
+            if (rect.top < window.innerHeight && rect.bottom > 0) {
+                const speed = 0.3;
+                aboutSection.style.backgroundPositionY = `${scrollY * speed}px`;
+            }
+        }
+    });
 });
 </script>
 </body>
