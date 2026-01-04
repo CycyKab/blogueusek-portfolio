@@ -1,0 +1,192 @@
+/* universal-responsive-fixes.css */
+/* ========== CORRECTIONS RESPONSIVES UNIVERSEL ========== */
+
+/* Cette règle s'applique à TOUTES les sections avec ces textes */
+section:has(h2:contains("Travailons")),
+section:has(h2:contains("ensemble")),
+section:has(h2:contains("Intéressé")),
+section:has(h2:contains("Prêt")),
+section:has(h2:contains("collaborer")),
+section:has(h2:contains("Work")),
+section:has(h2:contains("with me")),
+section:has(.collaboration),
+section:has(.work-together),
+section:has(.interested-section),
+section:has(.ready-collaborate) {
+    padding: 80px 20px !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    margin: 0 auto !important;
+    position: relative !important;
+}
+
+/* Cible tous les H2 dans ces sections */
+section:has(h2:contains("Travailons")) h2,
+section:has(h2:contains("Intéressé")) h2,
+section:has(h2:contains("Prêt")) h2,
+section:has(h2:contains("Work")) h2,
+section:has(.collaboration) h2,
+section:has(.work-together) h2 {
+    font-size: clamp(32px, 5vw, 48px) !important;
+    line-height: 1.2 !important;
+    margin-bottom: 20px !important;
+    text-align: center !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+}
+
+/* Cible tous les paragraphes dans ces sections */
+section:has(h2:contains("Travailons")) p,
+section:has(h2:contains("Intéressé")) p,
+section:has(h2:contains("Prêt")) p,
+section:has(h2:contains("Work")) p,
+section:has(.collaboration) p,
+section:has(.work-together) p {
+    font-size: clamp(16px, 2vw, 18px) !important;
+    line-height: 1.6 !important;
+    max-width: 800px !important;
+    margin: 0 auto 30px !important;
+    text-align: center !important;
+}
+
+/* Cible tous les boutons dans ces sections */
+section:has(h2:contains("Travailons")) .btn,
+section:has(h2:contains("Intéressé")) .btn,
+section:has(h2:contains("Prêt")) .btn,
+section:has(h2:contains("Work")) .btn,
+section:has(.collaboration) .btn,
+section:has(.work-together) .btn,
+section:has(h2:contains("Travailons")) button,
+section:has(h2:contains("Intéressé")) button,
+section:has(h2:contains("Prêt")) button {
+    display: block !important;
+    margin: 20px auto !important;
+    max-width: 300px !important;
+    width: auto !important;
+    padding: 15px 30px !important;
+}
+
+/* Correction pour les conteneurs flex/grid */
+section:has(h2:contains("Travailons")) .container,
+section:has(h2:contains("Intéressé")) .container,
+section:has(h2:contains("Prêt")) .container,
+section:has(h2:contains("Work")) .container {
+    max-width: 100% !important;
+    padding: 0 20px !important;
+    box-sizing: border-box !important;
+}
+
+/* ===== TABLETTE ===== */
+@media (max-width: 1024px) {
+    section:has(h2:contains("Travailons")),
+    section:has(h2:contains("Intéressé")),
+    section:has(h2:contains("Prêt")),
+    section:has(h2:contains("Work")) {
+        padding: 60px 15px !important;
+    }
+    
+    section:has(h2:contains("Travailons")) h2,
+    section:has(h2:contains("Intéressé")) h2,
+    section:has(h2:contains("Prêt")) h2,
+    section:has(h2:contains("Work")) h2 {
+        font-size: 36px !important;
+    }
+    
+    section:has(h2:contains("Travailons")) p,
+    section:has(h2:contains("Intéressé")) p,
+    section:has(h2:contains("Prêt")) p,
+    section:has(h2:contains("Work")) p {
+        font-size: 17px !important;
+        padding: 0 10px !important;
+    }
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 768px) {
+    section:has(h2:contains("Travailons")),
+    section:has(h2:contains("Intéressé")),
+    section:has(h2:contains("Prêt")),
+    section:has(h2:contains("Work")) {
+        padding: 40px 10px !important;
+        margin: 20px auto !important;
+    }
+    
+    section:has(h2:contains("Travailons")) h2,
+    section:has(h2:contains("Intéressé")) h2,
+    section:has(h2:contains("Prêt")) h2,
+    section:has(h2:contains("Work")) h2 {
+        font-size: 28px !important;
+        padding: 0 10px !important;
+    }
+    
+    section:has(h2:contains("Travailons")) p,
+    section:has(h2:contains("Intéressé")) p,
+    section:has(h2:contains("Prêt")) p,
+    section:has(h2:contains("Work")) p {
+        font-size: 16px !important;
+        line-height: 1.5 !important;
+        padding: 0 !important;
+    }
+    
+    /* Forcer les boutons à être pleine largeur sur mobile */
+    section:has(h2:contains("Travailons")) .btn,
+    section:has(h2:contains("Intéressé")) .btn,
+    section:has(h2:contains("Prêt")) .btn,
+    section:has(h2:contains("Work")) .btn {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 10px 0 !important;
+    }
+}
+
+/* ===== PETIT MOBILE ===== */
+@media (max-width: 480px) {
+    section:has(h2:contains("Travailons")) h2,
+    section:has(h2:contains("Intéressé")) h2,
+    section:has(h2:contains("Prêt")) h2,
+    section:has(h2:contains("Work")) h2 {
+        font-size: 24px !important;
+    }
+    
+    section:has(h2:contains("Travailons")) p,
+    section:has(h2:contains("Intéressé")) p,
+    section:has(h2:contains("Prêt")) p,
+    section:has(h2:contains("Work")) p {
+        font-size: 15px !important;
+    }
+}
+
+/* ===== CORRECTION SPÉCIFIQUE POUR LES SECTIONS AVEC GRID ===== */
+section:has(.work-grid),
+section:has(.collaboration-grid),
+section:has(.process-steps) {
+    display: block !important;
+}
+
+section:has(.work-grid) .grid,
+section:has(.collaboration-grid) .grid,
+section:has(.process-steps) .grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+    max-width: 500px !important;
+    margin: 0 auto !important;
+}
+
+@media (min-width: 768px) {
+    section:has(.work-grid) .grid,
+    section:has(.collaboration-grid) .grid,
+    section:has(.process-steps) .grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        max-width: 800px !important;
+    }
+}
+
+@media (min-width: 1024px) {
+    section:has(.work-grid) .grid,
+    section:has(.collaboration-grid) .grid,
+    section:has(.process-steps) .grid {
+        grid-template-columns: repeat(3, 1fr) !important;
+        max-width: 1200px !important;
+    }
+}
