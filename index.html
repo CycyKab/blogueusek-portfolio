@@ -9077,6 +9077,363 @@ body:not(.dark-theme):not(.beige-mode) .tool-item {
     }
 }
 
+/* location-card-sun-mode.css */
+/* ========== CORRECTION COULEURS MODE SOLEIL ========== */
+
+/* Mode clair (soleil) */
+:root,
+.light-theme,
+.sun-mode,
+body:not(.dark-theme) {
+    /* Correction des location-cards */
+    .location-card h3,
+    .location-card .location-title,
+    .location-card [class*="title"] {
+        color: #8b7355 !important; /* Marron/beige foncé */
+        text-shadow: 0 1px 2px rgba(255, 255, 255, 0.5) !important;
+    }
+    
+    .location-card p,
+    .location-card .location-description,
+    .location-card [class*="description"],
+    .location-card [class*="text"] {
+        color: #a1886f !important; /* Beige moyen */
+        text-shadow: 0 1px 1px rgba(255, 255, 255, 0.3) !important;
+    }
+    
+    /* Correction spécifique pour les cards animées */
+    .location-card.animated h3,
+    .animated.location-card h3 {
+        color: #8b7355 !important;
+    }
+    
+    .location-card.animated p,
+    .animated.location-card p {
+        color: #a1886f !important;
+    }
+    
+    /* Pour les sections avec background glass/blur */
+    .glass-section .location-card h3,
+    .blur-section .location-card h3,
+    [style*="backdrop-filter"] .location-card h3 {
+        color: #8b7355 !important;
+        text-shadow: 0 2px 4px rgba(255, 255, 255, 0.6) !important;
+    }
+    
+    .glass-section .location-card p,
+    .blur-section .location-card p,
+    [style*="backdrop-filter"] .location-card p {
+        color: #a1886f !important;
+        text-shadow: 0 1px 2px rgba(255, 255, 255, 0.4) !important;
+    }
+}
+
+/* S'assurer que dark-theme garde ses couleurs */
+.dark-theme .location-card h3,
+.dark-theme .location-card .location-title {
+    color: #e8dcc7 !important; /* Beige clair pour dark mode */
+}
+
+.dark-theme .location-card p,
+.dark-theme .location-card .location-description {
+    color: rgba(232, 220, 199, 0.8) !important;
+}
+
+/* Correction au cas où il y a des classes spécifiques */
+.location-card.sun-mode h3,
+.sun-mode .location-card h3 {
+    color: #8b7355 !important;
+}
+
+.location-card.sun-mode p,
+.sun-mode .location-card p {
+    color: #a1886f !important;
+}
+
+/* Force la couleur même avec inline styles */
+.location-card h3[style*="color"]:not([style*="#e8dcc7"]):not([style*="rgb(232, 220, 199)"]),
+.location-card p[style*="color"]:not([style*="#e8dcc7"]):not([style*="rgba(232, 220, 199"]):not([style*="rgb(232, 220, 199)"]) {
+    color: inherit !important;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .location-card h3 {
+        font-size: 18px !important;
+    }
+    
+    .location-card p {
+        font-size: 14px !important;
+    }
+}
+
+/* sun-mode-text-fixes.css */
+/* ========== CORRECTIONS COULEURS MODE SOLEIL ========== */
+
+/* Mode clair (soleil) par défaut */
+:root,
+.light-theme,
+.sun-mode,
+body:not(.dark-theme) {
+    
+    /* ===== CTA SECTION ===== */
+    .cta-content h2,
+    .cta-content .cta-title,
+    .cta-section h2,
+    [class*="cta"] h2 {
+        color: #8b7355 !important; /* Marron/beige foncé */
+        text-shadow: 0 2px 4px rgba(255, 255, 255, 0.6) !important;
+        font-weight: 500 !important;
+    }
+    
+    .cta-content p,
+    .cta-content .cta-description,
+    .cta-section p,
+    [class*="cta"] p {
+        color: #a1886f !important; /* Beige moyen */
+        text-shadow: 0 1px 2px rgba(255, 255, 255, 0.4) !important;
+        line-height: 1.6 !important;
+    }
+    
+    /* ===== WORK WITH ME SECTION ===== */
+    .work-with-me-content h2,
+    .work-with-me-title,
+    .collaboration-section h2,
+    [class*="work-with"] h2,
+    [class*="collaboration"] h2 {
+        color: #8b7355 !important;
+        text-shadow: 0 2px 4px rgba(255, 255, 255, 0.6) !important;
+        letter-spacing: 1px !important;
+    }
+    
+    .work-with-me-content p,
+    .work-with-me-description,
+    .collaboration-section p,
+    [class*="work-with"] p,
+    [class*="collaboration"] p {
+        color: #a1886f !important;
+        text-shadow: 0 1px 2px rgba(255, 255, 255, 0.4) !important;
+        font-size: 17px !important;
+    }
+    
+    /* ===== LOCATIONS HEADER ANIMATED ===== */
+    .locations-header.animated h2,
+    .locations-header.animated .section-title,
+    .locations-header h2.animated {
+        color: #8b7355 !important;
+        text-shadow: 0 2px 4px rgba(255, 255, 255, 0.6) !important;
+        font-weight: 400 !important;
+        letter-spacing: 2px !important;
+    }
+    
+    .locations-header.animated p,
+    .locations-header.animated .section-description,
+    .locations-header p.animated {
+        color: #a1886f !important;
+        text-shadow: 0 1px 2px rgba(255, 255, 255, 0.4) !important;
+        opacity: 0.9 !important;
+    }
+    
+    /* ===== SECTIONS AVEC BACKGROUND GLASS/BLUR ===== */
+    .glass-section .cta-content h2,
+    .blur-section .work-with-me-content h2,
+    [style*="backdrop-filter"] .locations-header h2 {
+        color: #8b7355 !important;
+        text-shadow: 0 2px 6px rgba(255, 255, 255, 0.7) !important;
+    }
+    
+    .glass-section .cta-content p,
+    .blur-section .work-with-me-content p,
+    [style*="backdrop-filter"] .locations-header p {
+        color: #a1886f !important;
+        text-shadow: 0 1px 3px rgba(255, 255, 255, 0.5) !important;
+    }
+    
+    /* ===== SECTIONS SPÉCIFIQUES ===== */
+    
+    /* Call-to-action avec fond clair */
+    .cta-section.light-bg h2,
+    .cta-section[style*="background: #f"] h2 {
+        color: #7a624a !important; /* Un peu plus foncé pour contraste */
+    }
+    
+    .cta-section.light-bg p,
+    .cta-section[style*="background: #f"] p {
+        color: #8b7355 !important;
+    }
+    
+    /* Work with me avec gradient */
+    .work-with-me-content.gradient-bg h2,
+    .work-with-me-content[style*="gradient"] h2 {
+        color: #8b7355 !important;
+        text-shadow: 0 2px 8px rgba(255, 255, 255, 0.8) !important;
+    }
+    
+    /* Locations avec animation */
+    .locations-header.with-animation h2,
+    .locations-header[class*="scroll"] h2 {
+        color: #8b7355 !important;
+        animation: colorPulse 3s infinite !important;
+    }
+}
+
+/* ===== DARK THEME (pour référence) ===== */
+.dark-theme {
+    .cta-content h2,
+    .work-with-me-content h2,
+    .locations-header.animated h2 {
+        color: #e8dcc7 !important;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3) !important;
+    }
+    
+    .cta-content p,
+    .work-with-me-content p,
+    .locations-header.animated p {
+        color: rgba(232, 220, 199, 0.8) !important;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2) !important;
+    }
+}
+
+/* ===== ANIMATION DE COULEUR POUR MODE SOLEIL ===== */
+@keyframes colorPulse {
+    0%, 100% { color: #8b7355; }
+    50% { color: #a1886f; }
+}
+
+.locations-header.animated h2 {
+    animation: colorPulse 3s ease-in-out infinite;
+}
+
+/* ===== FORCER LES COULEURS MÊME AVEC INLINE STYLES ===== */
+.cta-content h2[style*="color"]:not([style*="#e8dcc7"]):not([style*="rgb(232, 220, 199)"]),
+.work-with-me-content h2[style*="color"]:not([style*="#e8dcc7"]):not([style*="rgb(232, 220, 199)"]),
+.locations-header h2[style*="color"]:not([style*="#e8dcc7"]):not([style*="rgb(232, 220, 199)"]) {
+    color: #8b7355 !important;
+}
+
+.cta-content p[style*="color"]:not([style*="#e8dcc7"]):not([style*="rgba(232, 220, 199"]),
+.work-with-me-content p[style*="color"]:not([style*="#e8dcc7"]):not([style*="rgba(232, 220, 199"]),
+.locations-header p[style*="color"]:not([style*="#e8dcc7"]):not([style*="rgba(232, 220, 199)"]) {
+    color: #a1886f !important;
+}
+
+/* ===== CLASSES UTILITAIRES POUR FORCER LES COULEURS ===== */
+.sun-text-beige h2,
+.sun-text-beige .title {
+    color: #8b7355 !important;
+}
+
+.sun-text-beige p,
+.sun-text-beige .description {
+    color: #a1886f !important;
+}
+
+/* Appliquer à des sections spécifiques */
+.cta-content.sun-text-beige,
+.work-with-me-content.sun-text-beige,
+.locations-header.sun-text-beige {
+    /* Les styles seront hérités des sélecteurs ci-dessus */
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+    .cta-content h2,
+    .work-with-me-content h2,
+    .locations-header h2 {
+        font-size: 32px !important;
+        text-shadow: 0 1px 2px rgba(255, 255, 255, 0.5) !important;
+    }
+    
+    .cta-content p,
+    .work-with-me-content p,
+    .locations-header p {
+        font-size: 16px !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .cta-content h2,
+    .work-with-me-content h2,
+    .locations-header h2 {
+        font-size: 28px !important;
+        letter-spacing: 1px !important;
+    }
+    
+    .cta-content p,
+    .work-with-me-content p,
+    .locations-header p {
+        font-size: 15px !important;
+        line-height: 1.5 !important;
+    }
+    
+    /* Ajustement pour mobile */
+    .cta-content,
+    .work-with-me-content,
+    .locations-header {
+        padding: 0 15px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .cta-content h2,
+    .work-with-me-content h2,
+    .locations-header h2 {
+        font-size: 24px !important;
+    }
+    
+    .cta-content p,
+    .work-with-me-content p,
+    .locations-header p {
+        font-size: 14px !important;
+    }
+}
+
+/* ===== CORRECTION POUR LES ÉLÉMENTS DANS DES CONTENEURS SPÉCIFIQUES ===== */
+/* Si les éléments sont dans des cards ou conteneurs avec background */
+.card-beige-bg .cta-content h2,
+.container-light .work-with-me-content h2,
+.section-beige .locations-header h2 {
+    color: #7a624a !important; /* Plus foncé pour contraste */
+}
+
+.card-beige-bg .cta-content p,
+.container-light .work-with-me-content p,
+.section-beige .locations-header p {
+    color: #8b7355 !important;
+}
+
+/* ===== HOVER EFFECTS ===== */
+.cta-content h2:hover,
+.work-with-me-content h2:hover,
+.locations-header h2:hover {
+    transition: color 0.3s ease;
+}
+
+.cta-content h2:hover {
+    color: #7a624a !important;
+}
+
+.work-with-me-content h2:hover {
+    color: #6d553d !important;
+}
+
+.locations-header h2:hover {
+    color: #5d4730 !important;
+}
+
+/* ===== POUR LES SECTIONS AVEC OPACITÉ/REDUCTION ===== */
+.cta-content.faded h2,
+.work-with-me-content.faded h2,
+.locations-header.faded h2 {
+    opacity: 0.9 !important;
+}
+
+.cta-content.faded p,
+.work-with-me-content.faded p,
+.locations-header.faded p {
+    opacity: 0.8 !important;
+}
+
     </style>
 </head>
 
@@ -13581,6 +13938,150 @@ faqStyles.textContent = `
 `;
 
 document.head.appendChild(faqStyles);
+
+// location-card-color-fixer.js
+document.addEventListener('DOMContentLoaded', function() {
+    function fixLocationCardColors() {
+        const locationCards = document.querySelectorAll('.location-card');
+        const isDarkMode = document.body.classList.contains('dark-theme');
+        const isSunMode = !isDarkMode;
+        
+        locationCards.forEach(card => {
+            // Trouver h3
+            const h3 = card.querySelector('h3, .location-title, [class*="title"]');
+            const p = card.querySelector('p, .location-description, [class*="description"], [class*="text"]');
+            
+            if (isSunMode) {
+                // Mode soleil - couleurs beige/marron
+                if (h3) {
+                    h3.style.color = '#8b7355';
+                    h3.style.textShadow = '0 1px 2px rgba(255,255,255,0.5)';
+                }
+                
+                if (p) {
+                    p.style.color = '#a1886f';
+                    p.style.textShadow = '0 1px 1px rgba(255,255,255,0.3)';
+                }
+            } else {
+                // Dark mode - couleurs beige clair
+                if (h3) {
+                    h3.style.color = '#e8dcc7';
+                    h3.style.textShadow = '0 1px 2px rgba(0,0,0,0.3)';
+                }
+                
+                if (p) {
+                    p.style.color = 'rgba(232, 220, 199, 0.8)';
+                    p.style.textShadow = '0 1px 1px rgba(0,0,0,0.2)';
+                }
+            }
+        });
+        
+        console.log(`✅ ${locationCards.length} location-card(s) colorisées`);
+    }
+    
+    // Appliquer au chargement
+    fixLocationCardColors();
+    
+    // Réappliquer si changement de thème
+    const observer = new MutationObserver((mutations) => {
+        mutations.forEach((mutation) => {
+            if (mutation.attributeName === 'class') {
+                setTimeout(fixLocationCardColors, 100);
+            }
+        });
+    });
+    
+    observer.observe(document.body, { attributes: true });
+    
+    // Pour les Single Page Apps
+    window.addEventListener('popstate', fixLocationCardColors);
+});
+
+// sun-mode-sections-fixer.js
+document.addEventListener('DOMContentLoaded', function() {
+    function fixSunModeSections() {
+        const isDarkMode = document.body.classList.contains('dark-theme');
+        const isSunMode = !isDarkMode;
+        
+        // Liste des sélecteurs à corriger
+        const sections = [
+            { selector: '.cta-content', type: 'cta' },
+            { selector: '.work-with-me-content', type: 'work' },
+            { selector: '.locations-header.animated', type: 'locations' },
+            { selector: '[class*="cta"]:not(.dark-theme)', type: 'cta' },
+            { selector: '[class*="work-with"]:not(.dark-theme)', type: 'work' },
+            { selector: '[class*="locations"]:not(.dark-theme)', type: 'locations' }
+        ];
+        
+        sections.forEach(section => {
+            const elements = document.querySelectorAll(section.selector);
+            
+            elements.forEach(element => {
+                // Trouver h2 et p
+                const h2 = element.querySelector('h2, .section-title, .content-title');
+                const p = element.querySelector('p, .section-description, .content-text');
+                
+                if (isSunMode) {
+                    // Mode soleil - couleurs beige
+                    if (h2) {
+                        h2.style.color = '#8b7355';
+                        h2.style.textShadow = '0 2px 4px rgba(255,255,255,0.6)';
+                        h2.classList.add('sun-mode-text');
+                    }
+                    
+                    if (p) {
+                        p.style.color = '#a1886f';
+                        p.style.textShadow = '0 1px 2px rgba(255,255,255,0.4)';
+                        p.classList.add('sun-mode-text');
+                    }
+                } else {
+                    // Dark mode - couleurs beige clair
+                    if (h2) {
+                        h2.style.color = '#e8dcc7';
+                        h2.style.textShadow = '0 2px 4px rgba(0,0,0,0.3)';
+                        h2.classList.remove('sun-mode-text');
+                    }
+                    
+                    if (p) {
+                        p.style.color = 'rgba(232, 220, 199, 0.8)';
+                        p.style.textShadow = '0 1px 2px rgba(0,0,0,0.2)';
+                        p.classList.remove('sun-mode-text');
+                    }
+                }
+            });
+        });
+        
+        console.log('✅ Sections mode soleil colorisées');
+    }
+    
+    // Appliquer au chargement
+    fixSunModeSections();
+    
+    // Observer les changements de thème
+    const observer = new MutationObserver((mutations) => {
+        mutations.forEach((mutation) => {
+            if (mutation.attributeName === 'class') {
+                setTimeout(fixSunModeSections, 100);
+            }
+        });
+    });
+    
+    observer.observe(document.body, { attributes: true });
+    
+    // Observer l'ajout de nouvelles sections
+    const sectionObserver = new MutationObserver((mutations) => {
+        mutations.forEach((mutation) => {
+            if (mutation.addedNodes.length) {
+                setTimeout(fixSunModeSections, 200);
+            }
+        });
+    });
+    
+    sectionObserver.observe(document.body, { childList: true, subtree: true });
+    
+    // Exposer la fonction pour debug
+    window.fixSunModeColors = fixSunModeSections;
+});
 
 </script>
 </body>
