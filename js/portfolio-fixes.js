@@ -3,28 +3,7 @@ console.log('🔧 Application des correctifs portfolio...');
 
 document.addEventListener('DOMContentLoaded', function() {
     
-    // 1. Ajouter le logo au menu
-    function addLogoToMenu() {
-        const menu = document.querySelector('.nav-menu, .main-nav, nav');
-        if (!menu) return;
-        
-        // Vérifier si le logo existe déjà
-        if (!document.querySelector('.logo-link')) {
-            const logoLink = document.createElement('a');
-            logoLink.href = '/';
-            logoLink.className = 'logo-link';
-            logoLink.innerHTML = `
-                <img src="ton-logo.png" alt="Logo" class="logo-image">
-                <span>Kathy</span>
-            `;
-            
-            // Insérer au début du menu
-            menu.insertBefore(logoLink, menu.firstChild);
-            console.log('✅ Logo ajouté au menu');
-        }
-    }
-    
-    // 2. Sticky filters dans portfolio
+    // Sticky filters dans portfolio
     function initStickyFilters() {
         const filters = document.querySelector('.portfolio-filters');
         const portfolioSection = document.querySelector('.portfolio-section');
