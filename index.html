@@ -1659,238 +1659,7 @@ body.dark-theme .about-hero:hover .photo-2 {
 
 
 
-        /* about-history-fixes.css */
-/* ========== CORRECTION "MON HISTOIRE" ========== */
-
-/* Conteneur principal */
-.about-presentation-sticky-fixed {
-    position: relative;
-    min-height: 100vh;
-    padding-top: 100px; /* Espace depuis le header */
-}
-
-/* Conteneur du contenu */
-.about-presentation-content {
-    position: relative;
-    z-index: 20;
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 40px 20px;
-}
-
-/* Titre en background */
-.about-history-title-background {
-    position: absolute !important;
-    top: 0 !important;
-    left: 0 !important;
-    right: 0 !important;
-    z-index: 5 !important;
-    text-align: center !important;
-    pointer-events: none !important;
-    user-select: none !important;
-}
-
-.about-history-title-background h2 {
-    font-size: clamp(60px, 10vw, 120px) !important; /* Taille responsive */
-    font-weight: 300 !important;
-    letter-spacing: 8px !important;
-    color: rgba(196, 164, 132, 0.08) !important; /* Très transparent */
-    text-transform: uppercase !important;
-    margin: 0 !important;
-    line-height: 1 !important;
-    background: linear-gradient(135deg, 
-        rgba(196, 164, 132, 0.1) 0%, 
-        rgba(196, 164, 132, 0.03) 100%
-    ) !important;
-    -webkit-background-clip: text !important;
-    background-clip: text !important;
-    -webkit-text-fill-color: transparent !important;
-    text-fill-color: transparent !important;
-}
-
-/* Texte au premier plan */
-.about-presentation-text {
-    position: relative !important;
-    z-index: 25 !important; /* Au-dessus du titre */
-    padding-top: 80px !important; /* Espace sous le titre */
-}
-
-.about-paragraph {
-    color: var(--text-color, #2c2420) !important;
-    font-size: 18px !important;
-    line-height: 1.8 !important;
-    margin-bottom: 30px !important;
-    position: relative !important;
-    z-index: 30 !important;
-    background: rgba(255, 255, 255, 0.85) !important;
-    backdrop-filter: blur(5px) !important;
-    padding: 20px !important;
-    border-radius: 15px !important;
-    border: 1px solid rgba(196, 164, 132, 0.1) !important;
-}
-
-.dark-theme .about-paragraph {
-    background: rgba(26, 22, 20, 0.85) !important;
-    color: #e8dcc7 !important;
-    border-color: rgba(196, 164, 132, 0.2) !important;
-}
-
-.about-keyword {
-    color: #c4a484 !important;
-    font-weight: 500 !important;
-    position: relative !important;
-}
-
-.about-keyword::after {
-    content: '';
-    position: absolute;
-    bottom: -2px;
-    left: 0;
-    right: 0;
-    height: 1px;
-    background: rgba(196, 164, 132, 0.3);
-}
-
-/* ===== CORRECTIONS RESPONSIVE ===== */
-
-/* TABLETTE (1024px et moins) */
-@media (max-width: 1024px) {
-    .about-presentation-sticky-fixed {
-        min-height: auto;
-        padding-top: 80px;
-    }
-    
-    .about-history-title-background {
-        position: relative !important; /* Plus fixed */
-        top: auto !important;
-        margin-bottom: 40px !important;
-    }
-    
-    .about-history-title-background h2 {
-        font-size: clamp(48px, 8vw, 80px) !important;
-        letter-spacing: 6px !important;
-        color: rgba(196, 164, 132, 0.12) !important;
-        margin-bottom: 20px !important;
-    }
-    
-    .about-presentation-text {
-        padding-top: 0 !important; /* Plus besoin d'espace */
-        margin-top: -30px !important; /* Remonter un peu */
-    }
-    
-    .about-paragraph {
-        font-size: 17px !important;
-        line-height: 1.7 !important;
-        margin-bottom: 25px !important;
-        padding: 18px !important;
-        backdrop-filter: blur(8px) !important;
-    }
-    
-    /* Augmenter l'opacité du fond pour mieux lire */
-    .about-paragraph {
-        background: rgba(255, 255, 255, 0.92) !important;
-    }
-    
-    .dark-theme .about-paragraph {
-        background: rgba(26, 22, 20, 0.92) !important;
-    }
-}
-
-/* MOBILE (768px et moins) */
-@media (max-width: 768px) {
-    .about-presentation-sticky-fixed {
-        padding-top: 60px;
-    }
-    
-    .about-presentation-content {
-        padding: 20px 15px !important;
-    }
-    
-    .about-history-title-background {
-        margin-bottom: 30px !important;
-    }
-    
-    .about-history-title-background h2 {
-        font-size: clamp(36px, 6vw, 60px) !important;
-        letter-spacing: 4px !important;
-        color: rgba(196, 164, 132, 0.15) !important; /* Un peu plus visible */
-        margin-bottom: 15px !important;
-    }
-    
-    .about-presentation-text {
-        margin-top: -20px !important;
-    }
-    
-    .about-paragraph {
-        font-size: 16px !important;
-        line-height: 1.6 !important;
-        margin-bottom: 20px !important;
-        padding: 15px !important;
-        backdrop-filter: blur(10px) !important; /* Plus de flou pour lisibilité */
-    }
-    
-    /* Sur mobile, rendre le fond plus opaque */
-    .about-paragraph {
-        background: rgba(255, 255, 255, 0.95) !important;
-    }
-    
-    .dark-theme .about-paragraph {
-        background: rgba(26, 22, 20, 0.95) !important;
-    }
-    
-    .about-keyword {
-        font-size: 17px !important; /* Légèrement plus gros pour mobile */
-    }
-}
-
-/* TRÈS PETIT MOBILE (480px et moins) */
-@media (max-width: 480px) {
-    .about-history-title-background h2 {
-        font-size: 32px !important;
-        letter-spacing: 3px !important;
-        line-height: 1.2 !important;
-    }
-    
-    .about-paragraph {
-        font-size: 15px !important;
-        padding: 12px !important;
-        margin-bottom: 15px !important;
-    }
-    
-    .about-presentation-content {
-        padding: 15px 10px !important;
-    }
-    
-    /* Réduire l'espacement des mots-clés */
-    .about-keyword {
-        padding: 0 2px;
-    }
-}
-
-/* ORIENTATION PAYSAGE SUR MOBILE */
-@media (max-width: 768px) and (orientation: landscape) {
-    .about-history-title-background h2 {
-        font-size: 40px !important;
-        letter-spacing: 3px !important;
-    }
-    
-    .about-paragraph {
-        font-size: 14px !important;
-        line-height: 1.5 !important;
-        padding: 10px !important;
-    }
-}
-
-/* ANIMATION POUR L'ADAPTATION RESPONSIVE */
-@keyframes smoothLayoutChange {
-    0% { opacity: 0.8; transform: translateY(-10px); }
-    100% { opacity: 1; transform: translateY(0); }
-}
-
-.about-responsive-adjusting {
-    animation: smoothLayoutChange 0.4s ease;
-}
-
+        
         /* MISSION & VISION */
         .mission-vision-section {
             padding: 150px 80px;
@@ -9602,6 +9371,25 @@ body:not(.dark-theme) {
     opacity: 0.8 !important;
 }
 
+.about-main-title {
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 0 20px;
+}
+
+.about-main-title h2 {
+    font-size: 48px;
+    color: #c4a484;
+    letter-spacing: 4px;
+    font-weight: 300;
+}
+
+@media (max-width: 768px) {
+    .about-main-title h2 {
+        font-size: 36px;
+        letter-spacing: 3px;
+    }
+}
     </style>
 </head>
 
@@ -10031,10 +9819,11 @@ body:not(.dark-theme) {
 
 
         <!-- STICKY PRESENTATION -->
-<section class="about-presentation-sticky">
-    <div class="about-presentation-content" id="about-presentation">
-        <div class="about-presentation-text">
+<section class="about-presentation-simple">
+        <div class="about-main-title">
             <h2>Mon Histoire</h2>
+            <div class="about-presentation-content">
+                <div class="about-presentation-text">
             <p class="about-paragraph">
                 Je suis <span class="about-keyword">Kathy Mangolia Diomi</span>, créatrice de contenu, modèle et entrepreneure basée à Kinshasa. Mon univers est un mélange de <span class="about-keyword">raffinement</span>, d'<span class="about-keyword">audace</span> et de <span class="about-keyword">vérité</span>, où chaque projet devient une signature unique.
             </p>
@@ -14304,139 +14093,6 @@ document.addEventListener('DOMContentLoaded', function() {
     
     observer.observe(document.body, { childList: true, subtree: true });
 });
-
-// about-history-responsive.js
-console.log('📱 Adaptation responsive de "Mon Histoire"...');
-
-document.addEventListener('DOMContentLoaded', function() {
-    
-    function fixAboutHistoryLayout() {
-        const aboutSection = document.querySelector('.about-presentation-sticky-fixed');
-        const titleBg = document.querySelector('.about-history-title-background');
-        const presentationText = document.querySelector('.about-presentation-text');
-        const paragraphs = document.querySelectorAll('.about-paragraph');
-        
-        if (!aboutSection || !titleBg || !presentationText) {
-            console.warn('⚠️ Section "Mon Histoire" incomplète');
-            return;
-        }
-        
-        const windowWidth = window.innerWidth;
-        const windowHeight = window.innerHeight;
-        const isMobile = windowWidth <= 768;
-        const isTablet = windowWidth <= 1024 && windowWidth > 768;
-        
-        // Appliquer la classe d'animation
-        aboutSection.classList.add('about-responsive-adjusting');
-        
-        if (isMobile) {
-            // MOBILE : Titre au-dessus, texte en dessous
-            titleBg.style.position = 'relative';
-            titleBg.style.top = 'auto';
-            titleBg.style.zIndex = '10';
-            titleBg.style.marginBottom = '30px';
-            titleBg.style.pointerEvents = 'auto';
-            
-            presentationText.style.paddingTop = '0';
-            presentationText.style.marginTop = '-20px';
-            presentationText.style.zIndex = '20';
-            
-            // Ajuster les paragraphes
-            paragraphs.forEach(p => {
-                p.style.background = 'rgba(255, 255, 255, 0.95)';
-                p.style.backdropFilter = 'blur(10px)';
-                p.style.fontSize = '16px';
-                p.style.padding = '15px';
-                p.style.marginBottom = '20px';
-            });
-            
-        } else if (isTablet) {
-            // TABLETTE : Position intermédiaire
-            titleBg.style.position = 'relative';
-            titleBg.style.top = 'auto';
-            titleBg.style.zIndex = '15';
-            titleBg.style.marginBottom = '40px';
-            
-            presentationText.style.paddingTop = '0';
-            presentationText.style.marginTop = '-30px';
-            presentationText.style.zIndex = '25';
-            
-            paragraphs.forEach(p => {
-                p.style.background = 'rgba(255, 255, 255, 0.92)';
-                p.style.backdropFilter = 'blur(8px)';
-                p.style.fontSize = '17px';
-                p.style.padding = '18px';
-            });
-            
-        } else {
-            // DESKTOP : Effet original avec titre en background
-            titleBg.style.position = 'absolute';
-            titleBg.style.top = '0';
-            titleBg.style.zIndex = '5';
-            titleBg.style.marginBottom = '0';
-            titleBg.style.pointerEvents = 'none';
-            
-            presentationText.style.paddingTop = '80px';
-            presentationText.style.marginTop = '0';
-            presentationText.style.zIndex = '25';
-            
-            paragraphs.forEach(p => {
-                p.style.background = 'rgba(255, 255, 255, 0.85)';
-                p.style.backdropFilter = 'blur(5px)';
-                p.style.fontSize = '18px';
-                p.style.padding = '20px';
-            });
-        }
-        
-        // Ajuster la taille du titre selon l'écran
-        const titleH2 = titleBg.querySelector('h2');
-        if (titleH2) {
-            if (isMobile) {
-                titleH2.style.fontSize = 'clamp(36px, 6vw, 60px)';
-                titleH2.style.color = 'rgba(196, 164, 132, 0.15)';
-            } else if (isTablet) {
-                titleH2.style.fontSize = 'clamp(48px, 8vw, 80px)';
-                titleH2.style.color = 'rgba(196, 164, 132, 0.12)';
-            } else {
-                titleH2.style.fontSize = 'clamp(60px, 10vw, 120px)';
-                titleH2.style.color = 'rgba(196, 164, 132, 0.08)';
-            }
-        }
-        
-        // Retirer l'animation après un délai
-        setTimeout(() => {
-            aboutSection.classList.remove('about-responsive-adjusting');
-        }, 400);
-        
-        console.log(`✅ "Mon Histoire" adapté pour ${isMobile ? 'mobile' : isTablet ? 'tablette' : 'desktop'}`);
-    }
-    
-    // Appliquer au chargement
-    fixAboutHistoryLayout();
-    
-    // Réappliquer au redimensionnement
-    let resizeTimer;
-    window.addEventListener('resize', function() {
-        clearTimeout(resizeTimer);
-        resizeTimer = setTimeout(fixAboutHistoryLayout, 200);
-    });
-    
-    // Observer le scroll pour ajuster l'opacité sur desktop
-    if (window.innerWidth > 1024) {
-        window.addEventListener('scroll', function() {
-            const titleBg = document.querySelector('.about-history-title-background');
-            const scrollY = window.scrollY;
-            
-            if (titleBg && scrollY > 100) {
-                // Réduire l'opacité du titre quand on scroll
-                const opacity = Math.max(0.03, 0.08 - (scrollY * 0.0001));
-                titleBg.style.opacity = opacity;
-            }
-        });
-    }
-});
-
-
 </script>
 </body>
 </html>
