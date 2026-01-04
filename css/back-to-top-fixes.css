@@ -1,0 +1,229 @@
+/* back-to-top-fixes.css */
+/* ========== CORRECTIONS BOUTON RETOUR EN HAUT ========== */
+
+/* Style de base */
+.back-to-top {
+    position: fixed !important;
+    bottom: 30px !important;
+    right: 30px !important;
+    z-index: 9999 !important;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    opacity: 0.9 !important;
+    transform: translateY(0) !important;
+}
+
+.back-to-top:hover {
+    opacity: 1 !important;
+    transform: translateY(-5px) !important;
+}
+
+/* Bouton visible */
+.back-to-top.visible {
+    opacity: 0.9 !important;
+    transform: translateY(0) !important;
+}
+
+/* === TABLETTE (768px - 1024px) === */
+@media (max-width: 1024px) and (min-width: 769px) {
+    .back-to-top {
+        bottom: 25px !important;
+        right: 25px !important;
+        width: 50px !important;
+        height: 50px !important;
+    }
+    
+    /* Ajuster la taille de l'icône */
+    .back-to-top svg,
+    .back-to-top i {
+        width: 20px !important;
+        height: 20px !important;
+    }
+    
+    /* Texte si présent */
+    .back-to-top span {
+        font-size: 12px !important;
+        margin-right: 5px !important;
+    }
+    
+    /* Bouton avec icône + texte */
+    .back-to-top.has-text {
+        padding: 12px 15px !important;
+        font-size: 13px !important;
+    }
+}
+
+/* === MOBILE (768px et moins) === */
+@media (max-width: 768px) {
+    .back-to-top {
+        bottom: 20px !important;
+        right: 20px !important;
+        width: 45px !important;
+        height: 45px !important;
+        opacity: 0.8 !important;
+    }
+    
+    /* Pour éviter les touches accidentelles sur mobile */
+    .back-to-top {
+        padding: 0 !important;
+        border-radius: 50% !important;
+    }
+    
+    /* Ajuster l'icône */
+    .back-to-top svg,
+    .back-to-top i {
+        width: 18px !important;
+        height: 18px !important;
+    }
+    
+    /* Cacher le texte sur mobile (sauf si espace) */
+    .back-to-top span.text-label {
+        display: none !important;
+    }
+    
+    /* Si le bouton a du texte, le rendre plus compact */
+    .back-to-top.has-text {
+        width: auto !important;
+        height: auto !important;
+        padding: 10px 12px !important;
+        font-size: 12px !important;
+        border-radius: 25px !important;
+    }
+    
+    .back-to-top.has-text span {
+        font-size: 11px !important;
+    }
+    
+    /* Position alternative pour éviter l'overlay avec d'autres éléments */
+    .back-to-top.mobile-bottom-center {
+        right: 50% !important;
+        transform: translateX(50%) !important;
+        bottom: 15px !important;
+    }
+    
+    /* Sur très petit mobile */
+    @media (max-width: 480px) {
+        .back-to-top {
+            bottom: 15px !important;
+            right: 15px !important;
+            width: 40px !important;
+            height: 40px !important;
+        }
+        
+        .back-to-top svg,
+        .back-to-top i {
+            width: 16px !important;
+            height: 16px !important;
+        }
+        
+        .back-to-top.has-text {
+            padding: 8px 10px !important;
+            font-size: 11px !important;
+        }
+    }
+    
+    /* Pour les iPhones avec notch/safe area */
+    @supports (padding-bottom: env(safe-area-inset-bottom)) {
+        .back-to-top {
+            bottom: calc(20px + env(safe-area-inset-bottom)) !important;
+            right: calc(20px + env(safe-area-inset-right)) !important;
+        }
+        
+        .back-to-top.mobile-bottom-center {
+            bottom: calc(15px + env(safe-area-inset-bottom)) !important;
+            right: 50% !important;
+            transform: translateX(calc(50% + env(safe-area-inset-right) / 2)) !important;
+        }
+    }
+}
+
+/* === ORIENTATION PAYSAGE MOBILE === */
+@media (max-width: 768px) and (orientation: landscape) {
+    .back-to-top {
+        bottom: 15px !important;
+        right: 15px !important;
+        width: 40px !important;
+        height: 40px !important;
+    }
+    
+    /* Déplacer si interfère avec le clavier */
+    .back-to-top.keyboard-visible {
+        bottom: 60px !important;
+    }
+}
+
+/* === TOUCH DEVICES === */
+@media (hover: none) and (pointer: coarse) {
+    .back-to-top {
+        opacity: 0.9 !important; /* Toujours visible sur touch */
+    }
+    
+    .back-to-top:active {
+        transform: scale(0.95) !important;
+        opacity: 1 !important;
+    }
+    
+    /* Agrandir la zone de touch */
+    .back-to-top::after {
+        content: '' !important;
+        position: absolute !important;
+        top: -10px !important;
+        left: -10px !important;
+        right: -10px !important;
+        bottom: -10px !important;
+    }
+}
+
+/* === ANIMATIONS === */
+@keyframes bounceIn {
+    0% { opacity: 0; transform: translateY(20px) scale(0.8); }
+    100% { opacity: 0.9; transform: translateY(0) scale(1); }
+}
+
+@keyframes pulseMobile {
+    0% { box-shadow: 0 0 0 0 rgba(196, 164, 132, 0.4); }
+    70% { box-shadow: 0 0 0 10px rgba(196, 164, 132, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(196, 164, 132, 0); }
+}
+
+.back-to-top.show-animation {
+    animation: bounceIn 0.5s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+/* Animation pulsation sur mobile */
+@media (max-width: 768px) {
+    .back-to-top.pulse-on-scroll {
+        animation: pulseMobile 2s infinite !important;
+    }
+}
+
+/* === STYLES VISUELS AMÉLIORÉS === */
+.back-to-top.glass-effect {
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+    background: rgba(196, 164, 132, 0.15) !important;
+    border: 1px solid rgba(196, 164, 132, 0.3) !important;
+}
+
+.back-to-top.solid-effect {
+    background: linear-gradient(135deg, #c4a484 0%, #8b7355 100%) !important;
+    color: white !important;
+    border: none !important;
+    box-shadow: 0 5px 20px rgba(196, 164, 132, 0.3) !important;
+}
+
+/* Dark mode */
+.dark-theme .back-to-top.glass-effect {
+    background: rgba(26, 22, 20, 0.8) !important;
+    border-color: rgba(196, 164, 132, 0.4) !important;
+}
+
+/* === ACCESSIBILITÉ === */
+.back-to-top:focus {
+    outline: 2px solid #c4a484 !important;
+    outline-offset: 2px !important;
+}
+
+/* Masquer pour les lecteurs d'écran quand invisible */
+.back-to-top[aria-hidden="true"] {
+    display: none !important;
+}

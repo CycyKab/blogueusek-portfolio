@@ -1,0 +1,412 @@
+/* portfolio-fixes-final.css */
+/* ========== CORRECTIONS GLOBALES ========== */
+
+/* 1. COULEUR DU TITRE PORTFOLIO ET TEXTES SUR BACKGROUND BLUR */
+.portfolio-hero-title,
+.portfolio-section-title,
+.section-title,
+.page-title {
+    color: #2c2420 !important; /* Couleur marron foncé */
+    text-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
+}
+
+.dark-theme .portfolio-hero-title,
+.dark-theme .portfolio-section-title,
+.dark-theme .section-title,
+.dark-theme .page-title {
+    color: #e8dcc7 !important; /* Couleur beige clair */
+    text-shadow: 0 2px 8px rgba(0,0,0,0.3) !important;
+}
+
+/* Textes sur fond blur/glass */
+.glass-section h2,
+.glass-section h3,
+.glass-section p,
+.blur-section h2,
+.blur-section h3,
+.blur-section p,
+[style*="backdrop-filter"] h2,
+[style*="backdrop-filter"] h3,
+[style*="backdrop-filter"] p {
+    color: #2c2420 !important;
+    text-shadow: 0 1px 2px rgba(255,255,255,0.8) !important;
+}
+
+.dark-theme .glass-section h2,
+.dark-theme .glass-section h3,
+.dark-theme .glass-section p,
+.dark-theme .blur-section h2,
+.dark-theme .blur-section h3,
+.dark-theme .blur-section p {
+    color: #e8dcc7 !important;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.5) !important;
+}
+
+/* Sections spécifiques */
+.collaborate-section h2,
+.collaborate-section p,
+.ready-collab-section h2,
+.ready-collab-section p {
+    color: #2c2420 !important;
+    font-weight: 500 !important;
+}
+
+.dark-theme .collaborate-section h2,
+.dark-theme .collaborate-section p,
+.dark-theme .ready-collab-section h2,
+.dark-theme .ready-collab-section p {
+    color: #e8dcc7 !important;
+}
+
+/* 2. RESPONSIVE ABOUT PAGE - Alignement des textes */
+@media (max-width: 1024px) {
+    /* Tablette */
+    .about-content-section,
+    .about-details,
+    .about-text-section {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+    }
+    
+    .about-grid,
+    .about-columns {
+        grid-template-columns: 1fr !important;
+        gap: 30px !important;
+        text-align: center !important;
+    }
+    
+    .about-text-block,
+    .about-paragraph {
+        margin: 0 auto !important;
+        max-width: 600px !important;
+        text-align: center !important;
+        padding: 0 20px !important;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Mobile */
+    .about-content-section,
+    .about-details,
+    .about-text-section {
+        padding: 0 15px !important;
+    }
+    
+    .about-text-block,
+    .about-paragraph {
+        max-width: 100% !important;
+        text-align: left !important;
+        padding: 0 !important;
+    }
+    
+    /* Alignement des éléments côte à côte */
+    .about-stats,
+    .about-features,
+    .about-highlights {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 20px !important;
+    }
+    
+    .about-stats > div,
+    .about-features > div,
+    .about-highlights > div {
+        width: 100% !important;
+        text-align: center !important;
+    }
+}
+
+/* 3. RESPONSIVE TESTIMONIALS */
+.testimonials-grid,
+.testimonials-container,
+.testimonial-cards {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)) !important;
+    gap: 30px !important;
+}
+
+@media (max-width: 1024px) {
+    .testimonials-grid,
+    .testimonials-container,
+    .testimonial-cards {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 20px !important;
+    }
+    
+    .testimonial-card,
+    .testimonial-item {
+        min-height: 250px !important;
+        padding: 25px !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .testimonials-grid,
+    .testimonials-container,
+    .testimonial-cards {
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+    }
+    
+    .testimonial-card,
+    .testimonial-item {
+        min-height: auto !important;
+        padding: 20px !important;
+        margin: 0 10px !important;
+    }
+}
+
+/* 4. RESPONSIVE SERVICES PAGE */
+@media (max-width: 1024px) {
+    /* Tablette */
+    .services-grid,
+    .services-container {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 25px !important;
+    }
+    
+    .service-section,
+    .services-section {
+        padding: 40px 20px !important;
+    }
+    
+    .service-card,
+    .service-item {
+        min-height: 300px !important;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Mobile */
+    .services-grid,
+    .services-container {
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+    }
+    
+    .service-section,
+    .services-section {
+        padding: 30px 15px !important;
+    }
+    
+    .service-card,
+    .service-item {
+        min-height: auto !important;
+        margin: 0 10px !important;
+    }
+    
+    /* Correction de l'espacement entre sections */
+    .services-section + .services-section {
+        margin-top: 30px !important;
+    }
+}
+
+/* 5. BARRE CATÉGORIES PORTFOLIO - Sticky et rétrécissement */
+.portfolio-filters {
+    position: sticky !important;
+    top: 70px !important; /* Juste en dessous du menu */
+    z-index: 998 !important;
+    background: var(--bg-color) !important;
+    backdrop-filter: blur(15px) !important;
+    -webkit-backdrop-filter: blur(15px) !important;
+    padding: 15px 0 !important;
+    margin: 0 !important;
+    transition: all 0.3s ease !important;
+    border-bottom: 1px solid rgba(196, 164, 132, 0.2) !important;
+}
+
+/* Quand on scroll, la barre rétrécit */
+.portfolio-filters.scrolled {
+    top: 60px !important;
+    padding: 10px 0 !important;
+    backdrop-filter: blur(20px) !important;
+    background: rgba(var(--bg-color-rgb), 0.95) !important;
+}
+
+.portfolio-filters.scrolled .filter-btn {
+    padding: 8px 16px !important;
+    font-size: 13px !important;
+}
+
+.filter-btn {
+    transition: all 0.3s ease !important;
+    padding: 10px 20px !important;
+    font-size: 14px !important;
+}
+
+/* Responsive des filtres */
+@media (max-width: 1024px) {
+    .portfolio-filters {
+        top: 65px !important;
+        overflow-x: auto !important;
+        white-space: nowrap !important;
+        -webkit-overflow-scrolling: touch !important;
+        scrollbar-width: none !important;
+        padding: 12px 0 !important;
+    }
+    
+    .portfolio-filters.scrolled {
+        top: 55px !important;
+        padding: 8px 0 !important;
+    }
+    
+    .filter-btn {
+        padding: 8px 15px !important;
+        font-size: 13px !important;
+        display: inline-block !important;
+        margin: 0 5px !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .portfolio-filters {
+        top: 60px !important;
+        padding: 10px 0 !important;
+    }
+    
+    .portfolio-filters.scrolled {
+        top: 50px !important;
+        padding: 6px 0 !important;
+    }
+    
+    .filter-btn {
+        padding: 6px 12px !important;
+        font-size: 12px !important;
+        margin: 0 3px !important;
+    }
+}
+
+/* 6. EFFET ESCALIER SERVICES PAGE - Correction pour tablette/mobile */
+@media (max-width: 1024px) {
+    .luxury-services-section,
+    .stair-effect-section,
+    .services-staircase {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 30px !important;
+    }
+    
+    .service-card,
+    .stair-item {
+        transform: none !important;
+        opacity: 1 !important;
+        position: relative !important;
+        width: 100% !important;
+        margin: 0 !important;
+        transition: transform 0.3s ease !important;
+    }
+    
+    /* Petit effet au scroll quand même */
+    .service-card.scrolled,
+    .stair-item.scrolled {
+        transform: translateY(-10px) !important;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1) !important;
+    }
+    
+    /* Désactiver l'effet escalier original */
+    .luxury-services-grid,
+    .stair-grid {
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        gap: 30px !important;
+    }
+}
+
+/* Animation douce pour l'effet escalier mobile */
+@keyframes mobileStair {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 768px) {
+    .service-card,
+    .stair-item {
+        animation: mobileStair 0.5s ease forwards !important;
+        animation-delay: calc(var(--index, 0) * 0.1s) !important;
+    }
+}
+
+/* 7. CORRECTIONS SPÉCIFIQUES POUR CHAQUE PAGE */
+
+/* Page Portfolio */
+.portfolio-grid {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)) !important;
+    gap: 25px !important;
+}
+
+@media (max-width: 1024px) {
+    .portfolio-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 20px !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .portfolio-grid {
+        grid-template-columns: 1fr !important;
+        gap: 15px !important;
+    }
+    
+    .portfolio-project {
+        height: 300px !important;
+        margin: 0 10px !important;
+    }
+}
+
+/* Page About */
+.about-stats-grid {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)) !important;
+    gap: 20px !important;
+}
+
+@media (max-width: 768px) {
+    .about-stats-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-stats-grid {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+/* Page Contact */
+.contact-form-container {
+    max-width: 800px !important;
+    margin: 0 auto !important;
+}
+
+@media (max-width: 768px) {
+    .contact-form-container {
+        padding: 0 15px !important;
+    }
+    
+    .contact-form-grid {
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+    }
+}
+
+/* 8. AMÉLIORATION DE LA LISIBILITÉ */
+.enhanced-text {
+    color: #2c2420 !important;
+    line-height: 1.6 !important;
+    text-shadow: 0 1px 2px rgba(255,255,255,0.5) !important;
+}
+
+.dark-theme .enhanced-text {
+    color: #e8dcc7 !important;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.3) !important;
+}
+
+/* Appliquer aux sections glass */
+.glass-section *:not(.btn):not(button):not(a) {
+    color: inherit !important;
+    text-shadow: inherit !important;
+}

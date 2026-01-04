@@ -10,7 +10,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="css/global-fixes.css">
+    <link rel="stylesheet" href="css/portfolio-fixes-final.css">
     <script src="js/portfolio-fixes.js" defer></script>
+    <script src="js/portfolio-interactive-fixes.js"></script>
+    <link rel="stylesheet" href="css/back-to-top-fixes.css">
+    <script src="js/back-to-top-responsive.js" defer></script>
 
     <style>
         /* ===== GLOBAL STYLES ===== */
@@ -9071,7 +9075,73 @@ body:not(.dark-theme):not(.beige-mode) .tool-item {
         animation-duration: 70s !important;
     }
 }
+/* logo-menu-from-loader.css */
+/* Affiche le logo KMD dans le menu en utilisant CSS */
 
+/* 1. Créer le logo dans le menu avec CSS */
+nav::before, .nav::before, .navbar::before, .menu::before {
+    content: 'K M D';
+    position: fixed;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    letter-spacing: 4px;
+    color: #c4a484;
+    z-index: 10000;
+    display: flex;
+    gap: 8px;
+    text-decoration: none;
+    padding: 8px 15px;
+    border-radius: 10px;
+    background: rgba(196, 164, 132, 0.05);
+    border: 1px solid rgba(196, 164, 132, 0.2);
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+/* Hover effect */
+nav:hover::before, .nav:hover::before, .navbar:hover::before, .menu:hover::before {
+    background: rgba(196, 164, 132, 0.1);
+    border-color: #c4a484;
+    transform: translateY(-50%) scale(1.05);
+    box-shadow: 0 5px 15px rgba(196, 164, 132, 0.2);
+}
+
+/* 2. Espace pour le logo */
+nav, .nav, .navbar, .menu {
+    padding-left: 140px !important;
+    position: relative !important;
+}
+
+/* 3. Responsive */
+@media (max-width: 768px) {
+    nav::before, .nav::before, .navbar::before, .menu::before {
+        left: 15px;
+        font-size: 18px;
+        letter-spacing: 3px;
+        padding: 6px 12px;
+    }
+    
+    nav, .nav, .navbar, .menu {
+        padding-left: 120px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    nav::before, .nav::before, .navbar::before, .menu::before {
+        left: 10px;
+        font-size: 16px;
+        letter-spacing: 2px;
+        padding: 5px 10px;
+    }
+    
+    nav, .nav, .navbar, .menu {
+        padding-left: 100px !important;
+    }
+}
     </style>
 </head>
 
@@ -9085,7 +9155,13 @@ body:not(.dark-theme):not(.beige-mode) .tool-item {
                 <span class="logo-letter">D</span>
             </div>
         </div>
-        <nav>
+        
+        <nav class="main-menu">
+            <a href="/" class="menu-logo">
+                <span class="logo-letter">K</span>
+                <span class="logo-letter">M</span>
+                <span class="logo-letter">D</span>
+            </a>
             <a onclick="showPage('home')" class="nav-link active">Accueil</a>
             <a onclick="showPage('about')" class="nav-link">À Propos</a>
             <a onclick="showPage('portfolio')" class="nav-link">Portfolio</a>
@@ -13085,6 +13161,197 @@ window.addEventListener('orientationchange', function() {
     
     lastOrientation = currentOrientation;
 });
+// logo-injector.js
+console.log('🎨 Injection du logo KMD...');
+
+document.addEventListener('DOMContentLoaded', function() {
+    
+    function injectLogo() {
+        // Chercher le menu
+        const menu = document.querySelector('.nav-menu, .main-nav, nav, .navbar');
+        
+        if (!menu) {
+            console.warn('❌ Menu non trouvé');
+            return;
+        }
+        
+        // Vérifier si le logo existe déjà
+        if (document.querySelector('.nav-logo')) {
+            console.log('✅ Logo déjà présent');
+            return;
+        }
+        
+        // Créer le container du logo
+        const logoContainer = document.createElement('div');
+        logoContainer.className = 'nav-logo';
+        
+        // Créer le lien du logo
+        const logoLink = document.createElement('a');
+        logoLink.href = '/';
+        logoLink.className = 'nav-logo-link';
+        
+        // Créer l'image du logo
+        const logoImg = document.createElement('img');
+        logoImg.src = 'kmd-logo.png'; // Ton fichier logo
+        logoImg.alt = 'KMD Logo';
+        logoImg.className = 'nav-logo-img';
+        
+        // Créer le texte du logo
+        const logoText = document.createElement('span');
+        logoText.className = 'nav-logo-text';
+        logoText.textContent = 'KMD';
+        
+        // Assembler le logo
+        logoLink.appendChild(logoImg);
+        logoLink.appendChild(logoText);
+        logoContainer.appendChild(logoLink);
+        
+        // Insérer le logo dans le menu
+        menu.insertBefore(logoContainer, menu.firstChild);
+        
+        // Ajouter une classe au menu pour l'espacement
+        menu.classList.add('menu-with-logo');
+        
+        console.log('✅ Logo KMD injecté dans le coin gauche');
+        
+        // Fallback si l'image ne se charge pas
+        logoImg.onerror = function() {
+            console.warn('⚠️ Logo image non trouvée, utilisation du texte seul');
+            logoImg.style.display = 'none';
+            
+            // Ajouter un cercle de remplacement
+            const circle = document.createElement('div');
+            circle.style.cssText = `
+                width: 36px;
+                height: 36px;
+                border-radius: 50%;
+                background: linear-gradient(135deg, #c4a484 0%, #8b7355 100%);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: white;
+                font-weight: bold;
+                font-size: 16px;
+                border: 2px solid #c4a484;
+            `;
+            circle.textContent = 'K';
+            logoLink.insertBefore(circle, logoText);
+        };
+    }
+    
+    // Injection immédiate
+    injectLogo();
+    
+    // Réessayer après 1s au cas où le DOM changerait
+    setTimeout(injectLogo, 1000);
+    
+    // Observer les changements du DOM (pour les SPA)
+    if (typeof MutationObserver !== 'undefined') {
+        const observer = new MutationObserver(function(mutations) {
+            mutations.forEach(function(mutation) {
+                if (mutation.addedNodes.length) {
+                    if (!document.querySelector('.nav-logo')) {
+                        injectLogo();
+                    }
+                }
+            });
+        });
+        
+        observer.observe(document.body, {
+            childList: true,
+            subtree: true
+        });
+    }
+});
+
+// reuse-logo.js
+console.log('🔄 Réutilisation du logo du loader...');
+
+function moveLogoToMenu() {
+    // 1. Chercher le logo dans le loader
+    const loaderLogo = document.querySelector('#page-loader .logo');
+    
+    if (!loaderLogo) {
+        console.warn('❌ Logo du loader non trouvé');
+        return;
+    }
+    
+    // 2. Chercher le menu
+    const menu = document.querySelector('nav, .nav, .navbar, .menu');
+    if (!menu) {
+        console.warn('❌ Menu non trouvé');
+        return;
+    }
+    
+    // 3. Créer une copie du logo pour le menu
+    const menuLogo = loaderLogo.cloneNode(true);
+    
+    // 4. Retirer les styles du loader
+    menuLogo.style.cssText = `
+        position: fixed;
+        left: 20px;
+        top: 50%;
+        transform: translateY(-50%) !important;
+        z-index: 10000;
+        display: flex !important;
+        gap: 8px;
+    `;
+    
+    // 5. Changer les lettres si nécessaire
+    const letters = menuLogo.querySelectorAll('.logo-letter');
+    if (letters.length === 3) {
+        // Garder les lettres K M D mais avec un style menu
+        letters.forEach(letter => {
+            letter.style.cssText = `
+                font-family: 'Poppins', sans-serif;
+                font-weight: 700;
+                font-size: 20px;
+                color: #c4a484;
+                transition: all 0.3s ease;
+            `;
+        });
+    }
+    
+    // 6. Ajouter un lien autour
+    const logoLink = document.createElement('a');
+    logoLink.href = '/';
+    logoLink.style.cssText = `
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 12px;
+        border-radius: 10px;
+        transition: all 0.3s ease;
+    `;
+    
+    // 7. Assembler
+    logoLink.appendChild(menuLogo);
+    
+    // 8. Insérer dans le menu
+    menu.style.position = 'relative';
+    menu.style.paddingLeft = '120px';
+    menu.insertBefore(logoLink, menu.firstChild);
+    
+    console.log('✅ Logo du loader placé dans le menu');
+}
+
+// Exécuter quand la page est chargée
+window.addEventListener('load', function() {
+    // Attendre que le loader disparaisse
+    setTimeout(moveLogoToMenu, 100);
+});
+
+// OU si ton loader disparaît avec une classe
+const observer = new MutationObserver(function() {
+    const loader = document.querySelector('#page-loader');
+    if (loader && getComputedStyle(loader).display === 'none') {
+        moveLogoToMenu();
+    }
+});
+
+observer.observe(document.body, { attributes: true, subtree: true });
+
 </script>
 </body>
 </html>
