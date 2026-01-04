@@ -9075,73 +9075,7 @@ body:not(.dark-theme):not(.beige-mode) .tool-item {
         animation-duration: 70s !important;
     }
 }
-/* logo-menu-from-loader.css */
-/* Affiche le logo KMD dans le menu en utilisant CSS */
 
-/* 1. Créer le logo dans le menu avec CSS */
-nav::before, .nav::before, .navbar::before, .menu::before {
-    content: 'K M D';
-    position: fixed;
-    left: 20px;
-    top: 50%;
-    transform: translateY(-50%);
-    font-family: 'Poppins', sans-serif;
-    font-weight: 700;
-    font-size: 20px;
-    letter-spacing: 4px;
-    color: #c4a484;
-    z-index: 10000;
-    display: flex;
-    gap: 8px;
-    text-decoration: none;
-    padding: 8px 15px;
-    border-radius: 10px;
-    background: rgba(196, 164, 132, 0.05);
-    border: 1px solid rgba(196, 164, 132, 0.2);
-    transition: all 0.3s ease;
-    backdrop-filter: blur(10px);
-}
-
-/* Hover effect */
-nav:hover::before, .nav:hover::before, .navbar:hover::before, .menu:hover::before {
-    background: rgba(196, 164, 132, 0.1);
-    border-color: #c4a484;
-    transform: translateY(-50%) scale(1.05);
-    box-shadow: 0 5px 15px rgba(196, 164, 132, 0.2);
-}
-
-/* 2. Espace pour le logo */
-nav, .nav, .navbar, .menu {
-    padding-left: 140px !important;
-    position: relative !important;
-}
-
-/* 3. Responsive */
-@media (max-width: 768px) {
-    nav::before, .nav::before, .navbar::before, .menu::before {
-        left: 15px;
-        font-size: 18px;
-        letter-spacing: 3px;
-        padding: 6px 12px;
-    }
-    
-    nav, .nav, .navbar, .menu {
-        padding-left: 120px !important;
-    }
-}
-
-@media (max-width: 480px) {
-    nav::before, .nav::before, .navbar::before, .menu::before {
-        left: 10px;
-        font-size: 16px;
-        letter-spacing: 2px;
-        padding: 5px 10px;
-    }
-    
-    nav, .nav, .navbar, .menu {
-        padding-left: 100px !important;
-    }
-}
     </style>
 </head>
 
@@ -12361,13 +12295,13 @@ window.addEventListener('load', function() {
         enhanceContactForm();
         
         // 4. Add admin link (optional)
-        addCMSAdminLink();
+        //addCMSAdminLink();
         
         // 5. Listen for page changes
-        document.addEventListener('pageChanged', function(e) {
-            if (e.detail && e.detail.page) {
-                enhancePageLoading(e.detail.page);
-            }
+        //document.addEventListener('pageChanged', function(e) {
+        //    if (e.detail && e.detail.page) {
+        //        enhancePageLoading(e.detail.page);
+        //    }
         });
         
         console.log('✅ CMS Integration Complete!');
