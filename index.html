@@ -8641,6 +8641,435 @@ body:not(.dark-theme):not(.beige-mode) .tool-item {
     pointer-events: none;
 }
 
+/* ===== CORRECTIONS RESPONSIVE TABLETTE (768px - 1024px) ===== */
+@media (min-width: 769px) and (max-width: 1024px) {
+    /* ===== GÉNÉRAL ===== */
+    body {
+        font-size: 17px !important;
+    }
+    
+    /* ===== HEADER TABLETTE ===== */
+    header {
+        padding: 15px 40px !important;
+    }
+    
+    header.scrolled {
+        padding: 10px 40px !important;
+    }
+    
+    .logo {
+        width: 65px !important;
+        height: 65px !important;
+    }
+    
+    .logo-letter {
+        font-size: 42px !important;
+    }
+    
+    .logo-letter:nth-child(2) {
+        font-size: 46px !important;
+    }
+    
+    nav {
+        gap: 35px !important;
+    }
+    
+    nav a {
+        font-size: 12px !important;
+        letter-spacing: 2.5px !important;
+    }
+    
+    /* ===== HERO SECTIONS TABLETTE ===== */
+    .hero-text h1 {
+        font-size: 70px !important;
+        letter-spacing: 12px !important;
+    }
+    
+    .hero-text p {
+        font-size: 20px !important;
+        letter-spacing: 5px !important;
+    }
+    
+    .portfolio-hero-content h1,
+    .services-hero-content h1,
+    .contact-hero-content h1 {
+        font-size: 65px !important;
+        letter-spacing: 10px !important;
+    }
+    
+    /* ===== INTRO SECTION TABLETTE ===== */
+    .intro-content {
+        padding: 0 60px !important;
+    }
+    
+    .intro-content.scrolled {
+        margin: 30px 40px !important;
+    }
+    
+    .intro-text-container {
+        padding: 50px 40px !important;
+    }
+    
+    .intro-text-container h2 {
+        font-size: 48px !important;
+        letter-spacing: 5px !important;
+    }
+    
+    .intro-text-container p {
+        font-size: 22px !important;
+    }
+    
+    /* ===== SERVICES LUXE TABLETTE ===== */
+    .luxury-cards-container {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 35px !important;
+    }
+    
+    .luxury-service-card:nth-child(3) {
+        grid-column: span 2;
+        max-width: 400px;
+        justify-self: center;
+    }
+    
+    .luxury-service-card {
+        height: 380px !important;
+    }
+    
+    .luxury-section-title {
+        font-size: 64px !important;
+        letter-spacing: 6px !important;
+    }
+    
+    /* ===== ABOUT PAGE TABLETTE ===== */
+    .about-canvas {
+        grid-template-columns: 1fr 1fr !important;
+        gap: 60px !important;
+        padding: 0 40px !important;
+    }
+    
+    .about-images {
+        height: 500px !important;
+    }
+    
+    .about-photo {
+        width: 220px !important;
+        height: 320px !important;
+    }
+    
+    .photo-2 {
+        top: 60px !important;
+        left: 20px !important;
+    }
+    
+    .photo-1 {
+        top: 200px !important;
+        left: 120px !important;
+    }
+    
+    /* ===== PORTFOLIO TABLETTE ===== */
+    .portfolio-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 35px !important;
+        padding: 40px !important;
+    }
+    
+    .portfolio-project {
+        height: 500px !important;
+    }
+    
+    .portfolio-project.full-bleed {
+        grid-column: span 2;
+        height: 60vh !important;
+    }
+    
+    .portfolio-project.portrait,
+    .portfolio-project.asymmetric {
+        grid-column: span 1;
+    }
+    
+    .portfolio-filters {
+        padding: 25px 40px !important;
+        gap: 25px !important;
+        top: 100px !important;
+    }
+    
+    .filter-btn {
+        padding: 14px 28px !important;
+        font-size: 12px !important;
+    }
+    
+    /* ===== SERVICES CARDS TABLETTE ===== */
+    .services-cards {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 40px !important;
+    }
+    
+    .service-card {
+        min-height: 320px !important;
+        padding: 45px 35px !important;
+    }
+    
+    .service-card h3 {
+        font-size: 28px !important;
+        min-height: 70px !important;
+    }
+    
+    /* ===== CONTACT PAGE TABLETTE ===== */
+    .contactHeroGrid {
+        grid-template-columns: 1fr 1fr !important;
+    }
+    
+    .contactHeroContent {
+        padding: 10vh 5vw !important;
+    }
+    
+    .contactHeroContent h1 {
+        font-size: 48px !important;
+    }
+    
+    .contact-form-container {
+        padding: 60px 50px !important;
+        top: 110px !important;
+    }
+    
+    /* ===== CTA SECTIONS TABLETTE ===== */
+    .final-cta,
+    .portfolio-cta-section,
+    .services-final-cta {
+        padding: 100px 60px !important;
+    }
+    
+    .cta-content,
+    .portfolio-cta-content {
+        padding: 60px 50px !important;
+    }
+    
+    .cta-title {
+        font-size: 52px !important;
+        letter-spacing: 6px !important;
+    }
+    
+    .cta-subtitle {
+        font-size: 20px !important;
+        letter-spacing: 3px !important;
+    }
+    
+    /* ===== FOOTER TABLETTE ===== */
+    .footer {
+        padding: 100px 60px 50px !important;
+    }
+    
+    .footer-grid {
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 60px !important;
+    }
+    
+    /* ===== BOUTONS FIXES TABLETTE ===== */
+    #back-to-top {
+        width: 55px !important;
+        height: 55px !important;
+        bottom: 40px !important;
+        right: 40px !important;
+        font-size: 22px !important;
+    }
+    
+    .theme-toggle {
+        width: 55px !important;
+        height: 55px !important;
+        bottom: 40px !important;
+        right: 120px !important;
+    }
+    
+    .theme-toggle-icon {
+        width: 26px !important;
+        height: 26px !important;
+    }
+    
+    /* ===== TESTIMONIALS TABLETTE ===== */
+    .testimonials-carousel {
+        padding: 0 40px !important;
+        gap: 35px !important;
+    }
+    
+    .testimonial-card {
+        width: 380px !important;
+        padding: 45px 35px !important;
+    }
+    
+    /* ===== LOCATIONS TABLETTE ===== */
+    .locations-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 35px !important;
+    }
+    
+    .location-card:nth-child(3) {
+        grid-column: span 2;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+    
+    /* ===== NOW BOOKING BAR TABLETTE ===== */
+    .now-booking-bar {
+        padding: 8px 0 !important;
+    }
+    
+    .booking-marquee span {
+        font-size: 12px !important;
+        letter-spacing: 3px !important;
+        padding: 0 25px;
+    }
+    
+    /* ===== MARQUES LUXE TABLETTE ===== */
+    .brands-carousel-track {
+        animation: rotateCarousel 40s infinite linear !important;
+        transform-style: preserve-3d;
+    }
+    
+    .brand-logo {
+        width: 220px !important;
+        height: 130px !important;
+    }
+    
+    .center-logo {
+        width: 260px !important;
+        height: 160px !important;
+    }
+}
+
+/* ===== TABLETTE PORTRAIT (768px - 900px) ===== */
+@media (min-width: 768px) and (max-width: 900px) and (orientation: portrait) {
+    /* Ajustements spécifiques portrait */
+    .luxury-cards-container {
+        gap: 30px !important;
+    }
+    
+    .luxury-service-card {
+        height: 350px !important;
+    }
+    
+    .portfolio-grid {
+        grid-template-columns: 1fr !important;
+        gap: 30px !important;
+    }
+    
+    .portfolio-project {
+        height: 450px !important;
+    }
+    
+    .contactHeroGrid {
+        grid-template-columns: 1fr !important;
+        min-height: auto !important;
+    }
+    
+    .contactHeroImage {
+        height: 350px !important;
+        min-height: 350px !important;
+    }
+}
+
+/* ===== TABLETTE LANDSCAPE (900px - 1024px) ===== */
+@media (min-width: 900px) and (max-width: 1024px) and (orientation: landscape) {
+    /* Ajustements spécifiques landscape */
+    .hero-double {
+        height: 80vh !important;
+    }
+    
+    .intro-sticky {
+        min-height: 120vh !important;
+    }
+    
+    .luxury-cards-container {
+        grid-template-columns: repeat(3, 1fr) !important;
+    }
+    
+    .luxury-service-card:nth-child(3) {
+        grid-column: span 1;
+        max-width: 100%;
+    }
+    
+    .portfolio-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+}
+
+/* ===== TABLETTE - CORRECTIONS D'ESPACEMENT ===== */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .page section {
+        padding-top: 120px !important;
+        padding-bottom: 120px !important;
+    }
+    
+    .section-header {
+        margin-bottom: 80px !important;
+    }
+    
+    /* Espacement entre sections sur tablette */
+    .intro-sticky + .luxury-services-section {
+        padding-top: 80px !important;
+        margin-top: -60px !important;
+    }
+    
+    /* Ajustement du texte dans les cartes */
+    .service-card p,
+    .mission-card p {
+        font-size: 16px !important;
+        line-height: 1.7 !important;
+    }
+    
+    /* Boutons plus grands pour touch */
+    .cta-button,
+    .submit-btn,
+    .work-btn,
+    .filter-btn {
+        min-height: 50px !important;
+        padding: 16px 40px !important;
+    }
+    
+    /* Inputs plus grands */
+    .form-control {
+        padding: 18px 25px !important;
+        font-size: 17px !important;
+    }
+}
+
+/* ===== CORRECTION Z-INDEX POUR TABLETTE ===== */
+@media (min-width: 769px) and (max-width: 1024px) {
+    #back-to-top {
+        z-index: 9998 !important;
+    }
+    
+    .theme-toggle {
+        z-index: 9997 !important;
+    }
+    
+    .mobile-menu-overlay.active {
+        z-index: 9996 !important;
+    }
+    
+    .mobile-menu {
+        z-index: 9997 !important;
+    }
+}
+
+/* ===== ANIMATIONS TABLETTE (optimisées) ===== */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .service-card,
+    .mission-card,
+    .portfolio-project,
+    .location-card {
+        animation-duration: 0.6s !important;
+        transition-duration: 0.3s !important;
+    }
+    
+    .booking-marquee {
+        animation-duration: 45s !important;
+    }
+    
+    .testimonials-carousel {
+        animation-duration: 70s !important;
+    }
+}
+
     </style>
 </head>
 
@@ -12218,6 +12647,442 @@ if (!navigator.onLine) {
         }, 250);
     });
 })();
+
+// ===== PAGE NAVIGATION SYSTEM =====
+function showPage(pageId) {
+    // Hide all pages
+    document.querySelectorAll('.page').forEach(page => {
+        page.classList.remove('active');
+    });
+    
+    // Remove active class from all nav links
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.classList.remove('active');
+    });
+    
+    // Show selected page
+    const selectedPage = document.getElementById(pageId);
+    if (selectedPage) {
+        selectedPage.classList.add('active');
+        
+        // Add active class to corresponding nav links
+        document.querySelectorAll(`.nav-link[onclick*="${pageId}"]`).forEach(link => {
+            link.classList.add('active');
+        });
+        
+        // Close mobile menu if open
+        if (isMobileMenuOpen) {
+            toggleMobileMenu();
+        }
+        
+        // Scroll to top
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        
+        // Update current page variable
+        currentPage = pageId;
+        
+        // Dispatch event for CMS integration
+        document.dispatchEvent(new CustomEvent('pageChanged', {
+            detail: { page: pageId }
+        }));
+        
+        console.log(`📄 Page changed to: ${pageId}`);
+    }
+}
+
+// ===== FIX DES COULEURS EN MODE LUMINEUX =====
+function fixLightModeColors() {
+    const isLightMode = !document.body.classList.contains('dark-theme') && 
+                        !document.body.classList.contains('beige-mode');
+    
+    if (isLightMode) {
+        // Fix hero text colors
+        const heroTexts = document.querySelectorAll('.hero-text h1, .hero-text p');
+        heroTexts.forEach(text => {
+            text.style.color = '#c4a484 !important';
+            text.style.textShadow = '0 2px 8px rgba(196, 164, 132, 0.3) !important';
+        });
+        
+        // Fix section header text colors
+        const sectionHeaders = document.querySelectorAll('.section-header h2, .section-header p');
+        sectionHeaders.forEach(header => {
+            if (header.classList.contains('section-header').h2) {
+                header.style.color = '#c4a484 !important';
+            } else if (header.classList.contains('section-header').p) {
+                header.style.color = '#8b7355 !important';
+            }
+        });
+        
+        // Fix CTA section text colors
+        const ctaSections = document.querySelectorAll('.cta-title, .cta-subtitle, .final-cta-content h2, .final-cta-content p');
+        ctaSections.forEach(text => {
+            text.style.color = '#c4a484 !important';
+            text.style.textShadow = '0 2px 8px rgba(196, 164, 132, 0.3) !important';
+        });
+        
+        // Fix overlay text in blur sections
+        const blurSections = document.querySelectorAll('.intro-text-container, .about-presentation-text, .mission-vision-section, .tools-section');
+        blurSections.forEach(section => {
+            const paragraphs = section.querySelectorAll('p');
+            const h2 = section.querySelectorAll('h2');
+            
+            paragraphs.forEach(p => {
+                p.style.color = '#8b7355 !important';
+            });
+            
+            h2.forEach(h => {
+                h.style.color = '#c4a484 !important';
+            });
+        });
+    }
+}
+
+// ===== OBSERVER POUR DÉTECTER LE MODE LUMINEUX =====
+function setupThemeObserver() {
+    // Observer les changements de classe sur le body
+    const observer = new MutationObserver((mutations) => {
+        mutations.forEach((mutation) => {
+            if (mutation.attributeName === 'class') {
+                fixLightModeColors();
+            }
+        });
+    });
+    
+    // Observer le body pour les changements de classe
+    observer.observe(document.body, { 
+        attributes: true,
+        attributeFilter: ['class']
+    });
+}
+
+// ===== INITIALISATION AU CHARGEMENT =====
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialiser la navigation
+    setupNavigation();
+    
+    // Appliquer les corrections de couleurs
+    fixLightModeColors();
+    
+    // Configurer l'observateur de thème
+    setupThemeObserver();
+    
+    // Configurer les écouteurs d'événements pour les liens de navigation
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const pageId = this.getAttribute('onclick').match(/'([^']+)'/)[1];
+            showPage(pageId);
+        });
+    });
+});
+
+// ===== FONCTION D'INITIALISATION DE NAVIGATION =====
+function setupNavigation() {
+    // Récupérer la page courante depuis l'URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const pageParam = urlParams.get('page');
+    
+    if (pageParam && document.getElementById(pageParam)) {
+        showPage(pageParam);
+    } else {
+        // Par défaut, afficher la page home
+        showPage('home');
+    }
+}
+
+// ===== CORRECTIONS CSS ADDITIONNELLES =====
+// Ajoutez ceci à votre CSS existant, à la fin du style :
+const lightModeFixes = document.createElement('style');
+lightModeFixes.textContent = `
+/* ===== CORRECTIONS COULEURS MODE LUMINEUX ===== */
+body:not(.dark-theme):not(.beige-mode) .hero-text h1,
+body:not(.dark-theme):not(.beige-mode) .hero-text p,
+body:not(.dark-theme):not(.beige-mode) .portfolio-hero-content h1,
+body:not(.dark-theme):not(.beige-mode) .portfolio-hero-content p,
+body:not(.dark-theme):not(.beige-mode) .services-hero-content h1,
+body:not(.dark-theme):not(.beige-mode) .services-hero-content p,
+body:not(.dark-theme):not(.beige-mode) .contact-hero-content h1,
+body:not(.dark-theme):not(.beige-mode) .contact-hero-content p {
+    color: #c4a484 !important;
+    text-shadow: 0 2px 8px rgba(196, 164, 132, 0.3) !important;
+}
+
+/* Textes sur overlays blur */
+body:not(.dark-theme):not(.beige-mode) .cta-title,
+body:not(.dark-theme):not(.beige-mode) .cta-subtitle,
+body:not(.dark-theme):not(.beige-mode) .final-cta-content h2,
+body:not(.dark-theme):not(.beige-mode) .final-cta-content p,
+body:not(.dark-theme):not(.beige-mode) .portfolio-cta-content h2,
+body:not(.dark-theme):not(.beige-mode) .portfolio-cta-content p,
+body:not(.dark-theme):not(.beige-mode) .work-with-me-content h2,
+body:not(.dark-theme):not(.beige-mode) .work-with-me-content p {
+    color: #c4a484 !important;
+    text-shadow: 0 2px 8px rgba(196, 164, 132, 0.3) !important;
+}
+
+/* Sections avec fond blur */
+body:not(.dark-theme):not(.beige-mode) .intro-text-container h2,
+body:not(.dark-theme):not(.beige-mode) .intro-text-container p,
+body:not(.dark-theme):not(.beige-mode) .about-presentation-text h2,
+body:not(.dark-theme):not(.beige-mode) .about-presentation-text p,
+body:not(.dark-theme):not(.beige-mode) .section-header h2,
+body:not(.dark-theme):not(.beige-mode) .section-header p,
+body:not(.dark-theme):not(.beige-mode) .mission-card h3,
+body:not(.dark-theme):not(.beige-mode) .mission-card p,
+body:not(.dark-theme):not(.beige-mode) .service-card h3,
+body:not(.dark-theme):not(.beige-mode) .service-card p {
+    color: #c4a484 !important;
+}
+
+body:not(.dark-theme):not(.beige-mode) .about-paragraph,
+body:not(.dark-theme):not(.beige-mode) .mission-card p,
+body:not(.dark-theme):not(.beige-mode) .service-card p,
+body:not(.dark-theme):not(.beige-mode) .intro-text-container p,
+body:not(.dark-theme):not(.beige-mode) .section-header p {
+    color: #8b7355 !important;
+}
+
+/* Footer en mode lumineux */
+body:not(.dark-theme):not(.beige-mode) .footer {
+    background: #f5efe6 !important;
+}
+
+body:not(.dark-theme):not(.beige-mode) .footer h4 {
+    color: #8b7355 !important;
+}
+
+body:not(.dark-theme):not(.beige-mode) .footer p,
+body:not(.dark-theme):not(.beige-mode) .footer-links a {
+    color: #5a4f45 !important;
+}
+
+body:not(.dark-theme):not(.beige-mode) .footer-social a {
+    color: #8b7355 !important;
+}
+
+body:not(.dark-theme):not(.beige-mode) .footer-bottom {
+    color: #8b7355 !important;
+}
+
+/* Améliorer la lisibilité en mode lumineux */
+body:not(.dark-theme):not(.beige-mode) {
+    background: #faf8f5 !important;
+    color: #4a3f35 !important;
+}
+
+body:not(.dark-theme):not(.beige-mode) p,
+body:not(.dark-theme):not(.beige-mode) .about-paragraph,
+body:not(.dark-theme):not(.beige-mode) .mission-card p,
+body:not(.dark-theme):not(.beige-mode) .service-card p,
+body:not(.dark-theme):not(.beige-mode) .testimonial-quote {
+    color: #5a4f45 !important;
+}
+
+/* Améliorer le contraste pour les cartes */
+body:not(.dark-theme):not(.beige-mode) .service-card,
+body:not(.dark-theme):not(.beige-mode) .mission-card {
+    background: rgba(255, 255, 255, 0.95) !important;
+    border: 1px solid rgba(196, 164, 132, 0.3) !important;
+}
+
+body:not(.dark-theme):not(.beige-mode) .service-card:hover,
+body:not(.dark-theme):not(.beige-mode) .mission-card:hover {
+    border-color: rgba(196, 164, 132, 0.6) !important;
+    box-shadow: 0 20px 40px rgba(196, 164, 132, 0.2) !important;
+}
+`;
+
+document.head.appendChild(lightModeFixes);
+
+// ===== FIX CHEVAUCHEMENT BOUTONS =====
+function fixButtonOverlap() {
+    const backToTop = document.getElementById('back-to-top');
+    const themeToggle = document.querySelector('.theme-toggle');
+    
+    if (!backToTop || !themeToggle) return;
+    
+    function adjustButtonPositions() {
+        const windowWidth = window.innerWidth;
+        const isMobile = windowWidth <= 768;
+        
+        if (isMobile) {
+            // Mobile : boutons superposés
+            backToTop.style.bottom = '80px';
+            backToTop.style.right = '20px';
+            themeToggle.style.bottom = '20px';
+            themeToggle.style.right = '20px';
+        } else {
+            // Desktop : boutons côte à côte
+            backToTop.style.bottom = '40px';
+            backToTop.style.right = '40px';
+            themeToggle.style.bottom = '40px';
+            themeToggle.style.right = '120px'; // Décalé pour laisser place au back-to-top
+        }
+    }
+    
+    // Ajuster au chargement et au redimensionnement
+    adjustButtonPositions();
+    window.addEventListener('resize', adjustButtonPositions);
+    
+    // Animation pour éviter le chevauchement au hover
+    backToTop.addEventListener('mouseenter', () => {
+        if (window.innerWidth > 768) {
+            themeToggle.style.opacity = '0.7';
+            themeToggle.style.transform = 'scale(0.95)';
+        }
+    });
+    
+    backToTop.addEventListener('mouseleave', () => {
+        if (window.innerWidth > 768) {
+            themeToggle.style.opacity = '1';
+            themeToggle.style.transform = 'scale(1)';
+        }
+    });
+    
+    themeToggle.addEventListener('mouseenter', () => {
+        if (window.innerWidth > 768) {
+            backToTop.style.opacity = '0.7';
+            backToTop.style.transform = 'scale(0.95)';
+        }
+    });
+    
+    themeToggle.addEventListener('mouseleave', () => {
+        if (window.innerWidth > 768) {
+            backToTop.style.opacity = '1';
+            backToTop.style.transform = 'scale(1)';
+        }
+    });
+}
+
+// ===== INITIALISATION COMPLÈTE =====
+document.addEventListener('DOMContentLoaded', function() {
+    // 1. Corriger le chevauchement des boutons
+    fixButtonOverlap();
+    
+    // 2. Détecter l'appareil
+    detectDeviceAndApplyOptimizations();
+    
+    // 3. Setup pour tablette
+    setupTabletOptimizations();
+    
+    console.log('📱 Device optimized for:', getDeviceType());
+});
+
+// ===== DÉTECTION DE L'APPAREIL =====
+function getDeviceType() {
+    const width = window.innerWidth;
+    if (width < 768) return 'mobile';
+    if (width >= 768 && width <= 1024) return 'tablet';
+    if (width > 1024 && width <= 1400) return 'laptop';
+    return 'desktop';
+}
+
+// ===== OPTIMISATIONS TABLETTE =====
+function setupTabletOptimizations() {
+    const deviceType = getDeviceType();
+    
+    if (deviceType === 'tablet') {
+        // Désactiver certaines animations gourmandes
+        const heavyAnimations = document.querySelectorAll('.particle, .luxury-shine-overlay, #brands-canvas');
+        heavyAnimations.forEach(el => {
+            if (el) el.style.display = 'none';
+        });
+        
+        // Réduire les flous
+        document.querySelectorAll('.luxury-card-front, .brands-info-panel').forEach(el => {
+            if (el) el.style.backdropFilter = 'blur(15px)';
+        });
+        
+        // Optimiser les images de fond
+        document.querySelectorAll('.hero-image, .cta-background, .portfolio-hero-bg').forEach(bg => {
+            if (bg) bg.style.backgroundAttachment = 'scroll';
+        });
+        
+        // Désactiver le parallaxe sur tablette
+        window.removeEventListener('scroll', initLocationsParallax);
+        
+        // Logger pour debug
+        console.log('📟 Tablet optimizations applied');
+    }
+}
+
+// ===== DÉTECTION ET OPTIMISATIONS =====
+function detectDeviceAndApplyOptimizations() {
+    const deviceType = getDeviceType();
+    const isTouchDevice = 'ontouchstart' in window;
+    
+    // Ajouter une classe CSS pour le type d'appareil
+    document.body.classList.add(`device-${deviceType}`);
+    if (isTouchDevice) document.body.classList.add('touch-device');
+    
+    // Appliquer les optimisations spécifiques
+    switch(deviceType) {
+        case 'tablet':
+            applyTabletSpecificOptimizations();
+            break;
+        case 'mobile':
+            applyMobileSpecificOptimizations();
+            break;
+        default:
+            applyDesktopOptimizations();
+    }
+}
+
+// ===== OPTIMISATIONS SPÉCIFIQUES TABLETTE =====
+function applyTabletSpecificOptimizations() {
+    // Ajuster la taille des textes
+    document.querySelectorAll('h1').forEach(h1 => {
+        const currentSize = parseFloat(getComputedStyle(h1).fontSize);
+        if (currentSize > 70) {
+            h1.style.fontSize = Math.min(currentSize, 70) + 'px';
+        }
+    });
+    
+    // Simplifier les grilles
+    const complexGrids = document.querySelectorAll('.luxury-cards-container, .portfolio-grid, .tools-grid');
+    complexGrids.forEach(grid => {
+        if (grid.children.length > 4) {
+            grid.style.gridTemplateColumns = 'repeat(2, 1fr)';
+        }
+    });
+    
+    // Désactiver les effets 3D
+    document.querySelectorAll('.luxury-service-card').forEach(card => {
+        card.style.transformStyle = 'flat';
+    });
+    
+    // Optimiser les performances
+    if ('requestIdleCallback' in window) {
+        requestIdleCallback(() => {
+            // Charger les images lazy en arrière-plan
+            document.querySelectorAll('img[loading="lazy"]').forEach(img => {
+                img.loading = 'eager';
+            });
+        });
+    }
+}
+
+// ===== ÉCOUTEUR POUR CHANGEMENT D'ORIENTATION =====
+let lastOrientation = window.orientation;
+window.addEventListener('orientationchange', function() {
+    const currentOrientation = window.orientation;
+    
+    if (lastOrientation !== currentOrientation) {
+        // Recalculer les positions après rotation
+        setTimeout(() => {
+            fixButtonOverlap();
+            setupTabletOptimizations();
+            
+            // Forcer un redraw pour éviter les bugs visuels
+            document.body.style.overflow = 'hidden';
+            setTimeout(() => {
+                document.body.style.overflow = '';
+            }, 50);
+        }, 300);
+    }
+    
+    lastOrientation = currentOrientation;
+});
 </script>
 </body>
 </html>
