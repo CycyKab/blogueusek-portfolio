@@ -1,5 +1,7 @@
-// portfolio-data.js
+// portfolio-data.js - VERSION CORRIGÉE
 // Ce fichier récupère les données que tu as ajoutées dans le CMS
+
+console.log('📊 Portfolio Data initialisé');
 
 class PortfolioData {
     constructor() {
@@ -9,8 +11,11 @@ class PortfolioData {
             services: 'kathy_portfolio_services',
             about: 'kathy_portfolio_about',
             brands: 'kathy_portfolio_brands',
-            testimonials: 'kathy_portfolio_testimonials'
+            testimonials: 'kathy_portfolio_testimonials',
+            services_text: 'kathy_portfolio_services_text'
         };
+        
+        console.log('🔑 Clés de stockage:', this.keys);
     }
 
     // Récupérer tous les projets
@@ -19,7 +24,7 @@ class PortfolioData {
             const data = localStorage.getItem(this.keys.projects);
             return data ? JSON.parse(data) : [];
         } catch (error) {
-            console.error('Erreur lors de la récupération des projets:', error);
+            console.error('❌ Erreur lors de la récupération des projets:', error);
             return [];
         }
     }
@@ -45,8 +50,19 @@ class PortfolioData {
             const data = localStorage.getItem(this.keys.services);
             return data ? JSON.parse(data) : [];
         } catch (error) {
-            console.error('Erreur lors de la récupération des services:', error);
+            console.error('❌ Erreur lors de la récupération des services:', error);
             return [];
+        }
+    }
+
+    // Récupérer les textes des services (pour l'édition)
+    getServicesText() {
+        try {
+            const data = localStorage.getItem(this.keys.services_text);
+            return data ? JSON.parse(data) : null;
+        } catch (error) {
+            console.error('❌ Erreur lors de la récupération des textes services:', error);
+            return null;
         }
     }
 
@@ -56,7 +72,7 @@ class PortfolioData {
             const data = localStorage.getItem(this.keys.about);
             return data ? JSON.parse(data) : {};
         } catch (error) {
-            console.error('Erreur lors de la récupération des infos À Propos:', error);
+            console.error('❌ Erreur lors de la récupération des infos À Propos:', error);
             return {};
         }
     }
@@ -67,7 +83,7 @@ class PortfolioData {
             const data = localStorage.getItem(this.keys.brands);
             return data ? JSON.parse(data) : [];
         } catch (error) {
-            console.error('Erreur lors de la récupération des marques:', error);
+            console.error('❌ Erreur lors de la récupération des marques:', error);
             return [];
         }
     }
@@ -78,16 +94,19 @@ class PortfolioData {
             const data = localStorage.getItem(this.keys.testimonials);
             return data ? JSON.parse(data) : [];
         } catch (error) {
-            console.error('Erreur lors de la récupération des témoignages:', error);
+            console.error('❌ Erreur lors de la récupération des témoignages:', error);
             return [];
         }
     }
 
     // Vérifier si des données existent
     hasData() {
-        return this.getProjects().length > 0 || 
-               this.getServices().length > 0 || 
-               this.getBrands().length > 0;
+        const hasProjects = this.getProjects().length > 0;
+        const hasBrands = this.getBrands().length > 0;
+        const hasTestimonials = this.getTestimonials().length > 0;
+        const hasAbout = Object.keys(this.getAbout()).length > 0;
+        
+        return hasProjects || hasBrands || hasTestimonials || hasAbout;
     }
 
     // Obtenir les statistiques
@@ -96,8 +115,18 @@ class PortfolioData {
             projects: this.getProjects().length,
             services: this.getServices().length,
             testimonials: this.getTestimonials().length,
-            brands: this.getBrands().length
+            brands: this.getBrands().length,
+            hasAbout: Object.keys(this.getAbout()).length > 0,
+            hasServicesText: this.getServicesText() !== null
         };
+    }
+    
+    // Nettoyer les données (pour le debug)
+    clearAll() {
+        Object.values(this.keys).forEach(key => {
+            localStorage.removeItem(key);
+        });
+        console.log('🧹 Toutes les données ont été effacées');
     }
 }
 
@@ -106,3 +135,7 @@ const portfolioData = new PortfolioData();
 
 // Rendre disponible globalement
 window.portfolioData = portfolioData;
+
+// Log initial
+console.log('📊 Données disponibles:', portfolioData.getStats());
+console.log('✅ Portfolio Data prêt');

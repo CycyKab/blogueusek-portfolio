@@ -8394,16 +8394,265 @@ body:not(.dark-theme):not(.beige-mode) .tool-item {
         padding: 90px 20px 40px !important;
     }
 }
+
+/* ===== CORRECTIFS CRITIQUES ===== */
+
+/* 1. Fix des animations de marquee */
+.booking-marquee {
+    animation: bookingMarquee 40s linear infinite !important;
+    animation-play-state: running !important;
+}
+
+.testimonials-carousel {
+    animation: carousel 60s linear infinite !important;
+}
+
+.portfolio-hero-title-wrapper {
+    animation: scrollTitle 80s linear infinite !important;
+}
+
+@media (max-width: 768px) {
+    .booking-marquee {
+        animation: bookingMarquee 60s linear infinite !important;
+    }
+    
+    .testimonials-carousel {
+        animation: carousel 80s linear infinite !important;
+    }
+}
+
+/* 2. Fix des espacements sections */
+#home .intro-sticky {
+    min-height: 150vh !important;
+    margin-bottom: 0 !important;
+}
+
+#home .luxury-services-section {
+    padding-top: 60px !important;
+    margin-top: -80px !important;
+    position: relative;
+    z-index: 2;
+}
+
+/* 3. Fix pour les cartes vides */
+.empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    color: rgba(232, 220, 199, 0.5);
+    font-size: 16px;
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+
+/* 4. Amélioration responsive */
+@media (max-width: 768px) {
+    .portfolio-filters {
+        display: flex !important;
+        overflow-x: auto !important;
+        white-space: nowrap !important;
+        padding: 20px 15px !important;
+        gap: 10px !important;
+        -webkit-overflow-scrolling: touch !important;
+        scrollbar-width: none !important;
+    }
+    
+    .portfolio-filters::-webkit-scrollbar {
+        display: none !important;
+    }
+    
+    .filter-btn {
+        flex: 0 0 auto !important;
+        padding: 12px 20px !important;
+        font-size: 12px !important;
+    }
+    
+    /* Indicateur de scroll */
+    .portfolio-filters::after {
+        content: '';
+        position: absolute;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        width: 30px;
+        background: linear-gradient(to right, transparent, var(--bg-color, #faf8f5));
+        pointer-events: none;
+    }
+    
+    body.dark-theme .portfolio-filters::after {
+        --bg-color: #1a1614;
+    }
+    
+    body.beige-mode .portfolio-filters::after {
+        --bg-color: #f5efe6;
+    }
+}
+
+/* 5. Fix pour les marques */
+.brands-wall {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 50px 80px;
+    margin-top: 80px;
+    min-height: 200px;
+}
+
+.brand-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    letter-spacing: 4px;
+    color: #c4a484;
+    text-transform: uppercase;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: brandReveal 0.8s ease forwards;
+}
+
+@keyframes brandReveal {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 6. Fix pour les notifications */
+.notification {
+    position: fixed;
+    top: 100px;
+    right: 20px;
+    padding: 20px 30px;
+    border-radius: 15px;
+    color: white;
+    font-size: 16px;
+    z-index: 10000;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    animation: slideInRight 0.5s ease;
+    backdrop-filter: blur(10px);
+    max-width: 350px;
+}
+
+.notification.success {
+    background: linear-gradient(135deg, rgba(76, 175, 80, 0.9), rgba(45, 125, 50, 0.9));
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.notification.error {
+    background: linear-gradient(135deg, rgba(244, 67, 54, 0.9), rgba(183, 28, 28, 0.9));
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(400px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* 7. Fix pour le menu mobile */
+@media (max-width: 768px) {
+    .mobile-menu {
+        width: 85% !important;
+        max-width: 320px;
+        padding: 100px 25px 40px !important;
+    }
+    
+    .mobile-menu nav {
+        gap: 20px !important;
+    }
+    
+    .mobile-menu nav a {
+        font-size: 18px !important;
+        padding: 15px 0 !important;
+        border-bottom: 1px solid rgba(196, 164, 132, 0.2);
+    }
+    
+    .mobile-menu nav a:last-child {
+        border-bottom: none;
+    }
+}
+
+/* ===== BOUTON RETOUR EN HAUT ===== */
+#back-to-top {
+    position: fixed;
+    bottom: 100px;
+    right: 40px;
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #c4a484 0%, #8b7355 100%);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    color: white;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 999;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 5px 20px rgba(196, 164, 132, 0.3);
+    transform: translateY(20px);
+}
+
+#back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+#back-to-top:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 25px rgba(196, 164, 132, 0.5);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    #back-to-top {
+        bottom: 80px;
+        right: 20px;
+        width: 45px;
+        height: 45px;
+        font-size: 18px;
+    }
+}
+
+/* ===== PAGE LOADER ===== */
+#page-loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #0a0807;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    transition: opacity 0.5s ease;
+}
+
+#page-loader.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
     </style>
 </head>
 
  <body>
     <!-- HEADER -->
     <header id="main-header">
-        <div class="logo">
-            <span class="logo-letter">K</span>
-            <span class="logo-letter">M</span>
-            <span class="logo-letter">D</span>
+        <div id="page-loader">
+            <div class="logo" style="transform: scale(1.5);">
+                <span class="logo-letter">K</span>
+                <span class="logo-letter">M</span>
+                <span class="logo-letter">D</span>
+            </div>
         </div>
         <nav>
             <a onclick="showPage('home')" class="nav-link active">Accueil</a>
@@ -8432,7 +8681,9 @@ body:not(.dark-theme):not(.beige-mode) .tool-item {
             <a onclick="showPage('contact'); toggleMobileMenu();" class="nav-link">Contact</a>
         </nav>
     </div>
-
+    <button id="back-to-top" aria-label="Retour en haut de page">
+        ↑
+    </button>
     <!-- THEME TOGGLE -->
     <div class="theme-toggle" onclick="toggleTheme()">
         <svg class="theme-toggle-icon moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -9751,6 +10002,90 @@ function loadSavedTheme() {
         localStorage.setItem('portfolio_theme', 'light');
     }
 }
+    // ===== CODE POUR LE BOUTON "RETOUR EN HAUT" =====
+    document.addEventListener('DOMContentLoaded', function() {
+        const backToTop = document.getElementById('back-to-top');
+        
+        if (backToTop) {
+            // Afficher/masquer le bouton au scroll
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 500) {
+                    backToTop.style.opacity = '1';
+                    backToTop.style.visibility = 'visible';
+                    backToTop.style.transform = 'translateY(0)';
+                } else {
+                    backToTop.style.opacity = '0';
+                    backToTop.style.visibility = 'hidden';
+                    backToTop.style.transform = 'translateY(20px)';
+                }
+            });
+            
+            // Animation au clic
+            backToTop.addEventListener('click', (e) => {
+                e.preventDefault();
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+                
+                // Animation de feedback
+                backToTop.style.transform = 'scale(0.9)';
+                setTimeout(() => {
+                    backToTop.style.transform = 'scale(1)';
+                }, 150);
+            });
+            
+            // Hover effect
+            backToTop.addEventListener('mouseenter', () => {
+                backToTop.style.transform = 'scale(1.1)';
+                backToTop.style.boxShadow = '0 8px 25px rgba(196, 164, 132, 0.5)';
+            });
+            
+            backToTop.addEventListener('mouseleave', () => {
+                if (window.scrollY > 500) {
+                    backToTop.style.transform = 'scale(1)';
+                }
+                backToTop.style.boxShadow = '0 5px 20px rgba(196, 164, 132, 0.3)';
+            });
+        }
+        
+        // ===== CODE POUR LE LOADER =====
+        const pageLoader = document.getElementById('page-loader');
+        if (pageLoader) {
+            // Cacher le loader après 1 seconde
+            setTimeout(() => {
+                pageLoader.style.opacity = '0';
+                setTimeout(() => {
+                    pageLoader.style.display = 'none';
+                }, 500);
+            }, 1000);
+        }
+    });
+    
+    // ===== CORRECTIF POUR MOBILE =====
+    // Ajuster la position sur mobile
+    function adjustBackToTopForMobile() {
+        const backToTop = document.getElementById('back-to-top');
+        if (!backToTop) return;
+        
+        if (window.innerWidth <= 768) {
+            backToTop.style.bottom = '80px';
+            backToTop.style.right = '20px';
+            backToTop.style.width = '45px';
+            backToTop.style.height = '45px';
+            backToTop.style.fontSize = '18px';
+        } else {
+            backToTop.style.bottom = '100px';
+            backToTop.style.right = '40px';
+            backToTop.style.width = '50px';
+            backToTop.style.height = '50px';
+            backToTop.style.fontSize = '20px';
+        }
+    }
+    
+    // Appeler au chargement et au redimensionnement
+    window.addEventListener('load', adjustBackToTopForMobile);
+    window.addEventListener('resize', adjustBackToTopForMobile);
 
     // ===== MOBILE MENU =====
 // ===== MENU MOBILE CORRIGÉ =====
@@ -11160,13 +11495,14 @@ document.addEventListener('DOMContentLoaded', function() {
         );
     }
     </script>
+    <script src="js/config.js"></script>
     <script src="js/portfolio-data.js"></script>
     <script src="js/portfolio-loader.js"></script>
     <script src="js/services-updater.js"></script>
     <script src="js/fix-speed-space.js"></script>
     <script src="js/mobile-fixes-final.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-     <!-- ADD THIS SCRIPT TO CONNECT EVERYTHING -->
+     
 <script>
 // ===== COMPLETE CMS INTEGRATION SCRIPT =====
 

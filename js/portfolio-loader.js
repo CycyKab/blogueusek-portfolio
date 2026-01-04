@@ -1,20 +1,31 @@
-// portfolio-loader.js
+// portfolio-loader.js - VERSION CORRIGÉE
 // Ce fichier affiche les données du CMS sur ton portfolio
+
+console.log('🎨 Portfolio Loader initialisé');
 
 class PortfolioLoader {
     constructor() {
+        console.log('📦 PortfolioLoader créé');
         this.data = window.portfolioData;
     }
 
     // ========== CHARGER LES PROJETS ==========
     loadProjects(containerId, category = 'all') {
+        console.log(`📸 Chargement projets (catégorie: ${category})`);
+        
         const container = document.getElementById(containerId);
         if (!container) {
-            console.warn(`Container "${containerId}" non trouvé`);
+            console.warn(`❌ Container "${containerId}" non trouvé`);
             return;
         }
 
-        const projects = this.data.getProjectsByCategory(category);
+        let projects = [];
+        try {
+            projects = this.data.getProjectsByCategory(category);
+            console.log(`📊 ${projects.length} projets trouvés`);
+        } catch (error) {
+            console.error('Erreur lors du chargement des projets:', error);
+        }
 
         if (projects.length === 0) {
             container.innerHTML = `
@@ -64,7 +75,7 @@ class PortfolioLoader {
     loadServices(containerId) {
         const container = document.getElementById(containerId);
         if (!container) {
-            console.warn(`Container "${containerId}" non trouvé`);
+            console.warn(`❌ Container "${containerId}" non trouvé`);
             return;
         }
 
@@ -102,13 +113,21 @@ class PortfolioLoader {
 
     // ========== CHARGER LES TÉMOIGNAGES ==========
     loadTestimonials(containerId) {
+        console.log(`💬 Chargement témoignages`);
+        
         const container = document.getElementById(containerId);
         if (!container) {
-            console.warn(`Container "${containerId}" non trouvé`);
+            console.warn(`❌ Container "${containerId}" non trouvé`);
             return;
         }
 
-        const testimonials = this.data.getTestimonials();
+        let testimonials = [];
+        try {
+            testimonials = this.data.getTestimonials();
+            console.log(`📊 ${testimonials.length} témoignages trouvés`);
+        } catch (error) {
+            console.error('Erreur lors du chargement des témoignages:', error);
+        }
 
         if (testimonials.length === 0) {
             container.innerHTML = `
@@ -122,6 +141,11 @@ class PortfolioLoader {
         // Dupliquer pour l'effet carousel
         const duplicated = [...testimonials, ...testimonials];
         container.innerHTML = duplicated.map(testimonial => this.renderTestimonial(testimonial)).join('');
+        
+        // Redémarrer l'animation si c'est un carousel
+        if (container.classList.contains('testimonials-carousel')) {
+            this.restartCarouselAnimation(container);
+        }
     }
 
     // Rendu d'un témoignage
@@ -142,13 +166,21 @@ class PortfolioLoader {
 
     // ========== CHARGER LES MARQUES ==========
     loadBrands(containerId) {
+        console.log(`✨ Chargement marques`);
+        
         const container = document.getElementById(containerId);
         if (!container) {
-            console.warn(`Container "${containerId}" non trouvé`);
+            console.warn(`❌ Container "${containerId}" non trouvé`);
             return;
         }
 
-        const brands = this.data.getBrands();
+        let brands = [];
+        try {
+            brands = this.data.getBrands();
+            console.log(`📊 ${brands.length} marques trouvées`);
+        } catch (error) {
+            console.error('Erreur lors du chargement des marques:', error);
+        }
 
         if (brands.length === 0) {
             container.innerHTML = `
@@ -159,7 +191,7 @@ class PortfolioLoader {
             return;
         }
 
-        // Trouver le conteneur .brands-wall
+        // Chercher le conteneur .brands-wall
         let brandsWall = container.querySelector('.brands-wall');
         if (!brandsWall) {
             brandsWall = document.createElement('div');
@@ -167,13 +199,16 @@ class PortfolioLoader {
             container.appendChild(brandsWall);
         }
 
-        brandsWall.innerHTML = brands.map(brand => `
-            <span class="brand-name">${brand.name}</span>
+        // Afficher avec animation progressive
+        brandsWall.innerHTML = brands.map((brand, index) => `
+            <span class="brand-name" style="animation-delay: ${index * 0.1}s">${brand.name}</span>
         `).join('');
     }
 
     // ========== CHARGER À PROPOS ==========
     loadAbout() {
+        console.log(`👤 Chargement page À Propos`);
+        
         const about = this.data.getAbout();
 
         // Mettre à jour le titre hero
@@ -230,6 +265,24 @@ class PortfolioLoader {
             observer.observe(card);
         });
     }
+    
+    restartCarouselAnimation(container) {
+        // Redémarrer l'animation CSS
+        container.style.animation = 'none';
+        setTimeout(() => {
+            container.style.animation = 'carousel 60s linear infinite';
+        }, 10);
+    }
+    
+    // ========== UTILITAIRE ==========
+    getStats() {
+        return {
+            projects: this.data.getProjects().length,
+            services: this.data.getServices().length,
+            testimonials: this.data.getTestimonials().length,
+            brands: this.data.getBrands().length
+        };
+    }
 }
 
 // Créer une instance unique
@@ -241,42 +294,80 @@ window.portfolioLoader = portfolioLoader;
 // ========== AUTO-CHARGEMENT ==========
 // Charger automatiquement quand la page est prête
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('🎨 Portfolio Loader activé');
+    console.log('🎨 Portfolio Loader - DOM prêt');
     
     // Vérifier si on a des données
+    if (!window.portfolioData) {
+        console.warn('⚠️ portfolioData non défini. Vérifiez portfolio-data.js');
+        return;
+    }
+    
     if (!portfolioData.hasData()) {
-        console.warn('⚠️ Aucune donnée trouvée. Ajoute du contenu dans le CMS !');
-        console.log('👉 Ouvre cms.html pour ajouter du contenu');
+        console.warn('⚠️ Aucune donnée CMS trouvée. Ajoute du contenu dans le CMS !');
+        console.log('👉 Ouvre admin-secret-blogueusek.html pour ajouter du contenu');
     } else {
-        console.log('✅ Données trouvées:', portfolioData.getStats());
+        console.log('✅ Données CMS trouvées:', portfolioLoader.getStats());
     }
 
-    // Charger automatiquement selon les conteneurs présents
-    const portfolioGrid = document.querySelector('.portfolio-grid');
-    if (portfolioGrid) {
-        portfolioLoader.loadProjects('portfolio-grid');
-        console.log('📸 Projets chargés');
+    // Fonction pour charger dynamiquement selon la page active
+    function loadForCurrentPage() {
+        const activePage = document.querySelector('.page.active');
+        if (!activePage) return;
+        
+        const pageId = activePage.id;
+        
+        switch(pageId) {
+            case 'home':
+                // Marques sur la page d'accueil
+                const homeBrands = document.querySelector('#home .brands-wall');
+                if (homeBrands) {
+                    portfolioLoader.loadBrands('brands-carousel-track');
+                }
+                break;
+                
+            case 'portfolio':
+                // Projets sur la page portfolio
+                const portfolioGrid = document.getElementById('portfolio-grid');
+                if (portfolioGrid) {
+                    portfolioLoader.loadProjects('portfolio-grid');
+                }
+                break;
+                
+            case 'about':
+                // À propos + témoignages
+                portfolioLoader.loadAbout();
+                const aboutTestimonials = document.querySelector('#about .testimonials-carousel');
+                if (aboutTestimonials) {
+                    portfolioLoader.loadTestimonials('testimonials-carousel');
+                }
+                break;
+                
+            case 'services':
+                // Services sont gérés par services-updater.js
+                console.log('💼 Services gérés par services-updater.js');
+                break;
+        }
     }
-
-    // Services sont gérés directement dans le HTML avec services-updater.js
-    // On ne charge PAS les services ici
-    console.log('💼 Services gérés par services-updater.js');
-
-    const testimonialsCarousel = document.querySelector('.testimonials-carousel');
-    if (testimonialsCarousel) {
-        portfolioLoader.loadTestimonials('testimonials-carousel');
-        console.log('💬 Témoignages chargés');
-    }
-
-    const brandsContainer = document.querySelector('.brands-carousel-track');
-    if (brandsContainer) {
-        portfolioLoader.loadBrands('brands-carousel-track');
-        console.log('✨ Marques chargées');
-    }
-
-    const aboutPage = document.getElementById('about');
-    if (aboutPage) {
-        portfolioLoader.loadAbout();
-        console.log('👤 À Propos chargé');
-    }
+    
+    // Charger initialement
+    loadForCurrentPage();
+    
+    // Écouter les changements de page (si votre système de navigation le permet)
+    // Vous devrez peut-être adapter cette partie selon votre système de navigation
+    const pageObserver = new MutationObserver((mutations) => {
+        mutations.forEach((mutation) => {
+            if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+                if (mutation.target.classList.contains('active')) {
+                    setTimeout(loadForCurrentPage, 300);
+                }
+            }
+        });
+    });
+    
+    // Observer toutes les pages
+    document.querySelectorAll('.page').forEach(page => {
+        pageObserver.observe(page, { attributes: true });
+    });
 });
+
+console.log('✅ Portfolio Loader chargé');
