@@ -9371,15 +9371,14 @@ body:not(.dark-theme) {
     opacity: 0.8 !important;
 }
 
-/* about-paragraph-styles.css */
-/* ========== STYLES ÉLÉGANTS POUR LES PARAGRAPHES ========== */
+/* about-paragraph-clean.css */
+/* ========== STYLE ÉPURÉ SANS FOND BLANC ========== */
 
 /* Conteneur principal */
 .about-presentation-simple {
     padding: 100px 20px;
     background: linear-gradient(135deg, #fef9f3 0%, #fff9f0 100%);
     position: relative;
-    overflow: hidden;
 }
 
 .dark-theme .about-presentation-simple {
@@ -9389,147 +9388,117 @@ body:not(.dark-theme) {
 /* Titre principal */
 .about-main-title {
     text-align: center;
-    margin-bottom: 60px;
-    padding: 0 20px;
+    margin-bottom: 80px;
     position: relative;
 }
 
 .about-main-title h2 {
     font-size: 48px;
     font-weight: 300;
-    letter-spacing: 4px;
+    letter-spacing: 6px;
     color: #c4a484;
-    margin-bottom: 15px;
+    margin: 0;
     text-transform: uppercase;
     position: relative;
     display: inline-block;
+    padding-bottom: 20px;
 }
 
 .about-main-title h2::after {
     content: '';
     position: absolute;
-    bottom: -10px;
+    bottom: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: 80px;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, #c4a484, transparent);
+    width: 100px;
+    height: 1px;
+    background: linear-gradient(90deg, 
+        transparent, 
+        #c4a484 50%, 
+        transparent
+    );
 }
 
 /* Conteneur du contenu */
 .about-presentation-content {
-    max-width: 800px;
+    max-width: 700px; /* Plus étroit pour meilleure lisibilité */
     margin: 0 auto;
-    position: relative;
 }
 
-/* Conteneur du texte */
-.about-presentation-text {
-    position: relative;
-    z-index: 2;
-}
-
-/* Styles des paragraphes */
+/* Paragraphes épurés */
 .about-paragraph {
-    font-size: 18px;
-    line-height: 1.8;
+    font-size: 19px;
+    line-height: 1.9;
     color: #2c2420;
-    margin-bottom: 40px;
-    padding: 30px;
-    background: rgba(255, 255, 255, 0.9);
-    backdrop-filter: blur(10px);
-    border-radius: 20px;
-    border: 1px solid rgba(196, 164, 132, 0.2);
-    box-shadow: 
-        0 5px 20px rgba(0, 0, 0, 0.05),
-        inset 0 1px 0 rgba(255, 255, 255, 0.5);
+    margin-bottom: 50px;
     position: relative;
-    overflow: hidden;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    padding-left: 30px;
+    font-weight: 300;
+    letter-spacing: 0.3px;
 }
 
 .dark-theme .about-paragraph {
     color: #e8dcc7;
-    background: rgba(26, 22, 20, 0.9);
-    border-color: rgba(196, 164, 132, 0.3);
-    box-shadow: 
-        0 5px 20px rgba(0, 0, 0, 0.1),
-        inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
-/* Effet hover */
-.about-paragraph:hover {
-    transform: translateY(-5px);
-    box-shadow: 
-        0 15px 40px rgba(196, 164, 132, 0.15),
-        inset 0 1px 0 rgba(255, 255, 255, 0.5);
-    border-color: rgba(196, 164, 132, 0.4);
-}
-
-.dark-theme .about-paragraph:hover {
-    box-shadow: 
-        0 15px 40px rgba(0, 0, 0, 0.2),
-        inset 0 1px 0 rgba(255, 255, 255, 0.1);
-}
-
-/* Bordure décorative en haut */
+/* Indicateur de paragraphe (simple et discret) */
 .about-paragraph::before {
-    content: '';
+    content: '•';
     position: absolute;
-    top: 0;
     left: 0;
-    right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, 
-        transparent, 
-        rgba(196, 164, 132, 0.3), 
-        rgba(196, 164, 132, 0.6), 
-        rgba(196, 164, 132, 0.3), 
-        transparent
-    );
-    border-radius: 20px 20px 0 0;
-}
-
-/* Indicateur de paragraphe */
-.about-paragraph::after {
-    content: '❝';
-    position: absolute;
-    top: 20px;
-    left: 20px;
+    top: 0;
+    color: #c4a484;
     font-size: 24px;
-    color: rgba(196, 164, 132, 0.3);
-    font-family: serif;
     opacity: 0.5;
 }
 
-/* Mots-clés stylisés */
+/* Mots-clés élégants */
 .about-keyword {
-    color: #c4a484;
-    font-weight: 500;
+    color: #8b7355; /* Marron plus foncé pour contraste */
+    font-weight: 400;
+    font-style: italic;
     position: relative;
-    padding: 0 4px;
-    background: linear-gradient(120deg, 
-        rgba(196, 164, 132, 0.1), 
-        rgba(196, 164, 132, 0.05)
-    );
-    border-radius: 4px;
+    padding: 0 2px;
     transition: all 0.3s ease;
-    display: inline-block;
 }
 
 .about-keyword:hover {
-    background: linear-gradient(120deg, 
-        rgba(196, 164, 132, 0.2), 
-        rgba(196, 164, 132, 0.1)
-    );
-    transform: translateY(-1px);
+    color: #c4a484;
+}
+
+.dark-theme .about-keyword {
+    color: #d4bca4; /* Beige plus clair en dark mode */
+}
+
+.dark-theme .about-keyword:hover {
+    color: #e8dcc7;
+}
+
+/* Soulignement élégant pour les mots-clés */
+.about-keyword::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: currentColor;
+    opacity: 0.3;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+}
+
+.about-keyword:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
 }
 
 /* Animation d'apparition des paragraphes */
-@keyframes paragraphAppear {
+@keyframes fadeInUp {
     from {
         opacity: 0;
-        transform: translateY(30px);
+        transform: translateY(20px);
     }
     to {
         opacity: 1;
@@ -9538,24 +9507,23 @@ body:not(.dark-theme) {
 }
 
 .about-paragraph {
-    animation: paragraphAppear 0.6s ease forwards;
-    animation-delay: calc(var(--paragraph-index, 0) * 0.2s);
+    animation: fadeInUp 0.8s ease forwards;
+    animation-delay: calc(var(--paragraph-index, 0) * 0.3s);
     opacity: 0;
 }
 
-/* Ornement décoratif */
-.about-presentation-text::before {
+/* Ligne de séparation entre paragraphes */
+.about-paragraph:not(:last-child)::after {
     content: '';
     position: absolute;
-    top: -50px;
-    left: -50px;
-    right: -50px;
-    bottom: -50px;
-    background: 
-        radial-gradient(circle at 20% 80%, rgba(196, 164, 132, 0.05) 0%, transparent 50%),
-        radial-gradient(circle at 80% 20%, rgba(139, 115, 85, 0.05) 0%, transparent 50%);
-    z-index: -1;
-    pointer-events: none;
+    bottom: -25px;
+    left: 30px;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, 
+        rgba(196, 164, 132, 0.3), 
+        transparent 80%
+    );
 }
 
 /* ===== RESPONSIVE ===== */
@@ -9568,18 +9536,19 @@ body:not(.dark-theme) {
     
     .about-main-title h2 {
         font-size: 42px;
-        letter-spacing: 3px;
+        letter-spacing: 4px;
     }
     
     .about-paragraph {
-        font-size: 17px;
-        line-height: 1.7;
-        padding: 25px;
-        margin-bottom: 30px;
+        font-size: 18px;
+        line-height: 1.8;
+        margin-bottom: 40px;
+        padding-left: 25px;
     }
     
-    .about-keyword {
-        font-size: 17px;
+    .about-paragraph::before {
+        left: 5px;
+        font-size: 20px;
     }
 }
 
@@ -9590,41 +9559,38 @@ body:not(.dark-theme) {
     }
     
     .about-main-title {
-        margin-bottom: 40px;
+        margin-bottom: 60px;
     }
     
     .about-main-title h2 {
         font-size: 36px;
-        letter-spacing: 2px;
+        letter-spacing: 3px;
+        padding-bottom: 15px;
     }
     
     .about-main-title h2::after {
-        width: 60px;
-        bottom: -8px;
+        width: 80px;
     }
     
     .about-paragraph {
-        font-size: 16px;
-        line-height: 1.6;
-        padding: 20px;
-        margin-bottom: 25px;
-        backdrop-filter: blur(15px); /* Plus de flou sur mobile */
+        font-size: 17px;
+        line-height: 1.7;
+        margin-bottom: 35px;
+        padding-left: 20px;
     }
     
-    .about-paragraph::after {
-        top: 15px;
-        left: 15px;
-        font-size: 20px;
+    .about-paragraph::before {
+        left: 0;
+        font-size: 18px;
     }
     
     .about-keyword {
-        font-size: 16px;
-        padding: 0 3px;
+        font-size: 17px;
     }
     
-    /* Réduire l'effet hover sur mobile */
-    .about-paragraph:hover {
-        transform: translateY(-3px);
+    .about-paragraph:not(:last-child)::after {
+        left: 20px;
+        bottom: -18px;
     }
 }
 
@@ -9632,78 +9598,91 @@ body:not(.dark-theme) {
 @media (max-width: 480px) {
     .about-main-title h2 {
         font-size: 32px;
-        letter-spacing: 1.5px;
+        letter-spacing: 2px;
     }
     
     .about-paragraph {
-        font-size: 15px;
-        padding: 18px;
-        margin-bottom: 20px;
-        line-height: 1.5;
+        font-size: 16px;
+        line-height: 1.6;
+        margin-bottom: 30px;
+        padding-left: 18px;
+        letter-spacing: 0.2px;
+    }
+    
+    .about-paragraph::before {
+        font-size: 16px;
+        top: 2px;
     }
     
     .about-keyword {
-        font-size: 15px;
+        font-size: 16px;
     }
 }
 
 /* ORIENTATION PAYSAGE */
 @media (max-width: 768px) and (orientation: landscape) {
-    .about-paragraph {
-        padding: 15px;
-        font-size: 15px;
-        line-height: 1.5;
-    }
-    
     .about-presentation-simple {
         padding: 40px 15px;
     }
-}
-
-/* ANIMATION DE SOULIGNEMENT POUR LES MOTS-CLÉS */
-@keyframes underlinePulse {
-    0%, 100% { 
-        background-position: 0% 50%; 
-        opacity: 0.3;
-    }
-    50% { 
-        background-position: 100% 50%; 
-        opacity: 0.6;
+    
+    .about-paragraph {
+        font-size: 16px;
+        line-height: 1.6;
+        margin-bottom: 25px;
     }
 }
 
-.about-keyword::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background: linear-gradient(90deg, 
-        transparent, 
-        rgba(196, 164, 132, 0.5), 
-        transparent
+/* EFFET DE DÉGRADÉ DE COULEUR SUR LES MOTS-CLÉS */
+.about-keyword {
+    background: linear-gradient(120deg, 
+        transparent 0%, 
+        transparent 50%, 
+        rgba(196, 164, 132, 0.05) 50%, 
+        rgba(196, 164, 132, 0.05) 100%
     );
     background-size: 200% 100%;
-    animation: underlinePulse 3s ease-in-out infinite;
-    opacity: 0;
-    transition: opacity 0.3s ease;
+    background-position: 100% 0;
+    transition: all 0.4s ease;
 }
 
-.about-keyword:hover::after {
-    opacity: 1;
+.about-keyword:hover {
+    background-position: 0 0;
 }
 
-/* EFFET DE PROFONDEUR */
-.about-paragraph {
-    perspective: 1000px;
+/* ESPACE AVEC UN PEU DE STYLE */
+.about-presentation-simple::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1px;
+    height: 100px;
+    background: linear-gradient(to bottom, 
+        transparent, 
+        rgba(196, 164, 132, 0.3), 
+        transparent
+    );
 }
 
-.about-paragraph:hover {
-    transform: 
-        translateY(-5px) 
-        rotateX(1deg) 
-        rotateY(1deg);
+/* STYLE ALTERNATIF MINIMALISTE */
+.about-paragraph.minimalist {
+    padding-left: 0;
+    border-left: none;
+}
+
+.about-paragraph.minimalist::before {
+    display: none;
+}
+
+.about-paragraph.minimalist .about-keyword {
+    font-style: normal;
+    font-weight: 500;
+    color: #8b7355;
+}
+
+.dark-theme .about-paragraph.minimalist .about-keyword {
+    color: #c4a484;
 }
 
     </style>
@@ -10136,26 +10115,22 @@ body:not(.dark-theme) {
 
         <!-- STICKY PRESENTATION -->
 <section class="about-presentation-simple">
-    <!-- Titre -->
     <div class="about-main-title">
         <h2>Mon Histoire</h2>
     </div>
     
-    <!-- Contenu -->
     <div class="about-presentation-content">
-        <div class="about-presentation-text">
-            <!-- Paragraphe 1 -->
-            <p class="about-paragraph">
-                <br>
-                Je suis <span class="about-keyword">Kathy Mangolia Diomi</span>, créatrice de contenu, modèle et entrepreneure basée à Kinshasa. Mon univers est un mélange de <span class="about-keyword">raffinement</span>, d'<span class="about-keyword">audace</span> et de <span class="about-keyword">vérité</span>, où chaque projet devient une signature unique.
-            </br>
-                Depuis plus de 5 ans, j'ai eu le privilège de collaborer avec des marques et des talents visionnaires pour créer des visuels qui captivent et inspirent. Chaque contenu que je produis est pensé pour transformer une simple idée en une <span class="about-keyword">expérience immersive</span>.
-            
-            <br>
-                Ma démarche repose sur une <span class="about-keyword">vision artistique</span>, un <span class="about-keyword">professionnalisme rigoureux</span> et une <span class="about-keyword">innovation constante</span>. Je ne me contente pas de créer du contenu : je tisse des <span class="about-keyword">histoires authentiques</span> qui résonnent avec ceux qui les découvrent.
-            </br>
-            </p>
-        </div>
+        <p class="about-paragraph">
+            Je suis <span class="about-keyword">Kathy Mangolia Diomi</span>, créatrice de contenu, modèle et entrepreneure basée à Kinshasa. Mon univers est un mélange de <span class="about-keyword">raffinement</span>, d'<span class="about-keyword">audace</span> et de <span class="about-keyword">vérité</span>, où chaque projet devient une signature unique.
+        </p>
+        
+        <p class="about-paragraph">
+            Depuis plus de 5 ans, j'ai eu le privilège de collaborer avec des marques et des talents visionnaires pour créer des visuels qui captivent et inspirent. Chaque contenu que je produis est pensé pour transformer une simple idée en une <span class="about-keyword">expérience immersive</span>.
+        </p>
+        
+        <p class="about-paragraph">
+            Ma démarche repose sur une <span class="about-keyword">vision artistique</span> audacieuse, un <span class="about-keyword">professionnalisme rigoureux</span> et une <span class="about-keyword">innovation constante</span>. Je ne me contente pas de créer du contenu : je tisse des <span class="about-keyword">histoires authentiques</span> qui résonnent avec ceux qui les découvrent.
+        </p>
     </div>
 </section>
 
