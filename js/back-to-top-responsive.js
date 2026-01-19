@@ -79,16 +79,24 @@ class BackToTop {
             this.scrollToTop();
         });
         
-        // Scroll event
-        window.addEventListener('scroll', () => {
-            this.checkScroll();
-            this.handleScrollBehavior();
-        });
-        
-        // Resize event
-        window.addEventListener('resize', () => {
-            this.adaptToViewport();
-        });
+        // utilitaire à ajouter en haut d'un fichier JS partagé
+function debounce(fn, wait = 100) {
+  let t;
+  return function(...args) {
+    clearTimeout(t);
+    t = setTimeout(() => fn.apply(this, args), wait);
+  };
+}
+
+// puis remplacer listeners
+window.addEventListener('scroll', debounce(() => {
+  this.checkScroll();
+  this.handleScrollBehavior();
+}, 50));
+
+window.addEventListener('resize', debounce(() => {
+  this.adaptToViewport();
+}, 120));
         
         // Touch events pour mobile
         this.button.addEventListener('touchstart', () => {

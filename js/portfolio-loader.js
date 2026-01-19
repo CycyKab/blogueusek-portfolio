@@ -129,24 +129,50 @@ class PortfolioLoader {
             console.error('Erreur lors du chargement des témoignages:', error);
         }
 
-        if (testimonials.length === 0) {
-            container.innerHTML = `
-                <div style="text-align: center; padding: 60px 20px; color: rgba(232, 220, 199, 0.5);">
-                    <p style="font-size: 18px;">Témoignages à venir</p>
-                </div>
-            `;
-            return;
-        }
+        // js/portfolio-loader.js (après)
+if (testimonials.length === 0) {
+    const empty = document.createElement('div');
+    empty.style.cssText = 'text-align:center; padding:60px 20px; color:rgba(232,220,199,0.5);';
+    const p = document.createElement('p');
+    p.style.fontSize = '18px';
+    p.textContent = 'Témoignages à venir';
+    empty.appendChild(p);
+    container.innerHTML = '';
+    container.appendChild(empty);
+    return;
+}
 
-        // Dupliquer pour l'effet carousel
-        const duplicated = [...testimonials, ...testimonials];
-        container.innerHTML = duplicated.map(testimonial => this.renderTestimonial(testimonial)).join('');
-        
-        // Redémarrer l'animation si c'est un carousel
-        if (container.classList.contains('testimonials-carousel')) {
-            this.restartCarouselAnimation(container);
-        }
-    }
+// Dupliquer pour l'effet carousel (mais insérer nodes via fragment pour éviter reflow massif)
+const duplicated = [...testimonials, ...testimonials];
+container.innerHTML = ''; // vider avant d'ajouter
+const frag = document.createDocumentFragment();
+
+duplicated.forEach(testimonial => {
+  // créer un élément DOM au lieu de construire une grosse string
+  const card = document.createElement('div');
+  card.className = 'testimonial-card';
+
+  // Insérer les sous-éléments (évite concaténation string, plus sûr)
+  const quote = document.createElement('p');
+  quote.className = 'testimonial-quote';
+  quote.textContent = `"${testimonial.quote}"`;
+  card.appendChild(quote);
+
+  const author = document.createElement('div');
+  author.className = 'testimonial-author';
+  author.innerHTML = `
+    <div class="author-avatar">${testimonial.avatarInitial}</div>
+    <div class="author-info">
+      <h4>${testimonial.authorName}</h4>
+      <p>${testimonial.authorPosition}, ${testimonial.company}</p>
+    </div>
+  `;
+  card.appendChild(author);
+
+  frag.appendChild(card);
+});
+
+container.appendChild(frag);
 
     // Rendu d'un témoignage
     renderTestimonial(testimonial) {
@@ -200,10 +226,18 @@ class PortfolioLoader {
         }
 
         // Afficher avec animation progressive
-        brandsWall.innerHTML = brands.map((brand, index) => `
-            <span class="brand-name" style="animation-delay: ${index * 0.1}s">${brand.name}</span>
-        `).join('');
-    }
+        
+brandsWall.innerHTML = ''; // vider
+const brandFrag = document.createDocumentFragment();
+brands.forEach((brand, index) => {
+  const span = document.createElement('span');
+  span.className = 'brand-name';
+  span.style.animationDelay = `${index * 0.1}s`;
+  span.textContent = brand.name;
+  brandFrag.appendChild(span);
+});
+brandsWall.appendChild(brandFrag);
+
 
     // ========== CHARGER À PROPOS ==========
     loadAbout() {
@@ -214,7 +248,8 @@ class PortfolioLoader {
         // Mettre à jour le titre hero
         const heroTitle = document.querySelector('.about-headline');
         if (heroTitle && about.heroTitle) {
-            heroTitle.innerHTML = about.heroTitle;
+            // use textContent to avoid parsing HTML and reduce reflows/XSS risk
+            heroTitle.textContent = about.heroTitle;
         }
 
         // Mettre à jour la description
