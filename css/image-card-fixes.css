@@ -1,0 +1,58 @@
+/* Image & card responsive rules (use in your responsive CSS) */
+
+/* Generic image elements */
+.card-image,
+.contactHeroImage img,
+.portfolio-image,
+.contactHeroImage,
+.portfolio-image img {
+  width: 100%;
+  height: auto;               /* allow natural height */
+  display: block;
+  border-radius: 12px;
+  object-fit: cover;          /* for <img> elements: fill the container */
+}
+
+/* If you have elements that are containers with background-image */
+.bg-image-card,
+.contactHeroImage.bg,
+.portfolio-image.bg {
+  width: 100%;
+  min-height: 150px;          /* reasonable default for cards */
+  background-size: cover;     /* behave like object-fit: cover */
+  background-position: center;
+  border-radius: 12px;
+}
+
+/* Prefer aspect-ratio for consistent layout where supported */
+.img-aspect-16-9,
+.contactHeroImage.aspect-16-9,
+.portfolio-image.aspect-16-9 {
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  height: auto;
+  min-height: 120px;
+  object-fit: cover;
+}
+
+/* Mobile tweaks */
+@media (max-width: 768px) {
+  .card-image,
+  .portfolio-image,
+  .bg-image-card {
+    min-height: 120px;
+    border-radius: 10px;
+  }
+
+  .contactHeroImage,
+  .contactHeroImage.aspect-16-9 {
+    min-height: 220px; /* keep hero reasonably tall on mobile but avoid too-large fixed px heights */
+  }
+}
+
+/* Small phones */
+@media (max-width: 420px) {
+  .contactHeroImage {
+    min-height: 180px;
+  }
+}

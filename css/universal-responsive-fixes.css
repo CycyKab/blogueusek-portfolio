@@ -190,3 +190,122 @@ section:has(.process-steps) .grid {
         max-width: 1200px !important;
     }
 }
+
+/* Responsive helpers: add to the end of css/universal-responsive-fixes.css */
+
+/* 1) Core box-sizing */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* 2) Make media responsive */
+img, picture, video, svg {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* 3) Base container padding for small screens */
+.container, .content, .wrapper {
+  padding-left: 16px;
+  padding-right: 16px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* 4) A safer grid fallback and fluid cards */
+.portfolio-grid,
+.testimonials-grid,
+.about-stats-grid,
+.services-grid {
+  grid-auto-rows: 1fr;
+  grid-gap: 20px;
+}
+
+/* 5) Prevent horizontal overflow (common source of mobile "doesn't fit") */
+html, body {
+  overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
+}
+
+/* 6) Small-screen defaults (mobile-first) */
+@media (max-width: 768px) {
+  html {
+    font-size: 15px;
+  }
+
+  /* Avoid fixed heights on project cards; let content flow */
+  .portfolio-project {
+    height: auto !important;
+    min-height: 220px;
+    margin: 0 !important;
+  }
+
+  /* Buttons full-width but constrained */
+  .btn, button, a[class*="btn"] {
+    display: block !important;
+    width: 100% !important;
+    max-width: 420px;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  /* Reduce large paddings */
+  section, .section {
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+  }
+}
+
+/* 7) Tablet tweaks */
+@media (min-width: 769px) and (max-width: 1024px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+/* Responsive title class - use instead of inline style.cssText */
+.responsive-title {
+  font-size: clamp(28px, 5vw, 48px);
+  line-height: 1.2;
+  margin-bottom: 20px;
+  text-align: center;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  max-width: 100%;
+  padding: 0 10px;
+}
+
+/* If you want slightly different sizes on tablet/phone, add media queries */
+@media (max-width: 768px) {
+  .responsive-title {
+    font-size: clamp(24px, 6.5vw, 36px);
+    padding: 0 8px;
+  }
+}
+
+.cta-section .container {
+  max-width: 100% !important;
+  padding: 0 20px !important;
+  box-sizing: border-box !important;
+}
+
+.contactHeroImage {
+  width: 100%;
+  border-radius: 20px;
+  background-position: center 30%;
+  background-size: cover;   /* if using background-image */
+  object-fit: cover;        /* if <img> */
+}
+
+/* Keep hero tall on desktop, but smaller on mobile */
+.contactHeroImage.aspect-16-9 {
+  aspect-ratio: 16 / 9;
+  min-height: 220px;
+}
+
+@media (max-width: 768px) {
+  .contactHeroImage.aspect-16-9 {
+    min-height: 180px;
+  }
+}

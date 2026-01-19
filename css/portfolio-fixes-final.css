@@ -352,8 +352,10 @@
     }
     
     .portfolio-project {
-        height: 300px !important;
-        margin: 0 10px !important;
+        height: auto !important;
+        min-height: 220px;
+        aspect-ratio: 4 / 3;         /* optional if the content is image-like */
+        overflow: hidden;
     }
 }
 

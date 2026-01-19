@@ -35,16 +35,9 @@ document.addEventListener('DOMContentLoaded', function() {
         // Trouver le titre (h1, h2, h3)
         const title = section.querySelector('h1, h2, h3');
         if (title) {
-            title.style.cssText = `
-                font-size: clamp(32px, 5vw, 48px) !important;
-                line-height: 1.2 !important;
-                margin-bottom: 20px !important;
-                text-align: center !important;
-                word-wrap: break-word !important;
-                overflow-wrap: break-word !important;
-                max-width: 100% !important;
-                padding: 0 10px !important;
-            `;
+            title.classList.add('responsive-title');
+            // If you ever need to remove it later, call:
+            // title.classList.remove('responsive-title');
         }
         
         // Trouver tous les paragraphes

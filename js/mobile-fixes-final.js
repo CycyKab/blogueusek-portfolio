@@ -60,11 +60,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 content.style.order = '1';
                 
                 // Ajuster l'image
-                image.style.height = '300px';
-                image.style.minHeight = '300px';
-                image.style.borderRadius = '20px';
-                image.style.margin = '20px';
-                image.style.backgroundPosition = 'center 30%';
+                image.classList.add('contactHeroImage', 'aspect-16-9');
+                image.style.height = '';
+                image.style.minHeight = '';
+                // image.style.borderRadius = '20px';
+                // image.style.margin = '20px';
+                // image.style.backgroundPosition = 'center 30%';
             }
         }
     }
